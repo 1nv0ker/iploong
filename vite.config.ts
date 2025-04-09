@@ -3,13 +3,14 @@ import vue from '@vitejs/plugin-vue'
 import Components from 'unplugin-vue-components/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 import viteCompression from 'vite-plugin-compression';
-
+import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 // import sitemap from 'vite-plugin-sitemap'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    tailwindcss(),
     Components({
       resolvers: [
         AntDesignVueResolver({
@@ -54,7 +55,8 @@ export default defineConfig({
       'api@':resolve(__dirname, 'src/api'),
       'router@':resolve(__dirname, 'src/router'),
       'com@':resolve(__dirname, 'src/components'),
-      'views@':resolve(__dirname, 'src/views')
+      'views@':resolve(__dirname, 'src/views'),
+      'store@':resolve(__dirname, 'src/store')
     },
     extensions: ['.js', '.ts', '.vue', '.json']
   }

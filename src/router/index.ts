@@ -38,6 +38,11 @@ export const routes = [
           path:'register',
           name:'register',
           component: ()=>import('views@/login/Register.vue')
+        },
+        {
+          path:'forgetpass',
+          name:'forget',
+          component: ()=>import('views@/login/Forget.vue')
         }
       ]
     },

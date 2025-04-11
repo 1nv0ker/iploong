@@ -45,8 +45,8 @@
             </a-form>
             
             <div class="mt-[36px] w-full">
-                <a-button class="w-full h-[58px!important] bg-[#2967B2!important]" @click="onLogin">
-                    <span class="pingfang_font font-semibold text-[21px] text-[#FCFCFD] tracking-[20px]">{{$t('login.button2')}}</span>
+                <a-button class="w-full h-[58px!important] bg-[#2967B2!important]" @click="onLogin" :loading="loginValue.loading">
+                    <span class="pingfang_font font-semibold text-[21px] text-[#FCFCFD] ">{{$t('login.button2')}}</span>
                 </a-button>
             </div>
             <div class="w-full h-[44px] flex items-center justify-center">
@@ -62,12 +62,17 @@
     import passwordImg from 'res@/login/password.svg'
     import roundImg from 'res@/login/round.svg'
     import gouImg from 'res@/login/gou.svg'
+    import { Login } from 'api@/login'
+    import useUser from 'store@/user'
+    import { message } from 'ant-design-vue'
+    const userSotre = useUser()
     import { useI18n } from 'vue-i18n';
     const { t } = useI18n();
     const loginValue = reactive({
         email:'',
         password:'',
-        checked:''
+        checked:'',
+        loading: false
     })
     const img = computed(() => {
         return confirmStatus.value?gouImg:roundImg
@@ -118,7 +123,28 @@
     const onLogin = () => {
         formRef.value.validate()
         .then(() => {
-
+            loginValue.loading = true
+            Login({
+                email: loginValue.email,
+                loginType: 'pwd',
+                passWord: loginValue.password
+            })
+            .then((res:any) => {
+                loginValue.loading = false
+                userSotre.setToken(res.body.token)
+                userSotre.setUserInfo()
+                const redirectPath:any = router.currentRoute.value.query.redirect || 'proxycity'
+                message.success({
+                    content:t('message.login'),
+                    duration: 2,
+                    onClose: ()=> {
+                        router.push(redirectPath)
+                    }
+                })
+            })
+            .catch(() => {
+                loginValue.loading = false
+            })
         })
     }
 </script>

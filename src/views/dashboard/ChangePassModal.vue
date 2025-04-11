@@ -1,9 +1,6 @@
 <template>
-    <div class="w-[500px] h-[637px] flex flex-col items-center">
-        <div class="w-full pt-[125px] flex items-center justify-center">
-            <span class="text-[42px] text-[#000] big_font" style="font-family: BigruixianBlackGBV10;">{{ $t('forgetpassword.title') }}</span>
-        </div>
-        <div class="w-[481px] pt-[34px]">
+    <ModalCompoent v-model="open" :title="$t('usercenter.userinfo.title')" slotMode >
+        <div class="w-[481px]">
             <a-form layout="vertical" :model="loginValue" :rules="rulesRef" ref="formRef">
                 <a-row >
                     <a-col :span="24">
@@ -50,64 +47,40 @@
                             </a-input-password>
                         </a-form-item>
                     </a-col>
-                    <a-col :span="24">
-                        <a-form-item name="checked">
-                            <div class="w-full h-[24px] flex items-center ">
-                                <img :src="img" class="cursor-pointer" @click="onConfirm" />
-                                <span class="pl-[6px] text-[#999999] text-[16px] pingfang_font">{{ $t('forgetpassword.tip1')  }}<span class="text-[#435A7B] cursor-pointer ">{{ $t('forgetpassword.tip2')  }}</span></span>
-                            </div>
-                        </a-form-item>
-                    </a-col>
                 </a-row>
             </a-form>
-            
-            <div class="mt-[36px] w-full">
-                <a-button class="w-full h-[58px!important] bg-[#2967B2!important]" @click="onLogin" :loading="loginValue.loading">
-                    <span class="pingfang_font font-semibold text-[21px] text-[#FCFCFD] ">{{$t('forgetpassword.button')}}</span>
+            <div class="w-full flex flex-col gap-[8px] ">
+                <a-button class="w-[481px] h-[58px!important] rounded-[10px!important] bg-[#2967B2!important]" @click="onConfirm">
+                    <span class="text-[#FCFCFD] text-[21px] poppins_font font-semibold">{{ $t('common.yes') }}</span>
+                </a-button>
+                <a-button class="w-[481px] h-[58px!important] rounded-[10px!important] border-1 border-[#666666!important]" @click="onCancel">
+                    <span class="text-[#999999] text-[17px] poppins_font">{{ $t('common.no') }}</span>
                 </a-button>
             </div>
-            <div class="w-full h-[44px] flex items-center justify-center">
-                <span class="text-[#999999] text-[16px] pingfang_font">{{$t('forgetpassword.content') }}<span class="text-[#435A7B] cursor-pointer" @click="onRegister">{{$t('forgetpassword.content2') }}</span></span>
-            </div>
         </div>
-    </div>
+    </ModalCompoent>
 </template>
 <script setup lang="ts">
-    import { reactive, computed, ref } from 'vue'
-    import { useRouter } from 'vue-router'
+    import ModalCompoent from 'basic@/components/ModalCompoent.vue';
+    import { reactive, ref } from 'vue'
     import emailImg from 'res@/login/email.svg'
-    import EmailCode from './EmailCode.vue'
+    import EmailCode from '../login/EmailCode.vue';
     import passwordImg from 'res@/login/password.svg'
-    import roundImg from 'res@/login/round.svg'
-    import gouImg from 'res@/login/gou.svg'
     // import useUser from 'store@/user'
-    import { RecoveryPass } from 'api@/login'
+    import { ChangePass } from 'api@/login'
     import { useI18n } from 'vue-i18n';
     import { message } from 'ant-design-vue'
+
     const { t } = useI18n();
-    // const userSotre = useUser()
+    const open = defineModel()
+    const formRef = ref<any>()
     const loginValue = reactive({
         email:'',
         code:'',
         password:'',
         confirmPass:'',
-        checked:'',
         loading: false
     })
-    const img = computed(() => {
-        return confirmStatus.value?gouImg:roundImg
-    })
-    const formRef = ref<any>()
-    const confirmStatus = ref(false)
-    const router = useRouter()
-    const onConfirm = () => {
-        confirmStatus.value = !confirmStatus.value
-        if (confirmStatus.value) {
-            loginValue.checked = '1'
-        } else {
-            loginValue.checked = ''
-        }
-    }
     const rulesRef = reactive({
         email: [
             {
@@ -139,44 +112,39 @@
                     callback()
                 } 
             }
-        ],
-        checked: [
-            {
-                required: true,
-                message:t('forgetpassword.message3') 
-            }
         ]
+    })
+    const init = () => {
+        formRef.value && formRef.value.resetFields()
+        loginValue.email = ''
+        loginValue.code = ''
+        loginValue.password = ''
+        loginValue.confirmPass = ''
+    }
+    defineExpose({
+        init: init
     })
     const onEmail = () => {
         formRef.value.validateFields('email')
     }
-    const onRegister = () => {
-        router.push({
-            name: 'login'
-        })
-    }
-    const onLogin = () => {
+    const onConfirm = () => {
         formRef.value.validate()
         .then(() => {
             loginValue.loading = true
-            RecoveryPass({
-                email: loginValue.email,
-                newPassword:loginValue.password,
+            ChangePass({
+                newPassWord:loginValue.password,
                 verifyCode:loginValue.code
             })
             .then(() => {
                 loginValue.loading = false
-                message.success({
-                    content:t('message.forget'),
-                    duration: 2,
-                    onClose:() => {
-                        router.push('/login')
-                    }
-                })
+                message.success(t('common.success'))
             })
             .catch(() => {
                 loginValue.loading = false
             })
         })
+    }
+    const onCancel = () => {
+        open.value = false
     }
 </script>

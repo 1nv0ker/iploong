@@ -243,7 +243,7 @@
     })
     const onDashboard = () => {
         router.push({
-            name:'dashboard'
+            name:'proxycity'
         })
     }
     const onPage = (name:string) => {

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import router from '../router'
+import { GetUserInfo } from 'api@/login'
 interface UserInfo_data {
     email:string,
     name:string,
@@ -41,6 +42,11 @@ const store = defineStore('users', {
             if (!this.token) {
                 return
             }
+            GetUserInfo()
+            .then((res:any) => {
+                // console.log('res1', res)
+                this.userInfo = res.body.userInfo
+            })
             
         },
         clearUserInfo() {

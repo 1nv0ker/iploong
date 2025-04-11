@@ -15,12 +15,12 @@ import 'nprogress/nprogress.css'
 })
 
 export const routes = [
-    { path: '/', redirect: '/home' },
+    // { path: '/', redirect: '/home' },
 
     { path:'/', component:()=>import(`views@/home/index.vue`),
       children:[
         {
-          path:'home',
+          path:'',
           name:'home',
           component:()=>import(`views@/home/home.vue`)
         }
@@ -49,17 +49,36 @@ export const routes = [
 
     { path: '/', component: ()=>import(`views@/dashboard/index.vue`),
       meta: { requiresAuth: true } ,
-      redirect: '/usercenter/proxycity',
+      redirect: '/usercenter/dynamic',
       children:[
         {
-          path:'proxycity',
+          path:'usercenter/dynamic',
+          name:'dynamic',
+          meta: {
+            parent: 'usercenter'
+          },
+          component: ()=>import('views@/dashboard/dynamic/index.vue')
+        },
+        {
+          path:'usercenter/static',
+          name:'static',
+          meta: {
+            parent: 'usercenter'
+          },
+          component: ()=>import('views@/dashboard/static/index.vue')
+        },
+        {
+          path:'usercenter/proxycity',
           name:'proxycity',
+          meta: {
+            parent: 'dynamic'
+          },
           component: ()=>import('views@/dashboard/proxycity/index.vue')
         }
       ]
     },
     
-    { path: '/:catchAll(.*)', redirect: '/home'}
+    { path: '/:catchAll(.*)', redirect: '/'}
 ]
 
 const router = createRouter({

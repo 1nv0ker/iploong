@@ -8,6 +8,7 @@ import 'animate.css'
 import store from 'store@/index'
 import 'ant-design-vue/dist/reset.css'
 import './custom.less'
+import './echarts'
 const app = createApp(App)
 
 app.use(router)

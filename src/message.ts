@@ -1,4 +1,19 @@
 export const zh = {
+    common: {
+        yes:'确认',
+        no:'取消',
+        success:'成功'
+    },
+    pagination: {
+        total:'共',
+        item:'条'
+    },
+    message: {
+        register: '注册成功即将跳转',
+        smscode: '发送成功,注意查收',
+        login:'登录成功即将跳转',
+        forget:'修改成功'
+    },
     login: {
         title:'用户登录',
         form1:'邮箱地址',
@@ -150,10 +165,96 @@ export const zh = {
             item3:'独家代理',
             item4:'快速集成'
         }
+    },
+    usercenter: {
+        
+        nav: {
+            menu1:'仪表盘',
+            menu1_subtitle1:'动态住宅',
+            menu1_subtitle2:'静态住宅',
+            menu2:'动态住宅',
+            menu2_subtitle1:'代理生成-国家',
+            menu2_subtitle2:'代理生成-城市',
+            menu2_subtitle3:'购买流量',
+            menu3:'静态住宅',
+            menu3_subtitle1:'购买代理',
+            menu3_subtitle2:'已购明细',
+            menu4:'历史订单',
+            menu5:'帮助中心',
+            menu5_subtitle1:'帮助文档',
+            menu5_subtitle2:'服务条款',
+            menu6:'开发者API',
+            menu7:'奖励推广'
+        },
+        userinfo: {
+            button:'修改密码',
+            content:'账户余额',
+            button1:'USDT充值',
+            button2:'退出登录',
+            title:'修改密码',
+            recharge: {
+                title:'USDT充值',
+                tip:'USDT交易需要确认时间，i请转账后等待10-20分钟后提交单号充值',
+                form1:'充值类型',
+                content1:'TRC20',
+                form2:'付款地址',
+                content2:'TLdKPrs3aAFx1d7628gSE3naod2MQzimng',
+                code: '付款地址二维码',
+                form3:'交易流水号',
+                content3:'请输入流水交易号',
+                tip2:'充值后填写交易流水号，网站会显示您充值的USDT余额',
+                button:'提交'
+            }
+        },
+        dashboardDy: {
+            title: '仪表板-动态住宅代理',
+            subtitle1:'定位国家',
+            button:'代理生成',
+            charttitle:'总流量 [Gb]',
+            usedFlow:'已使用流量 [Gb]',
+            resetFlow:'剩余流量 [Gb]',
+            button2:'购买流量',
+            subtitle2:'流量使用趋势',
+            column1:'ID',
+            column2:'类型',
+            column3:'IP',
+            column4:'地点',
+            column5:'日期',
+            column6:'User-Agent'
+        },
+        dashboardStatic: {
+            title: '仪表板-静态住宅代理',
+            subtitle1:'全部代理',
+            subtitle2:'独享代理',
+            subtitle3:'共享代理',
+            tableTitle:'流量使用趋势',
+            button:'更多',
+            column1:'Socks5 二维码',
+            column2:'过期时间',
+            column3:'类型',
+            column4:'原始IP(Socks5)',
+            column5:'原始IP(http)',
+            column6:'中转代理(Socks5)',
+        }
     }
 }
 
 export const en = {
+    pagination: {
+        total:'Total',
+        item:'Ttems'
+    },
+    common: {
+        yes:'Confirm',
+        no:'Cancel',
+        success:'Success'
+    },
+    message: {
+        register: 'Registration successful, you will be redirected',
+        smscode: 'Send successfully,Please check',
+        login:'Login successful and you will be redirected',
+        forget:'Modification successful'
+    },
     login: {
         title:'User login',
         form1:'Email Address',
@@ -175,7 +276,7 @@ export const en = {
         placeholder1:'Please enter your email address',
         message1:'Please enter a valid email address',
         form2:'Email verification code',
-        code:'Send verification code',
+        code:'Send code',
         placeholder2:'Please enter the verification code',
         message2:'Please enter the verification code',
         tip:'If you did not receive the verification code, please check the spam folder in your mailbox.',
@@ -304,6 +405,76 @@ export const en = {
             item2:'More stable service',
             item3:'Exclusive agency',
             item4:'Fast integration'
+        }
+    },
+    usercenter: {
+        nav: {
+            menu1:'Dashboard',
+            menu1_subtitle1:'Dynamic Residence',
+            menu1_subtitle2:'Static Residence',
+            menu2:'Dynamic Residence',
+            menu2_subtitle1:'Proxy Generation-Country',
+            menu2_subtitle2:'Proxy Generation-City',
+            menu2_subtitle3:'Purchase traffic',
+            menu3:'Static Residence',
+            menu3_subtitle1:'Purchase Proxy',
+            menu3_subtitle2:'Purchased Details',
+            menu4:'Historical orders',
+            menu5:'Help Center',
+            menu5_subtitle1:'Help Documentation',
+            menu5_subtitle2:'Terms of Service',
+            menu6:'Developer API',
+            menu7:'Reward Promotion'
+        },
+        userinfo: {
+            button:'Change Password',
+            content:'Account Balance',
+            button1:'USDT Deposit',
+            button2:'Log out',
+            title:'Change Password',
+            recharge: {
+                title:'USDT Deposit',
+                tip:'USDT transactions require confirmation time. Please wait 10-20 minutes after the transfer and submit the order number for recharge.',
+                form1:'Recharge Type',
+                content1:'TRC20',
+                form2:'Payment Address',
+                content2:'TLdKPrs3aAFx1d7628gSE3naod2MQzimng',
+                code: 'Payment QR code',
+                form3:'Transaction serial number',
+                content3:'Please enter the transaction number',
+                tip2:'After recharging, fill in the transaction serial number, and the website will display your recharged USDT balance',
+                button:'submit'
+            }
+        },
+        dashboardDy: {
+            title: 'Dashboard-Dynamic Residential Proxy',
+            subtitle1:'Position the country',
+            button:'Proxy Generation',
+            charttitle:'Total flow [Gb]',
+            usedFlow:'Used flow [Gb]',
+            resetFlow:'Remaining flow [Gb]',
+            button2:'Purchase traffic',
+            subtitle2:'Purchase trends',
+            column1:'ID',
+            column2:'Type',
+            column3:'IP',
+            column4:'Location',
+            column5:'Date',
+            column6:'User-Agent'
+        },
+        dashboardStatic: {
+            title: 'Dashboard-Static Residential Proxy',
+            subtitle1:'All proxy',
+            subtitle2:'Exclusive proxy',
+            subtitle3:'Shared proxy',
+            tableTitle:'Purchase trends',
+            button:'More',
+            column1:'Socks5 QR code',
+            column2:'Expiration time',
+            column3:'type',
+            column4:'Original IP(Socks5)',
+            column5:'Original IP(http)',
+            column6:'Transit proxy(Socks5)',
         }
     }
 }

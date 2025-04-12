@@ -127,13 +127,14 @@
             Login({
                 email: loginValue.email,
                 loginType: 'pwd',
-                passWord: loginValue.password
+                passWord: loginValue.password,
+                
             })
             .then((res:any) => {
                 loginValue.loading = false
                 userSotre.setToken(res.body.token)
                 userSotre.setUserInfo()
-                const redirectPath:any = router.currentRoute.value.query.redirect || 'proxycity'
+                const redirectPath:any = router.currentRoute.value.query.redirect || 'usercenter/dynamic'
                 message.success({
                     content:t('message.login'),
                     duration: 2,

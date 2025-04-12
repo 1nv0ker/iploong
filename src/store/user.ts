@@ -49,6 +49,9 @@ const store = defineStore('users', {
             })
             
         },
+        isLogin() {
+            return !!this.token
+        },
         clearUserInfo() {
             this.userInfo = null
         },

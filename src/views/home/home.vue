@@ -197,7 +197,7 @@
                 subtitle:t('home.fourth.subtitle1_1'),
                 content2: t('home.fourth.subtitle1_type'),
                 content3: t('home.fourth.subtitle1_content'),
-                name:'dy',
+                name:'purchasetraffic',
                 price: '8',
                 price2:'.00'
             },
@@ -206,7 +206,7 @@
                 subtitle:t('home.fourth.subtitle2_1'),
                 content2: t('home.fourth.subtitle2_type'),
                 content3: t('home.fourth.subtitle2_content'),
-                name:'static',
+                name:'purchaseproxy',
                 price:'12',
                 price2:'.00'
             },
@@ -215,7 +215,7 @@
                 subtitle:t('home.fourth.subtitle3_1'),
                 content2: t('home.fourth.subtitle3_type'),
                 content3: t('home.fourth.subtitle3_content'),
-                name:'dy',
+                name:'purchasetraffic',
                 price:'6',
                 price2:'.00'
             }
@@ -243,7 +243,7 @@
     })
     const onDashboard = () => {
         router.push({
-            name:'proxycity'
+            name:'dynamic'
         })
     }
     const onPage = (name:string) => {

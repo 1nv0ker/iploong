@@ -8,12 +8,19 @@
         </div>
         <div class="flex gap-[26px] justify-between items-center">
             <Setting :showImg="false" />
-            <a-button class="w-[133px!important] h-[48px!important] bg-[#2967B2!important] rounded-[12px!important] border-1 border-[white]" @click="onLogin">
+            <div class="flex gap-[26px]" v-if="!userStore.isLogin()">
+                <a-button class="w-[133px!important] h-[48px!important] bg-[#2967B2!important] rounded-[12px!important] border-1 border-[white]" @click="onLogin">
                 <span class="text-[17px] text-[white] font-semibold Mulish_font">{{$t('nav.button') }}</span>
-            </a-button>
-            <a-button class="w-[133px!important] h-[48px!important] bg-[white!important] rounded-[12px!important] border-1 border-[white]" @click="onRegister">
-                <span class="text-[17px] text-[#000000] font-semibold Mulish_font">{{$t('nav.button1') }}</span>
-            </a-button>
+                </a-button>
+                <a-button class="w-[133px!important] h-[48px!important] bg-[white!important] rounded-[12px!important] border-1 border-[white]" @click="onRegister">
+                    <span class="text-[17px] text-[#000000] font-semibold Mulish_font">{{$t('nav.button1') }}</span>
+                </a-button>
+            </div>
+            <div v-else>
+                <a-button class="w-[133px!important] h-[48px!important] bg-[white!important] rounded-[12px!important] border-1 border-[white]" @click="onLogout">
+                    <span class="text-[17px] text-[#000000] font-semibold Mulish_font">{{ $t('usercenter.userinfo.button2') }}</span>
+                </a-button>
+            </div>
         </div>
     </div>
 </template>
@@ -23,6 +30,9 @@
     import Setting from 'basic@/components/Setting.vue';
     import { useRouter, useRoute } from 'vue-router'
     import { useI18n } from 'vue-i18n';
+    import useUser from 'store@/user'
+    const userStore = useUser()
+
     const { t } = useI18n();
     const router = useRouter()
     const selected = ref('')
@@ -38,6 +48,12 @@
     const onRegister = () => {
         router.push({
             name:'register'
+        })
+    }
+    const onLogout = () => {
+        userStore.logout()
+        router.push({
+            name:'login'
         })
     }
     const onPage = (name:string) => {

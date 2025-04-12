@@ -178,7 +178,9 @@
                 email:loginValue.email,
                 passWord:loginValue.password,
                 verifyCode:loginValue.code,
-                beInviteCode:loginValue.inviteCode?loginValue.inviteCode:undefined
+                beInviteCode:loginValue.inviteCode?loginValue.inviteCode:undefined,
+                account:'',
+                tel:''
             })
             .then((res:any) => {
                 loginValue.loading = false

@@ -3,7 +3,7 @@ import { createWebHistory, createRouter } from 'vue-router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-// import UseUserStore from '../store/user'
+import UseUserStore from 'store@/user'
 // import { useMeta } from 'vue-meta'
 
 // 全局配置（可选）
@@ -74,6 +74,43 @@ export const routes = [
             parent: 'dynamic'
           },
           component: ()=>import('views@/dashboard/proxycity/index.vue')
+        },
+        {
+          path:'usercenter/purchasetraffic',
+          name:'purchasetraffic',
+          meta: {
+            parent: 'dynamic'
+          },
+          component: ()=>import('views@/dashboard/purchasetraffic/index.vue')
+        },
+        {
+          path:'usercenter/purchaseproxy',
+          name:'purchaseproxy',
+          meta: {
+            parent: 'static'
+          },
+          component: ()=>import('views@/dashboard/purchaseproxy/index.vue')
+        },
+        {
+          path:'usercenter/historyorder',
+          meta: {
+            parent:'order'
+          },
+          name:'order',
+          component: ()=>import('views@/dashboard/historyorder/index.vue')
+        },
+        {
+          name:'serviceterms',
+          path:'usercenter/serviceterms',
+          meta: {
+            parent:'helpcenter'
+          },
+          component: ()=>import('views@/dashboard/serviceterms/index.vue')
+        },
+        {
+          name:'promotion',
+          path:'usercenter/promotion',
+          component: ()=>import('views@/dashboard/promotion/index.vue')
         }
       ]
     },
@@ -115,7 +152,7 @@ const router = createRouter({
 // //路由前置
 router.beforeEach((to, _from, next)=> {
   (NProgress as any).start()
-//   const userStore = UseUserStore();
+  const userStore = UseUserStore();
   // console.log('to', to)
   if (to.meta) {
     const meta:any = to.meta.metaInfo || {};
@@ -135,14 +172,14 @@ router.beforeEach((to, _from, next)=> {
   // debugger
   
 
-//   const isLogin = userStore.token
-//   if (to.meta.requiresAuth && !isLogin) {
+  const isLogin = userStore.token
+  if (to.meta.requiresAuth && !isLogin) {
     
-//     next({
-//       path: '/login',
-//       query: { redirect: to.fullPath }
-//     })
-//   }
+    next({
+      path: '/login',
+      query: { redirect: to.fullPath }
+    })
+  }
   next()
 })
 

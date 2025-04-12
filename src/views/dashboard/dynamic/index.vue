@@ -89,6 +89,7 @@
     import arrowImg from 'res@/usercenter/dashboard/arrow.svg'
     import { useRouter } from 'vue-router'
     import PaginationComponent from 'com@/PaginationComponent.vue'
+    import { GetBandwidth } from 'api@/proxy'
     // import empytImg from 'res@/usercenter/dashboard/empty.svg'
     import { onMounted, ref, computed, reactive } from 'vue'
     import * as echarts from 'echarts';
@@ -101,7 +102,10 @@
         pageSize: 10,
         current: 1
     })
-    const flowData = ref<any>({})
+    const flowData = ref<any>({
+        used: 0,
+        all:0
+    })
     const onProxy = () => {
         router.push({
             name:'proxycity'
@@ -181,10 +185,16 @@
         tableDatas: [],
         loading: false
     })
-    const loadFlow = () => {
+    const loadFlow = async () => {
         myChart?.showLoading('default')
-        flowData.value.used = 100
-        flowData.value.all = 500
+        const res:any = await GetBandwidth()
+        .catch(() => {
+            myChart?.hideLoading()
+        })
+        if (res.code == 200) {
+            flowData.value.used = res.body.usedBandwidth
+            flowData.value.all = res.body.totalBandWidth
+        }
         myChart?.hideLoading()
         loadChart()
         // myChart.resize(); 

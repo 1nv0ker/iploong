@@ -15,6 +15,11 @@
     import useI18nStore from 'store@/setting'
     import enUS from 'ant-design-vue/es/locale/en_US';
     import zhCN from 'ant-design-vue/es/locale/zh_CN';
-
+    import {onMounted } from 'vue'
+    import useUser from 'store@/user'
     const I18Store = useI18nStore()
+    const userStore = useUser()
+    onMounted(() => {
+        userStore.setUserInfo()
+    })
 </script>

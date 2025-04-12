@@ -78,3 +78,85 @@
         }
     }
 }
+
+//自定义a-select
+.customASelect  {
+    font-size: 18px;
+    color: #18181B;
+    .ant-select-selector {
+        height: 62px!important;
+        // border-color: #666!important;
+        border-radius: 12px;
+        .ant-select-selection-search-input {
+            font-family: "Inter";
+            height: 62px!important;
+            font-size: 18px;
+            
+            &::placeholder {
+                color: #999999; /* 改变文字颜色 */
+                font-size: 18px;
+                text-align: left;
+                font-family: "Inter";
+                line-height: 100%;
+            }
+        }
+        // .ant-select-selection-search {
+        //     .ant-select-selection-search-input {
+        //         font-family: "Alibaba Sans";
+        //         height: 3rem!important;
+        //         font-size: 0.9rem;
+                
+        //         &::placeholder {
+        //             color: #999999; /* 改变文字颜色 */
+        //             font-size: 0.9rem;
+        //             text-align: left;
+        //             font-family: "Alibaba Sans";
+        //             line-height: 100%;
+        //         }
+        //     }
+        // }
+    }
+    .ant-select-selection-item {
+        line-height: 62px!important;
+        font-size: 18px!important;
+    }
+    .ant-select-selection-placeholder {
+        height: 62px!important;
+        line-height: 62px!important;
+        color: #999999;
+        font-size: 18px!important;
+        font-family: "Inter";
+    }
+    // .ant-select-selection-search-input {
+    //     font-family: "Alibaba Sans";
+    //     height: 3rem!important;
+    //     font-size: 0.9rem;
+    //     &::placeholder {
+    //         color: #999999; /* 改变文字颜色 */
+    //         font-size: 0.9rem;
+    //         text-align: left;
+    //         font-family: "Alibaba Sans";
+    //         line-height: 100%;
+    //     }
+    // }
+}
+//自定义switch
+:where(.css-dev-only-do-not-override-1p3hq3p).ant-switch .ant-switch-handle {
+    &::before {
+        background-color: #2967B2!important;
+    }
+    
+}
+:where(.css-dev-only-do-not-override-1p3hq3p).ant-switch.ant-switch-checked:hover:not(.ant-switch-disabled) {
+    background: rgba(41,103,178,0.4)!important;
+}
+:where(.css-dev-only-do-not-override-1p3hq3p).ant-switch.ant-switch-checked {
+    background: rgba(41,103,178,0.4)!important;
+}
+
+.bitip_text {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display:block
+  }

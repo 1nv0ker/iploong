@@ -112,12 +112,12 @@
                 title: t('usercenter.nav.menu2'),
                 icon: () => getimg(dyImg, dyImg2, 'dynamic'),
                 children:[
-                    {
-                        key: 'proxycounty',
-                        label:t('usercenter.nav.menu2_subtitle1'),
-                        title: t('usercenter.nav.menu2_subtitle1'),
+                    // {
+                    //     key: 'proxycounty',
+                    //     label:t('usercenter.nav.menu2_subtitle1'),
+                    //     title: t('usercenter.nav.menu2_subtitle1'),
 
-                    },
+                    // },
                     {
                         key: 'proxycity',
                         label:t('usercenter.nav.menu2_subtitle2'),

@@ -37,7 +37,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['ant-design-vue', 'axios', 'vue-router', 'bootstrap', 'echarts'],
+          vendor: ['ant-design-vue', 'axios', 'vue-router', 'echarts'],
         },
         // assetFileNames: 'assets/[name]-[hash].[ext]',  // 图片/字体等
         // chunkFileNames: `js/[name]-[hash].js`,        // 代码分割块

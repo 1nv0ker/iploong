@@ -1,7 +1,7 @@
 import axios from 'axios'
-// import UseUserStore from '../store/user'
+import UseUserStore from '../store/user'
 import { message } from 'ant-design-vue'
-// import router from '../router'
+import router from '../router'
 axios.defaults.baseURL = 'https://www.iploong.com'
 // axios.defaults.baseURL = 'http://47.102.127.12'
 axios.defaults.timeout = 0
@@ -10,11 +10,11 @@ axios.defaults.timeout = 0
 
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
-    // const userStore = UseUserStore()
-    // // 在发送请求之前做些什么
-    // if (userStore.token) {
-    //   config.headers.Authorization = `Bearer ${userStore.token}`
-    // }
+    const userStore = UseUserStore()
+    // 在发送请求之前做些什么
+    if (userStore.token) {
+      config.headers.Authorization = `Bearer ${userStore.token}`
+    }
     // console.log('error')
     return config;
   }, function (error) {
@@ -43,11 +43,11 @@ axios.interceptors.response.use(function (response) {
     //token失效
     console.log('error', error.status)
     if (error.status == 401) {
-    //   const userStore = UseUserStore()
+      const userStore = UseUserStore()
       message.error(error.message)
-    //   userStore.clearToken()
-    //   userStore.clearUserInfo()
-    //   router.push({path:'/home'})
+      userStore.clearToken()
+      userStore.clearUserInfo()
+      router.push({name:'home'})
       //重置token和userinfo
     } else {
       if (error.status) message.error(error.message)

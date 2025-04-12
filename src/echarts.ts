@@ -1,10 +1,12 @@
 import * as echarts from 'echarts/core';
 import {
-  GaugeChart
+  GaugeChart,
+  PieChart
 } from 'echarts/charts';
 import type {
   // 系列类型的定义后缀都为 SeriesOption
-  GaugeSeriesOption
+  GaugeSeriesOption,
+  PieSeriesOption
 } from 'echarts/charts';
 
 import type {
@@ -13,10 +15,11 @@ import type {
 
 // 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
 export type ECOption = ComposeOption<
-  | GaugeSeriesOption
+  | GaugeSeriesOption | PieSeriesOption
 >;
 
 // 注册必须的组件
 echarts.use([
     GaugeChart,
+    PieChart
 ]);

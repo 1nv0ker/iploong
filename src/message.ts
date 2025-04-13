@@ -2,7 +2,9 @@ export const zh = {
     common: {
         yes:'确认',
         no:'取消',
-        success:'成功'
+        success:'成功',
+        relogin:'登录过期,请重新登录',
+        copy:'已复制'
     },
     pagination: {
         total:'共',
@@ -375,7 +377,9 @@ export const zh = {
             column1:'订单ID',
             column2:'被遨ID',
             column3:'获得返利',
-            column4:'获得时间'
+            column4:'获得时间',
+            tip7:'确认提现',
+            tip8:'确认转到余额'
         }
     }
 }
@@ -388,7 +392,9 @@ export const en = {
     common: {
         yes:'Confirm',
         no:'Cancel',
-        success:'Success'
+        success:'Success',
+        relogin:'Login expired, please log in again',
+        copy:'Copied'
     },
     message: {
         register: 'Registration successful, you will be redirected',
@@ -759,7 +765,9 @@ export const en = {
             column1:'Order ID',
             column2:'Invited ID',
             column3:'Get rebates',
-            column4:'Get time'
+            column4:'Get time',
+            tip7:'Confirm withdrawal',
+            tip8:'Confirm transfer to balance'
         }
     }
 }

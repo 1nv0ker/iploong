@@ -86,7 +86,7 @@
 </template>
 <script setup lang="ts">
     import { reactive, computed, ref } from 'vue'
-    import { useRouter } from 'vue-router'
+    import { useRouter, useRoute } from 'vue-router'
     import emailImg from 'res@/login/email.svg'
     import inviteImg from 'res@/login/invite.svg'
     import EmailCode from './EmailCode.vue'
@@ -99,13 +99,14 @@
     import { message } from 'ant-design-vue'
     const { t } = useI18n();
     const userSotre = useUser()
+    const route = useRoute()
     const loginValue = reactive({
         email:'',
         code:'',
         password:'',
         confirmPass:'',
         checked:'',
-        inviteCode: '',
+        inviteCode: (route.query.inviteCode as string) || '',
         loading: false
     })
     const img = computed(() => {
@@ -171,6 +172,7 @@
         formRef.value.validateFields('email')
     }
     const onLogin = () => {
+        // const inviteCode = route.query.inviteCode
         formRef.value.validate()
         .then(() => {
             loginValue.loading = true

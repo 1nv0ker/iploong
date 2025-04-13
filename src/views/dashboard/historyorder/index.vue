@@ -158,12 +158,12 @@
     })
     const onCurrentChange = (num:number) => {
         params.current = num
-        // loadOrder()
+        loadOrder()
     }
     const onSizeChange = (num:number,size:number) => {
         params.current = num
         params.pageSize = size
-        // loadOrder()
+        loadOrder()
     }
     onMounted(() => {
         loadOrder()

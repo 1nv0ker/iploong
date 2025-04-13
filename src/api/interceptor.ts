@@ -2,6 +2,7 @@ import axios from 'axios'
 import UseUserStore from '../store/user'
 import { message } from 'ant-design-vue'
 import router from '../router'
+import { useI18n } from 'vue-i18n'
 axios.defaults.baseURL = 'https://www.iploong.com'
 // axios.defaults.baseURL = 'http://47.102.127.12'
 axios.defaults.timeout = 0
@@ -43,8 +44,9 @@ axios.interceptors.response.use(function (response) {
     //token失效
     console.log('error', error.status)
     if (error.status == 401) {
+      const { t } = useI18n()
       const userStore = UseUserStore()
-      message.error(error.message)
+      message.error(t('common.relogin'))
       userStore.clearToken()
       userStore.clearUserInfo()
       router.push({name:'home'})

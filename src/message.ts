@@ -169,7 +169,25 @@ export const zh = {
         }
     },
     usercenter: {
-        
+        verifymodal: {
+            title:'为了促进互联网健康有序发展，保证您的使用安全，请先完成实名认证，您将免费体验以下产品及服务：',
+            subtitle1:'认证类型',
+            subtitle2:'个人认证',
+            subtitle3:'技术认证',
+            subtitle4:'企业认证',
+            get:'领',
+            content1:'动态住宅代理',
+            content2:'动态长效ISP',
+            content3:'动态数据中心代理',
+            content4:'静态住宅代理',
+            content5:'独享数据中心代理',
+            message:'完成实名，申请测试',
+            subtitl45:'立即实名：',
+            step1:'注册账号',
+            step2:'完成实名认证',
+            step3:'免费试用',
+            button:'立即实名'
+        },
         nav: {
             menu1:'仪表盘',
             menu1_subtitle1:'动态住宅',
@@ -185,6 +203,9 @@ export const zh = {
             menu5:'帮助中心',
             menu5_subtitle1:'帮助文档',
             menu5_subtitle2:'服务条款',
+            menu5_subtitle3:'隐私协议',
+            menu5_subtitle4:'法律声明',
+            menu5_subtitle5:'实名认证',
             menu6:'开发者API',
             menu7:'奖励推广'
         },
@@ -360,6 +381,42 @@ export const zh = {
             subtitle4_content1:'除您拥有的内容外，根据这些条款，MIYAIP和/或其许可方拥有本网站中包含的所有知识产权和材料。\n您被授予的有限许可仅用于查看本网站上包含的材料。',
             subtitle5:'限制',
             subtitle5_content1:'您受到以下所有限制:\n在任何其他媒体上发布www.iploong.com的任何材料:\n出售、分许可和/或以其他方式将任何网站材料商业化\n公开表演和/或展示任何网站材料:\n以仟何损害或可能损害本网站的方式使用www.iploong.com;\n以任何影响用户访问本网站的方式使用www.iploong.com;\n违反适用法律法规使用www.iploong.com，或以任何方式可能对网站、任何个人或商业实体造成损害从事与本网站有关的任何数据挖掘、数据收集、数据提取或任何其他类似活动:\n使用本网站从事任何广告或营销活动。\n本网站的某些区域被限制您访问，MNYAP可能会在任何时候进一步限制您访河本网站的任何区域。您可能拥有的本网站的任何用户!D和密码都是保密的，您也必须保密。'
+        },
+        privacypolicy: {
+            title:'全球代理用户隐私协议',
+            subtitle1:'介绍',
+            subtitle1_content:`我们根据合法、正当、必要的原则，仅收集实现产品功能所必须的信息。\n您在注册帐户时填写的信息，例如：昵称、邮箱地址等。我们仅会在为您提供服务时使用。`,
+            subtitle2:'数据共享',
+            subtitle2_content:`我们不会与任何其他公司、组织和个人共享您的个人信息，但以下情况除外：\n1、在法定情形下的共享： \n我们可能会根据法律法规规定、诉讼、争议解决需要，或按行政、司法机关依法提出的要求，对外共享您的个人信息。\n2、在获取明确同意的情况下共享： 获得您的明确同意后，我们会与其他方共享您的个人信息。\n3、在您主动选择情况下共享： \n您购买服务，则默认选择可以共享信息给本公司销售及客服人员，以实现您的售后服务需求。\n4、与关联公司间共享：\n为便于向您提供产品和服务，推荐您可能感兴趣的信息，识别会员账号异常等，您的个人信息可能会与我们的关联公司和/或其指定的服务提供商共享。我们只会共享必要的个人信息，且受本隐私政策中所声明目的的约束，如果我们共享您的个人敏感信息或关联公司改变个人信息的使用及处理目的，将再次征求您的授权同意。\m5、与授权合作伙伴共享：\n我们可能委托授权合作伙伴为您提供某些服务或代表我们履行职能，我们仅会出于本隐私权政策声明的合法、正当、必要、特定、明确的目的共享您的信息，授权合作伙伴只能接触到其履行职责所需信息，且不得将此信息用于其他任何目的。对于涉及儿童个人信息的，我们不允许合作伙伴进行转委托。`,
+            subtitle3:'法定披露',
+            subtitle3_content:`如果我们确定您出现违反法律法规或严重违反相关协议及规则的情况，或为保护用户或公众的人身财产安全免遭侵害，我们可能依据法律法规或征得您同意的情况下披露关于您的个人信息。\n共享、转让、公开披露个人信息时事先征得授权同意的例外\n以下情形中，共享、转让、公开披露您的个人信息无需事先征得您的授权同意：\n1、与国家安全、国防安全有关的；\n2、与公共安全、公共卫生、重大公共利益有关的；\n3、与犯罪侦查、起诉、审判和判决执行等司法或行政执法有关的；\n4、出于维护您或其他个人的生命、财产等重大合法权益但又很难得到本人同意的；\n5、您自行向社会公众公开的个人信息；\n6、从合法公开披露的信息中收集个人信息的，如合法的新闻报道、政府信息公开等渠道。 请知悉，根据适用的法律，若我们对个人信息采取技术措施和其他必要措施进行处理，使得数据接收方无法重新识别特定个人且不能复原，则此类处理后数据的共享、转让、公开披露无需另行向您通知并征得您的同意。`,
+            subtitle4:'Cookie以及缓存',
+            subtitle4_content:`我们可能通过放置安全的及相关技术收集您的信息，目的是为您提供更个性化的用户体验和服务。您也可以通过浏览器设置管理。但请注意，如果停用，您可能无法享受最佳的服务体验，某些服务也可能无法正常使用。\n我们不会将用于本政策所述目的之外的任何用途。您可根据自己的偏好管理或删除。您可以清除计算机上保存的所有，大部分网络浏览器都设有阻止的功能。`,
+            subtitle5:'信息安全',
+            subtitle5_content:`我们为您的信息提供相应的安全保障，以防止信息的丢失、不当使用、未经授权访问或披露。\n我们严格遵守法律法规保护用户的通信秘密。\n我们将在合理的安全水平内使用各种安全保护措施以保障信息的安全。\n我们建立专门的管理制度、流程和组织确保信息安全。\n若发生个人信息泄露等安全事件，我们会启动应急预案，阻止安全事件扩大，并以推送通知、公告等形式告知您。`,
+            subtitle6:'未成年人保护',
+            subtitle6_content: `我们非常重视对未成年人个人信息的保护。\n根据相关法律法规的规定，若您是18周岁以下的未成年人，在使用全球代理的服务前，应事先取得您的家长或法定监护人的同意。\n若您是未成年人的监护人，当您对您所监护的未成年人的个人信息有相关疑问时，请与我们联系。`,
+            subtitle7:'隐私政策变更',
+            subtitle7_content:`我们可能适时修订本政策内容。\n如该等变更会导致您在本政策项下权利的实质减损，我们将在变更生效前，通过在页面显著位置提示、向您发送短信等方式通知您。\n在该种情况下，若您继续使用我们的服务，即表示同意受经修订的政策约束。`
+        },
+        legalnotice: {
+            title:'全球代理法律声明',
+            subtitle1:'介绍',
+            subtitle1_content:`您的信任对我们非常重要，我们深知用户信息安全的重要性，我们将按照法律法规要求，采取安全保护措施，保护您的用户信息安全可控。鉴此，制定本《法律声明及隐私权政策》（以下或简称“声明和政策”）并提醒您：\n在使用网站的各项服务前，请您务必仔细阅读并透彻理解本《法律声明和隐私权政策》，在确认充分理解并同意后方使用相关产品和服务。一旦您开始使用全球代理服务，将被视为对本声明和政策内容的接受和认可。`,
+            subtitle2:'隐私权政策',
+            subtitle2_content:`尊重并保护用户信息，并且将以高度勤勉和审慎的义务对待这些信息。在您使用了所提供的服务时，我们将按照本隐私权政策收集、处理及披露您的信息。我们希望通过本隐私权政策向您清晰地介绍我们对您信息的处理方式，因此我们建议您完整地阅读本隐私权政策，以帮助您了解维护自己隐私权的方式。\n如果您有任何疑问、意见或建议，请通过提供的各种联系方式与我们联系。`,
+            subtitle3:'一、本协议的适用范围',
+            subtitle3_content:`1.1.本隐私权政策适用于网站所有服务。服务包括向您提供页面浏览、网站登录服务，以及通过网站向您提供的技术服务。\n1.2.需要特别说明的是，作为用户，若您利用全球IP服务，为您的用户再行提供服务，因您的业务数据属于您所有，您应当另行与您的用户约定隐私权政策。`,
+            subtitle4:'二、我们如何收集和使用您的用户信息',
+            subtitle4_content:`（一）我们收集您的用户信息的情形\n2.1.帮助您成为我们的会员\n2.2.向您提供技术服务\n（二）我们使用您的用户信息的情形\n2.3.我们出于如下目的，使用您提交以及我们收集的用户信息：\n2.3.1.为了向您提供服务，我们会向您发送信息、通知或与您进行业务沟通，包括但不限于为保证服务完成所必须的验证码、使用服务时所必要的推送通知；\n2.3.2.我们可能以用户信息统计数据为基础，设计、开发、推广全新的产品及服务；我们会对我们的服务使用情况进行统计，并可能会与公众或第三方分享这些统计信息，但这些统计信息不包含您的任何身份识别信息；\n2.3.3.如超出收集用户信息时所声称的目的，或者在超出具有直接或合理关联的范围使用用户信息前，我们会再次向您告知并征得您的明示同意。`,
+            subtitle5:'三、我们如何共享、转让、公开披露您的用户信息',
+            subtitle5_content:`3.1.共享\n我们不会与其他组织和个人共享您的用户信息，但以下情况除外：\n3.1.1.在获取明确同意的情况下共享：获得您的明确同意后，我们会与其他方共享您的用户信息；\n3.1.2.在法定情形下的共享：我们可能会根据法律法规规定、诉讼、仲裁解决需要，或按行政、司法机关依法提出的要求，对外共享您的用户信息；\n3.2.转让\n我们不会将您的用户信息转让给任何公司、组织和个人，但以下情况除外：\n3.2.1.在获取明确同意的情况下转让：获得您的明确同意后，我们会向其他方转让您的用户信息；\n3.3.公开披露\n我们仅会在以下情况下，公开披露您的用户信息：\n3.3.1.获得您明确同意或基于您的主动选择，我们可能会公开披露您的用户信息；\n3.4.共享、转让、公开披露用户信息时事先征得授权同意的例外\n以下情形中，共享、转让、公开披露您的用户信息无需事先征得您的授权同意：\n3.4.1.与国家安全、国防安全有关的；\n3.4.2.与公共安全、公共卫生、重大公共利益有关的；\n3.4.3.与犯罪侦查、起诉、审判和判决执行等有关的；\n3.4.4.出于维护您或其他个人的生命、财产等重大合法权益但又很难得到本人同意的；\n3.4.5.您自行向社会公众公开的个人信息；\n3.4.6.从合法公开披露的信息中收集个人信息的，如合法的新闻报道、政府信息公开等渠道。`,
+            subtitle6:'四、未成年人用户信息的特别约定',
+            subtitle6_content:`4.1.我们主要面向成人提供产品和服务。如您为未成年人，我们要求您请您的父母或监护人仔细阅读本隐私权政策，并在征得您的父母或监护人同意的前提下使用我们的服务或向我们提供信息。\n4.2.对于经父母或监护人同意使用我们的产品或服务而收集未成年人个人信息的情况，我们只会在法律法规允许、父母或监护人明确同意或者保护未成年人所必要的情况下使用、共享、转让或披露此信息。`,
+            subtitle7:'五、隐私权政策的更新',
+            subtitle7_content:`5.1我们的隐私权政策可能修订。\n5.2.未经您明确同意，我们不会限制您按照本隐私权政策所应享有的权利。\n5.3.对于重大修订，我们还会提供更为显著的通知（包括对于某些服务，我们会通过网站公示的方式进行通知甚至向您提供弹窗提示，说明隐私权政策的具体变更内容）。\n5.4.本政策所指的重大变更包括但不限于：\n5.4.1.我们的服务模式发生重大变化。如处理用户信息的目的、处理的用户信息类型、用户信息的使用方式等；\n5.4.2.我们在控制权、组织架构等方面发生重大变化。如业务调整、破产并购等引起的所有者变更等；\n5.4.3.用户信息共享、转让或公开披露的主要对象发生变化；\n5.4.4.您参与用户信息处理方面的权利及其行使方式发生重大变化；\n5.4.5.我们负责处理用户信息安全的责任部门、联络方式及投诉渠道发生变化时；\n5.4.6.用户信息安全影响评估报告表明存在高风险时。`,
+            subtitle8:'六、如何联系我们',
+            subtitle8_content:`您对本声明和政策内容有任何疑问和意见，或者您对隐私权政策的实践以及操作上有任何疑问和意见，您可通过的官方客服与我们联系。`
         },
         promotion: {
             title:'奖励推广',
@@ -555,6 +612,25 @@ export const en = {
         }
     },
     usercenter: {
+        verifymodal: {
+            title:'In order to promote the healthy and orderly development of the Internet and ensure your safety, please complete the real-name authentication first, and you will experience the following products and services for free:',
+            subtitle1:'Certification Type',
+            subtitle2:'Personal certification',
+            subtitle3:'Technology Certification',
+            subtitle4:'Enterprise Certification',
+            get:'Get',
+            content1:'Dynamic Residential Proxy',
+            content2:'Dynamic long-term ISP',
+            content3:'Dynamic Datacenter Proxy',
+            content4:'Static Residential Proxies',
+            content5:'Dedicated data center proxy',
+            message:'Complete real-name registration and apply for testing',
+            subtitl45:'Immediate real name:',
+            step1:'Register an account',
+            step2:'Complete real-name authentication',
+            step3:'Free Trial',
+            button:'Immediately real name'
+        },
         nav: {
             menu1:'Dashboard',
             menu1_subtitle1:'Dynamic Residence',
@@ -570,6 +646,9 @@ export const en = {
             menu5:'Help Center',
             menu5_subtitle1:'Help Documentation',
             menu5_subtitle2:'Terms of Service',
+            menu5_subtitle3:'Privacy Policy',
+            menu5_subtitle4:'Legal Notice',
+            menu5_subtitle5:'Real-name authentication',
             menu6:'Developer API',
             menu7:'Reward Promotion'
         },
@@ -748,6 +827,43 @@ export const en = {
             subtitle4_content1:`Other than the content you own, under these Terms, IPLOONG and/or its licensors own all the intellectual property rights and materials contained in this Website.\nYou are granted limited license solely for viewing the materials contained on this Website.`,
             subtitle5:'limit',
             subtitle5_content1:`You are subject to all of the following restrictions:\nPublish any material from www.iploong.com in any other media:\nSell, sublicense and/or otherwise commercialize any Website material\nPublicly perform and/or display any Website material:\nUse www.iploong.com in any way that damages or may damage the Website;\nUse www.iploong.com in any way that affects the access of users to the Website;\nUse www.iploong.com contrary to applicable laws and regulations, or in any way that may cause damage to the Website, any person or business entity Engage in any data mining, data harvesting, data extracting or any other similar activity in relation to the Website:\nUse the Website to engage in any advertising or marketing activities.\nCertain areas of the Website are restricted from access by you and MNYAP may further restrict access by you to any areas of the Website at any time. Any user ID and password you may have for the Website are confidential and you must keep them confidential.`
+        },
+        privacypolicy: {
+            title:'Global Proxy User Privacy Agreement',
+            subtitle1:'introduce',
+            subtitle1_content:`We only collect information necessary to realize product functions based on the principles of legality, legitimacy and necessity. \nThe information you fill in when registering an account, such as nickname, email address, etc., will only be used to provide you with services.`,
+            subtitle2:'Data Sharing',
+            subtitle2_content:`We will not share your personal information with any other company, organization or individual, except in the following circumstances:\n1. Sharing under legal circumstances: \nWe may share your personal information externally in accordance with laws and regulations, litigation, dispute resolution needs, or administrative and judicial authorities' legal requirements. \n2. Sharing with explicit consent: We will share your personal information with other parties after obtaining your explicit consent. \n3. Sharing with your active choice: \nWhen you purchase services, the default option is to share information with our sales and customer service staff to meet your after-sales service needs. \n4. Sharing with affiliated companies: \nIn order to facilitate the provision of products and services to you, recommend information that may be of interest to you, identify abnormalities in member accounts, etc., your personal information may be shared with our affiliated companies and/or their designated service providers. We will only share necessary personal information and will be subject to the purposes stated in this privacy policy. If we share your sensitive personal information or an affiliated company changes the purpose of using and processing personal information, we will ask for your authorization and consent again. \m5. Sharing with authorized partners: \nWe may entrust authorized partners to provide you with certain services or perform functions on our behalf. We will only share your information for the legitimate, proper, necessary, specific and clear purposes stated in this Privacy Policy. Authorized partners can only access the information required to perform their duties and may not use this information for any other purpose. We do not allow partners to sub-entrust with personal information involving children.`,
+            subtitle3:'Statutory Disclosure',
+            subtitle3_content:`If we determine that you have violated laws and regulations or seriously violated relevant agreements and rules, or to protect the personal and property safety of users or the public from infringement, we may disclose your personal information in accordance with laws and regulations or with your consent. \nExceptions to prior authorization and consent when sharing, transferring, and publicly disclosing personal information\nIn the following circumstances, sharing, transferring, and publicly disclosing your personal information does not require your prior authorization and consent:\n1. Related to national security and national defense security;\n2. Related to public security, public health, and major public interests;\n3. Related to judicial or administrative law enforcement such as criminal investigation, prosecution, trial, and execution of judgments;\n4. For the purpose of safeguarding your or other individuals' major legitimate rights and interests such as life and property, but it is difficult to obtain the consent of the person concerned;\n5. Personal information that you disclose to the public on your own;\n6. Collecting personal information from legally disclosed information, such as legal news reports, government information disclosure and other channels. Please be aware that, in accordance with applicable laws, if we take technical measures and other necessary measures to process personal information so that the data recipient cannot re-identify a specific individual and cannot restore it, the sharing, transfer, and public disclosure of such processed data does not require additional notification to you and your consent.`,
+            subtitle4:'Cookies and Cache',
+            subtitle4_content:`We may collect your information by placing security and related technologies in order to provide you with a more personalized user experience and services. You can also manage it through browser settings. But please note that if you disable it, you may not be able to enjoy the best service experience, and some services may not work properly. \nWe will not use it for any purpose other than the purposes described in this policy. You can manage or delete it according to your preferences. You can clear all the information saved on your computer, and most web browsers have a blocking function.`,
+            subtitle5:'Information Security',
+            subtitle5_content:`We provide appropriate security for your information to prevent loss, improper use, unauthorized access or disclosure of information. \nWe strictly abide by laws and regulations to protect the communication secrets of users. \nWe will use various security protection measures within a reasonable security level to ensure the security of information. \nWe have established a special management system, process and organization to ensure information security. \nIf a security incident such as personal information leakage occurs, we will activate the emergency plan to prevent the security incident from expanding and inform you in the form of push notifications, announcements, etc.`,
+            subtitle6:'Protection of Minors',
+            subtitle6_content: `We attach great importance to the protection of minors' personal information. \nAccording to relevant laws and regulations, if you are a minor under the age of 18, you should obtain the consent of your parents or legal guardians before using the services of Global Agent. \nIf you are the guardian of a minor, please contact us if you have any questions about the personal information of the minor you are protecting.`,
+            subtitle7:'Privacy Policy Changes',
+            subtitle7_content:`We may revise the content of this policy from time to time. \nIf such changes result in a substantial reduction of your rights under this policy, we will notify you by posting a notice in a prominent position on the page, sending you a text message, etc. before the changes take effect. \nIn this case, if you continue to use our services, you agree to be bound by the revised policy.`
+        },
+
+        legalnotice: {
+            title:'Global Agent Legal Statement',
+            subtitle1:'introduce',
+            subtitle1_content:`Your trust is very important to us. We are fully aware of the importance of user information security. We will take security measures in accordance with laws and regulations to protect your user information. In view of this, we have formulated this "Legal Statement and Privacy Policy" (hereinafter referred to as "Statement and Policy") and remind you: Before using the services of the website, please be sure to carefully read and thoroughly understand this "Legal Statement and Privacy Policy", and use related products and services only after you fully understand and agree to it. Once you start using the global proxy service, it will be deemed that you accept and approve the contents of this statement and policy.`,
+            subtitle2:'Privacy Policy',
+            subtitle2_content:`We respect and protect user information and will treat this information with a high degree of diligence and prudence. When you use the services provided, we will collect, process and disclose your information in accordance with this privacy policy. We hope to clearly introduce to you how we handle your information through this privacy policy, so we recommend that you read this privacy policy in full to help you understand how to maintain your privacy. \nIf you have any questions, comments or suggestions, please contact us through the various contact methods provided.`,
+            subtitle3:'1. Scope of Application of this Agreement',
+            subtitle3_content:`1.1. This privacy policy applies to all services on the website. Services include providing you with page browsing, website login services, and technical services provided to you through the website. \n1.2. It should be noted that as a user, if you use the global IP service to provide services to your users, because your business data belongs to you, you should separately agree on a privacy policy with your users.`,
+            subtitle4:'2. How do we collect and use your user information?',
+            subtitle4_content:`(I) Circumstances in which we collect your user information\n2.1. Help you become our member\n2.2. Provide you with technical services\n(II) Circumstances in which we use your user information\n2.3. We use the user information submitted by you and collected by us for the following purposes:\n2.3.1. In order to provide you with services, we will send you information, notifications or communicate with you about business matters, including but not limited to verification codes required to ensure the completion of services and push notifications required when using services;\n2.3.2. We may design, develop and promote new products and services based on user information statistics; we will collect statistics on the use of our services and may share these statistics with the public or third parties, but these statistics do not contain any of your identity identification information;\n2.3.3. If the purpose stated when collecting user information is exceeded, or before using user information beyond the scope of direct or reasonable relevance, we will inform you again and obtain your express consent.`,
+            subtitle5:'III. How do we share, transfer, and publicly disclose your user information?',
+            subtitle5_content:`3.1. Sharing\nWe will not share your user information with other organizations and individuals, except in the following circumstances:\n3.1.1. Sharing with explicit consent: We will share your user information with other parties after obtaining your explicit consent;\n3.1.2. Sharing under legal circumstances: We may share your user information externally in accordance with the provisions of laws and regulations, litigation, arbitration, or the requirements of administrative and judicial authorities in accordance with the law;\n3.2. Transfer\nWe will not transfer your user information to any company, organization or individual, except in the following circumstances:\n3.2.1. Transfer with explicit consent: We will transfer your user information to other parties after obtaining your explicit consent;\n3.3. Public disclosure\nWe will only publicly disclose your user information in the following circumstances:\n3.3.1. After obtaining your We may disclose your user information publicly with your explicit consent or based on your active choice;\n3.4. Exceptions to prior authorization and consent when sharing, transferring, and publicly disclosing user information\nIn the following circumstances, sharing, transferring, and publicly disclosing your user information does not require your prior authorization and consent:\n3.4.1. Related to national security and national defense security;\n3.4.2. Related to public safety, public health, and major public interests;\n3.4.3. Related to criminal investigation, prosecution, trial, and execution of judgments;\n3.4.4. For the purpose of safeguarding your or other individuals' major legitimate rights and interests such as life and property, but it is difficult to obtain the consent of the person concerned;\n3.4.5. Personal information that you disclose to the public on your own;\n3.4.6. Collecting personal information from legally disclosed information, such as legal news reports, government information disclosure and other channels.`,
+            subtitle6:'IV. Special Agreement on User Information of Minors',
+            subtitle6_content:`4.1. We mainly provide products and services for adults. If you are a minor, we ask you to ask your parents or guardians to read this privacy policy carefully and use our services or provide us with information with the consent of your parents or guardians. \n4.2. For the collection of personal information of minors through the use of our products or services with the consent of their parents or guardians, we will only use, share, transfer or disclose this information when permitted by laws and regulations, with the explicit consent of parents or guardians, or when necessary to protect minors.`,
+            subtitle7:'V. Updates to the Privacy Policy',
+            subtitle7_content:`5.1 Our privacy policy may be revised. \n5.2. Without your explicit consent, we will not restrict your rights under this privacy policy. \n5.3. For major revisions, we will also provide more prominent notices (including for certain services, we will notify you through website announcements or even provide you with pop-up prompts to explain the specific changes to the privacy policy). \n5.4. Major changes referred to in this policy include but are not limited to: \n5.4.1. Major changes in our service model. Such as the purpose of processing user information, the type of user information processed, the way user information is used, etc.; \n5.4.2. We have major changes in control, organizational structure, etc. Such as changes in ownership caused by business adjustments, bankruptcy and mergers and acquisitions, etc.;\n5.4.3. Changes in the main objects of user information sharing, transfer or public disclosure;\n5.4.4. Major changes in your rights to participate in user information processing and the way in which they are exercised;\n5.4.5. When our responsible department, contact information and complaint channels for handling user information security change;\n5.4.6. When the user information security impact assessment report indicates a high risk.`,
+            subtitle8:'VI. How to contact us',
+            subtitle8_content:`If you have any questions or comments about the contents of this statement and policy, or if you have any questions or comments about the practice and operation of the privacy policy, you can contact us through our official customer service.`
         },
         promotion: {
             title:'Reward Promotion',

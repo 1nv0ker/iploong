@@ -9,7 +9,7 @@
             </div>
             <div class="pt-[16px] w-full flex justify-center flex-col gap-[6px] items-center">
                 <span class="inter_font text-[16px] font-bold leading-[19px] text-[#202020]">{{setStore.userInfo?.email}}</span>
-                <span class="inter_font text-[12px] text-[#7e7e7e] leading-[14px] font-medium" >secret:s-c2a105a6dabf970</span>
+                <span class="inter_font text-[12px] text-[#7e7e7e] leading-[14px] font-medium" >{{setStore.myIP}}</span>
             </div>
             <div class="w-full pt-[24px] flex justify-center">
                 <a-button class="bg-[#9DA0A4!important] rounded-[8px!important]" @click="onModifyPass">

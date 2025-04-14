@@ -174,6 +174,21 @@
                         key: 'serviceterms',
                         label:t('usercenter.nav.menu5_subtitle2'),
                         title: t('usercenter.nav.menu5_subtitle2')
+                    },
+                    {
+                        key: 'privacypolicy',
+                        label:t('usercenter.nav.menu5_subtitle3'),
+                        title: t('usercenter.nav.menu5_subtitle3')
+                    },
+                    {
+                        key: 'legalnotice',
+                        label:t('usercenter.nav.menu5_subtitle4'),
+                        title: t('usercenter.nav.menu5_subtitle4')
+                    },
+                    {
+                        key: 'realauth',
+                        label:t('usercenter.nav.menu5_subtitle5'),
+                        title: t('usercenter.nav.menu5_subtitle5')
                     }
                 ]
             },

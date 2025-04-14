@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import router from '../router'
-import { GetUserInfo } from 'api@/login'
+import { GetUserInfo, GetIp } from 'api@/login'
 interface UserInfo_data {
     email:string,
     name:string,
@@ -19,13 +19,17 @@ const store = defineStore('users', {
         token:string,
         userInfo:UserInfo_data|null,
         info:any,
-        showConcat: Boolean
+        showConcat: Boolean,
+        myIP:String,
+        openVerify: boolean
     } => {
         return {
             token: '',
             userInfo: null,
             info:null,
-            showConcat: false
+            showConcat: false,
+            myIP:'',
+            openVerify: false
         }
     },
     persist: true,
@@ -46,7 +50,12 @@ const store = defineStore('users', {
             .then((res:any) => {
                 // console.log('res1', res)
                 this.userInfo = res.body.userInfo
+                GetIp()
+                .then((res:any) => {
+                    this.myIP = res.body.ip+'-'+ res.body.country+'_'+res.body.city
+                })
             })
+            
             
         },
         isLogin() {
@@ -54,6 +63,9 @@ const store = defineStore('users', {
         },
         clearUserInfo() {
             this.userInfo = null
+        },
+        setOpenVerify(val:boolean) {
+            this.openVerify = val
         },
         clearToken() {
             this.token = ''

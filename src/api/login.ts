@@ -73,3 +73,8 @@ export function UpdateInfo(data:modifyData) {
 export function GetUserInfo() {
     return axios.get(`${BASE_MODULE}/GetUserInfo`)
 }
+
+//获取当前IP
+export function GetIp() {
+    return axios.get(`${BASE_MODULE}/GetMyIp`)
+}

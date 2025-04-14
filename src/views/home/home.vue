@@ -12,11 +12,11 @@
             </div>
             <div class="mt-[160px] w-full flex justify-center">
                 <div class="w-[1204px] h-[160px] bg-[rgba(0,0,0,0.1)] rounded-[14px] pt-[24px] flex gap-[108px] justify-center">
-                    <div class="w-[300px] flex flex-col gap-[12px]" v-for="item in firstItems">
+                    <div class="w-[300px] flex flex-col gap-[12px] items-center" v-for="item in firstItems">
                         <div class="w-full flex">
                             <span class="Mulish_font text-center font-extrabold text-[19px] text-[white] w-full">{{item.title}}</span>
                         </div>
-                        <span class="text-[#F1F1F1] text-[16px] inter_font">{{ item.detail1 }} <span class="text-[#1EFFF4]">{{ item.detail2 }} <span class="text-[#F1F1F1]"> {{ item.detail1 }}</span></span></span>
+                        <span class="text-[#F1F1F1] text-[16px] inter_font">{{ item.detail1 }} <span class="text-[#1EFFF4]">{{ item.detail2 }} <span class="text-[#F1F1F1]"> {{ item.detail3 }}</span></span></span>
                     </div>
                 </div>
             </div>
@@ -163,6 +163,8 @@
     import fifth_2 from 'res@/home/fifth_2.svg?inline'
     import fifth_3 from 'res@/home/fifth_3.svg?inline'
     import fifth_4 from 'res@/home/fifth_4.svg?inline'
+    import useUserStore from 'store@/user'
+    const userStore = useUserStore()
     import { useRouter } from 'vue-router'
     import { computed } from 'vue'
     import { useI18n } from 'vue-i18n';
@@ -242,6 +244,7 @@
         ]
     })
     const onDashboard = () => {
+        userStore.setOpenVerify(true)
         router.push({
             name:'dynamic'
         })

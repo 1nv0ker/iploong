@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-[297px] h-[576px] border-1 border-[#CCCCCC] border-dashed pl-[30px] pr-[30px] pt-[162px]">
+            <div class="w-[297px] h-[576px] border-1 border-[#CCCCCC] border-dashed pl-[30px] pr-[30px] pt-[162px] purchasetraffic_box">
                 <span class="text-[#666666] text-[32px] big_font">{{$t('usercenter.purchasetraffic.button_title')}}</span>
                 <div class="mt-[20px] w-[191px] h-[52px] flex justify-center items-center bg-[#45484A] rounded-[7px] cursor-pointer" @click="open = true">
                     <span class="text-[#FCFCFD] text-[18px] poppins_font font-semibold">{{$t('usercenter.purchasetraffic.button')}}</span>
@@ -358,5 +358,10 @@
         .ant-input-number-input{
             text-align: center!important;
         }
+    }
+    .purchasetraffic_box {
+        background-image: url('res@/usercenter/purchasetraffic/box.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 </style>

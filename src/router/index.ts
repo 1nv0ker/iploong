@@ -108,6 +108,30 @@ export const routes = [
           component: ()=>import('views@/dashboard/serviceterms/index.vue')
         },
         {
+          name:'privacypolicy',
+          path:'usercenter/privacypolicy',
+          meta: {
+            parent:'helpcenter'
+          },
+          component: ()=>import('views@/dashboard/privacypolicy/index.vue')
+        },
+        {
+          name:'legalnotice',
+          path:'usercenter/legalnotice',
+          meta: {
+            parent:'helpcenter'
+          },
+          component: ()=>import('views@/dashboard/legalnotice/index.vue')
+        },
+        {
+          name:'realauth',
+          path:'usercenter/realauth',
+          meta: {
+            parent:'helpcenter'
+          },
+          component: ()=>import('views@/dashboard/realauth/index.vue')
+        },
+        {
           name:'promotion',
           path:'usercenter/promotion',
           component: ()=>import('views@/dashboard/promotion/index.vue')

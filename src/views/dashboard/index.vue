@@ -6,6 +6,7 @@
             <RouterView></RouterView>
         </div>
         <BasicInfo />
+        <VerifyModal v-model="open" />
     </div>
 </a-config-provider>
 </template>
@@ -15,11 +16,16 @@
     import useI18nStore from 'store@/setting'
     import enUS from 'ant-design-vue/es/locale/en_US';
     import zhCN from 'ant-design-vue/es/locale/zh_CN';
+    import VerifyModal from './VerifyModal.vue';
     import {onMounted } from 'vue'
     import useUser from 'store@/user'
+    import { ref } from 'vue'
     const I18Store = useI18nStore()
+    const open = ref(false)
+
     const userStore = useUser()
     onMounted(() => {
+        open.value = userStore.openVerify
         userStore.setUserInfo()
     })
 </script>

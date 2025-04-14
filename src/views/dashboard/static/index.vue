@@ -47,6 +47,9 @@
                             {{ record[column.key] }}
                         </span>
                     </template>
+                    <template #emptyText>
+                        <EmptyComponent />
+                    </template>
                 </a-table>
                 <PaginationComponent v-model:total="params.total" v-model:page-size="params.pageSize" v-model="params.current" @onCurrentChange="onCurrentChange" @onSizeChange="onSizeChange"/>
             </div>
@@ -59,6 +62,7 @@
     import circle1 from 'res@/usercenter/dashboard/circle1.svg'
     import circle2 from 'res@/usercenter/dashboard/circle2.svg'
     import circle3 from 'res@/usercenter/dashboard/circle3.svg'
+    import EmptyComponent from 'basic@/components/EmptyComponent.vue'
     // import { useRouter } from 'vue-router'
     import PaginationComponent from 'com@/PaginationComponent.vue'
     // import empytImg from 'res@/usercenter/dashboard/empty.svg'

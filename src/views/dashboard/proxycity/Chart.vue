@@ -10,17 +10,20 @@
             <div class="flex flex-col gap-[4px] justify-center items-center">
                 
                 <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.proxycity.charttitle')}}</span>
-                <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.all}}</span>
+                <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.all}}</span> -->
+                <NumberComponent :number="flowData.all" :mode="'loading'" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
             </div>
             <div class="flex flex-col gap-[4px] justify-center items-center">
                 
                 <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.proxycity.usedFlow')}}</span>
-                <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{ flowData.used }}</span>
+                <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{ flowData.used }}</span> -->
+                <NumberComponent :number="flowData.used" :mode="'loading'" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
             </div>
             <div class="flex flex-col gap-[4px] justify-center items-center">
                 
                 <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.proxycity.resetFlow')}}</span>
-                <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.all-flowData.used}}</span>
+                <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.all-flowData.used}}</span> -->
+                <NumberComponent :number="flowData.all-flowData.used" :mode="'loading'" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
             </div>
             <div class="w-[250px] h-[52px] bg-[#2967B2] rounded-[7px] cursor-pointer flex justify-center items-center" @click="onBuyFlow">
                 <span class="text-[#FCFCFD] text-[15px] font-semibold poppins_font">{{$t('usercenter.proxycity.button4')}}</span>
@@ -31,14 +34,15 @@
 <script setup lang="ts">
     import { useRouter } from 'vue-router'
     import { ref, onMounted } from 'vue'
+    import NumberComponent from 'basic@/components/NumberComponent.vue';
     import { GetBandwidth } from 'api@/proxy'
     import * as echarts from 'echarts';
     import { useI18n } from 'vue-i18n';
     const { t } = useI18n();
     let myChart:any = null
     const flowData = ref<any>({
-        used: 0,
-        all: 0
+        used: -1,
+        all: -1
     })
     const router = useRouter()
     const onBuyFlow = () => {
@@ -50,6 +54,9 @@
         loadFlow()
     })
     const  loadFlow = async () => {
+        var chartDom = document.getElementById('paroxy_chart');
+        myChart?.dispose();
+        myChart = echarts.init(chartDom);
         myChart?.showLoading('default')
         const res:any = await GetBandwidth()
         .catch(() => {
@@ -59,15 +66,16 @@
             flowData.value.used = res.body.usedBandwidth
             flowData.value.all = res.body.totalBandWidth
         }
-        myChart?.hideLoading()
+        
         loadChart()
         // myChart.resize(); 
     }
 
     const loadChart = () => {
-        var chartDom = document.getElementById('paroxy_chart');
-        myChart?.dispose();
-        myChart = echarts.init(chartDom);
+        // myChart?.showLoading('default')
+        // var chartDom = document.getElementById('paroxy_chart');
+        // myChart?.dispose();
+        // myChart = echarts.init(chartDom);
         var option;
         option = {
             legend: {

@@ -165,11 +165,12 @@
                 verifyCode:loginValue.code
             })
             .then(() => {
-                loginValue.loading = false
+                
                 message.success({
                     content:t('message.forget'),
                     duration: 2,
                     onClose:() => {
+                        loginValue.loading = false
                         router.push('/login')
                     }
                 })

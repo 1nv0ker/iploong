@@ -59,6 +59,9 @@
                             {{ record[column.key] }}
                         </span>
                     </template>
+                    <template #emptyText>
+                        <EmptyComponent />
+                    </template>
                 </a-table>
                 <PaginationComponent v-model:total="params.total" v-model:page-size="params.pageSize" v-model="params.current" @onCurrentChange="onCurrentChange" @onSizeChange="onSizeChange"/>
             </div>

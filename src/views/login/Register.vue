@@ -185,7 +185,7 @@
                 tel:''
             })
             .then((res:any) => {
-                loginValue.loading = false
+                
                 console.log('res', res)
                 userSotre.setToken(res.body.token)
                 userSotre.setUserInfo()
@@ -193,6 +193,8 @@
                     content:t('message.register'),
                     duration: 2,
                     onClose: ()=> {
+                        userSotre.setOpenVerify(true)
+                        loginValue.loading = false
                         router.push({name:'proxycity'})
                     }
                 })

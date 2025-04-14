@@ -29,11 +29,13 @@
                 <div class="w-[250px] pt-[20px]">
                     <div class="w-full flex gap-[28px]">
                         <div class="flex flex-col gap-[4px] justify-center items-center">
-                            <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.all}}</span>
+                            <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.all}}</span> -->
+                            <NumberComponent :number="flowData.all" mode="loading" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
                             <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.dashboardDy.usedFlow')}}</span>
                         </div>
                         <div class="flex flex-col gap-[4px] justify-center items-center">
-                            <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.used}}</span>
+                            <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.used}}</span> -->
+                            <NumberComponent :number="flowData.used" mode="loading" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
                             <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.dashboardDy.resetFlow')}}</span>
                         </div>
                     </div>
@@ -70,6 +72,9 @@
                             {{ record[column.key] }}
                         </span>
                     </template>
+                    <template #emptyText>
+                        <EmptyComponent />
+                    </template>
                 </a-table>
                 <PaginationComponent v-model:total="params.total" v-model:page-size="params.pageSize" v-model="params.current" @onCurrentChange="onCurrentChange" @onSizeChange="onSizeChange"/>
             </div>
@@ -90,6 +95,7 @@
     import { useRouter } from 'vue-router'
     import PaginationComponent from 'com@/PaginationComponent.vue'
     import { GetBandwidth } from 'api@/proxy'
+    import NumberComponent from 'basic@/components/NumberComponent.vue';
     // import empytImg from 'res@/usercenter/dashboard/empty.svg'
     import { onMounted, ref, computed, reactive } from 'vue'
     import * as echarts from 'echarts';
@@ -103,8 +109,8 @@
         current: 1
     })
     const flowData = ref<any>({
-        used: 0,
-        all:0
+        used: -1,
+        all:-1
     })
     const onProxy = () => {
         router.push({
@@ -186,6 +192,10 @@
         loading: false
     })
     const loadFlow = async () => {
+        
+        var chartDom = document.getElementById('flowchart');
+        myChart?.dispose();
+        myChart = echarts.init(chartDom);
         myChart?.showLoading('default')
         const res:any = await GetBandwidth()
         .catch(() => {
@@ -195,7 +205,7 @@
             flowData.value.used = res.body.usedBandwidth
             flowData.value.all = res.body.totalBandWidth
         }
-        myChart?.hideLoading()
+        
         loadChart()
         // myChart.resize(); 
     }

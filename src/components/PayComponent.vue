@@ -13,21 +13,21 @@
                 <span class="text-[white] text-[18px] poppins_font">{{ $t('usercenter.pay.button2') }}</span>
                 <img :src="up" :style="`${showPay?'':'transform: scaleY(-1)'}`" class="w-[24px] h-[24px]"/>
             </div>
-            <div class="w-[230px] h-[240px] absolute top-[-250px] right-0 bg-[#E9ECF1]" style="box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.15);" v-show="showPay">
-                <div class="w-full h-1/3 border-b-1 border-[white] flex items-center pl-[20px] gap-[12px]">
+            <div class="w-[230px] h-[160px] absolute top-[-170px] right-0 bg-[#E9ECF1]" style="box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.15);" v-show="showPay">
+                <div class="w-full h-1/2 border-b-1 border-[white] flex items-center pl-[20px] gap-[12px]">
                     <img :src="ali" class="w-[32px] h-[32px] cursor-pointer" />
                     <span class="text-[#000000] text-[18px] poppins_font cursor-pointer">{{$t('usercenter.pay.pay1')}}</span>
                 </div>
-                <div class="w-full h-1/3 border-b-1 border-[white] flex items-center pl-[20px] gap-[12px]">
+                <div class="w-full h-1/2 border-b-1 border-[white] flex items-center pl-[20px] gap-[12px]">
                     <img :src="wechat" class="w-[32px] h-[32px]cursor-pointer" />
                     <span class="text-[#000000] text-[18px] poppins_font cursor-pointer">{{$t('usercenter.pay.pay2')}}</span>
                 </div>
-                <div class="w-full h-1/3 border-b-1 border-[white] flex gap-[10px] justify-center items-center">
+                <!-- <div class="w-full h-1/3 border-b-1 border-[white] flex gap-[10px] justify-center items-center">
                     <img :src="visa" class="w-[42.5px] h-[26px] cursor-pointer" />
                     <img :src="pay1" class="w-[42.5px] h-[26px] cursor-pointer" />
                     <img :src="pay2" class="w-[42.5px] h-[26px] cursor-pointer" />
                     <img :src="pay3" class="w-[42.5px] h-[26px] cursor-pointer" />
-                </div>
+                </div> -->
             </div>
         </div>
         <ModalCompoent v-model="open" :title="$t('usercenter.pay.button1')" slotMode :width="424">
@@ -54,10 +54,10 @@
     import up from 'res@/usercenter/dy/up.svg'
     import ali from 'res@/usercenter/dy/ali.svg'
     import wechat from 'res@/usercenter/dy/wechat.svg'
-    import visa from 'res@/usercenter/dy/visa.svg'
-    import pay1 from 'res@/usercenter/dy/pay1.svg'
-    import pay2 from 'res@/usercenter/dy/pay2.svg'
-    import pay3 from 'res@/usercenter/dy/pay3.svg'
+    // import visa from 'res@/usercenter/dy/visa.svg'
+    // import pay1 from 'res@/usercenter/dy/pay1.svg'
+    // import pay2 from 'res@/usercenter/dy/pay2.svg'
+    // import pay3 from 'res@/usercenter/dy/pay3.svg'
     // import down from 'res@/usercenter/dy/down.svg'
     import useUserStore from 'store@/user'
     import { ref } from 'vue'

@@ -29,7 +29,7 @@
             <div class="w-full pt-[27px]">
                 <div class="w-full flex gap-[6px] ">
                     <a-tooltip placement="top" :title="$t('common.copy')" trigger="click" :open="open">
-                        <div class="w-[180px] pl-[24px] pr-[24px] h-[52px] rounded-[8px] bg-[#2967B2] flex items-center justify-center gap-[12px] cursor-pointer" @click="onCpoyInvitecode(userStore.userInfo?.inviteCode, (val:boolean)=>open=val)">
+                        <div class="w-[180px] pl-[24px]  h-[52px] rounded-[8px] bg-[#2967B2] flex items-center justify-start gap-[12px] cursor-pointer" @click="onCpoyInvitecode(userStore.userInfo?.inviteCode, (val:boolean)=>open=val)">
                             <img :src="copy" class="w-[18px] h-[18px] bg-[white] " />
                             <span class="text-[white] bitip_text text-[18px] poppins_font font-semibold max-w-[105px]" :title="$t('usercenter.promotion.button2')">{{$t('usercenter.promotion.button2')}}</span>
                         </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="w-full flex gap-[6px] pt-[20px] ">
                     <a-tooltip placement="top" :title="$t('common.copy')" trigger="click" :open="open2">
-                        <div class="w-[180px] pl-[24px] pr-[24px] h-[52px] rounded-[8px] bg-[#2967B2] flex items-center justify-center gap-[12px] cursor-pointer" @click="onCpoyInvitecode(`https://www.iploonp.com/register?inviteCode=${userStore.userInfo?.inviteCode}`, (val:boolean)=>open2=val)">
+                        <div class="w-[180px] pl-[24px]  h-[52px] rounded-[8px] bg-[#2967B2] flex items-center justify-start gap-[12px] cursor-pointer" @click="onCpoyInvitecode(`https://www.iploonp.com/register?inviteCode=${userStore.userInfo?.inviteCode}`, (val:boolean)=>open2=val)">
                             <img :src="copy" class="w-[18px] h-[18px] bg-[white] " />
                             <span class="text-[white] bitip_text text-[18px] poppins_font font-semibold max-w-[105px]" :title="$t('usercenter.promotion.button3')">{{$t('usercenter.promotion.button3')}}</span>
                         </div>
@@ -71,6 +71,9 @@
                             <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]">
                                 {{ record[column.key] }}
                             </span>
+                        </template>
+                        <template #emptyText>
+                            <EmptyComponent />
                         </template>
                     </a-table>
                     <PaginationComponent v-model:total="params.total" v-model:page-size="params.pageSize" v-model="params.current" @onCurrentChange="onCurrentChange" @onSizeChange="onSizeChange"/>
@@ -138,7 +141,6 @@
             }
         ];
     })
-    let interval:any
     const onCpoyInvitecode = (str:string|undefined, callback:Function) => {
         callback(true)
         if (navigator.clipboard) {
@@ -152,7 +154,7 @@
             input.remove();
         }
         // interval && clearTimeout(interval)
-        interval = setTimeout(() => {
+        setTimeout(() => {
             callback(false)
         }, 1000);
     } 

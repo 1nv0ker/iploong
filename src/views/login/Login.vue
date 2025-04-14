@@ -131,7 +131,7 @@
                 
             })
             .then((res:any) => {
-                loginValue.loading = false
+                
                 userSotre.setToken(res.body.token)
                 userSotre.setUserInfo()
                 const redirectPath:any = router.currentRoute.value.query.redirect || 'usercenter/dynamic'
@@ -139,6 +139,8 @@
                     content:t('message.login'),
                     duration: 2,
                     onClose: ()=> {
+                        userSotre.setOpenVerify(true)
+                        loginValue.loading = false
                         router.push(redirectPath)
                     }
                 })

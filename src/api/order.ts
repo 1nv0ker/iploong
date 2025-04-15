@@ -15,3 +15,8 @@ export function GetOrder(params:orderData) {
         params: params
     })
 }
+//订单统计
+
+export function GetOrderAnalysis() {
+    return axios.get(`${BASE_MODULE}/Analysis`)
+}

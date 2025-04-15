@@ -4,7 +4,15 @@ export const zh = {
         no:'取消',
         success:'成功',
         relogin:'登录过期,请重新登录',
-        copy:'已复制'
+        copy:'已复制',
+        order:'订单号',
+        ordername:'套餐名称',
+        price:'总价格',
+        pay1:'支付宝支付',
+        pay2:'微信支付',
+        pay3:'已支付',
+        pay4:'未支付',
+        button1:'已完成付款'
     },
     pagination: {
         total:'共',
@@ -481,7 +489,15 @@ export const en = {
         no:'Cancel',
         success:'Success',
         relogin:'Login expired, please log in again',
-        copy:'Copied'
+        copy:'Copied',
+        order:'orderNo',
+        ordername:'orderName',
+        price:'Total price',
+        pay1:'ailpay',
+        pay2:'WeChat pay',
+        pay3:'Paid',
+        pay4:'Not paid',
+        button1:'Payment completed'
     },
     message: {
         register: 'Registration successful, you will be redirected',

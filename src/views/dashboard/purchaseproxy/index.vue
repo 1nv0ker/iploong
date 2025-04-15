@@ -87,7 +87,7 @@
             <span class="text-[#000000] text-[19px] inter_font leading-[32px]">{{$t('usercenter.purchaseproxy.subtitle5')}}</span>
        </div>
        <div class="w-full pt-[12px]">
-        <a-input class="w-[603px!important] h-[58px!important] rounded-[12px!important] border-1 border-[#E4E4E7!important] customInput" 
+        <a-input v-model:value="promotionCode" class="w-[603px!important] h-[58px!important] rounded-[12px!important] border-1 border-[#E4E4E7!important] customInput" 
                 :placeholder="$t('usercenter.purchasetraffic.tip3')"></a-input>
        </div>
        <!-- 购买详情 -->
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <PayComponent  :price="price" v-show="price>0"/>
+        <PayComponent  :price="price" v-show="price>0" :type="2" :purchaseInfo="purchaseInfo" :promotion-code="promotionCode"/>
     </div>
 </template>
 <script setup lang="ts">
@@ -131,11 +131,20 @@
     import { useI18n } from 'vue-i18n'
     const { t } = useI18n();
     const selected = ref<any[]>([])
-    const select_iptype = ref<any>('1')
+    const select_iptype = ref<any>(0)
     const select_time = ref<any>(30)
+    const promotionCode = ref('')
     const buyNumber = ref(1)
     const price = computed(() => {
         return selected.value.length*6*(select_time.value/30)
+    })
+    const purchaseInfo = computed(():any[] => {
+        return selected.value.map((item)=> ({
+            ispLocation: item,
+            purchaseMonth:select_time.value/30,
+            ispType: select_iptype.value,
+            purchaseNum: buyNumber.value
+        }))
     })
     const items = ref([
         {
@@ -156,18 +165,18 @@
         },
         {
             name:'Taiwan(台湾)TW',
-            ley:'tw'
+            key:'tw'
         }
     ])
     const IPType = computed(() => {
         return [
             {
                 name: t('usercenter.purchaseproxy.subtitle2_1'),
-                key:'1'
+                key:0
             },
             {
                 name: t('usercenter.purchaseproxy.subtitle2_2'),
-                key:'2'
+                key:1
             }
         ]
     })

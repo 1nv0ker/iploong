@@ -8,14 +8,14 @@
                 <img :src="item1" class="w-[100px] h-[100px]"/>
                 <div class="flex flex-col gap-[8px]">
                     <span class="text-[#718EBF] text-[24px] font-semibold inter_font">{{$t('usercenter.historyorder.subtitle1')}}</span>
-                    <span class="text-[#232323] text-[26px] font-semibold inter_font">0</span>
+                    <span class="text-[#232323] text-[26px] font-semibold inter_font">{{params.paid+params.unPaid}}</span>
                 </div>  
             </div>
             <div class="w-[389px] h-[172px] rounded-[12px] bg-[white] gap-[30px] items-center justify-center flex">
                 <img :src="item2" class="w-[100px] h-[100px]"/>
                 <div class="flex flex-col gap-[8px]">
                     <span class="text-[#718EBF] text-[24px] font-semibold inter_font">{{$t('usercenter.historyorder.subtitle2')}}</span>
-                    <span class="text-[#232323] text-[26px] font-semibold inter_font">0</span>
+                    <span class="text-[#232323] text-[26px] font-semibold inter_font">{{params.paid}}</span>
                 </div>  
             </div>
             <div class="w-[389px] h-[172px] rounded-[12px] bg-[white] gap-[30px] items-center justify-center flex">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="flex flex-col gap-[8px]">
                     <span class="text-[#718EBF] text-[24px] font-semibold inter_font">{{$t('usercenter.historyorder.subtitle3')}}</span>
-                    <span class="text-[#232323] text-[26px] font-semibold inter_font">0</span>
+                    <span class="text-[#232323] text-[26px] font-semibold inter_font">{{params.unPaid}}</span>
                 </div>  
             </div>
        </div>
@@ -50,12 +50,21 @@
         </div>
         <div class="] w-full order_table pl-[32px] pr-[32px] bg-[white] mt-[24px]">
             <div class="w-full pb-[12px]">
-                <a-table :columns="columns" :data-source="tableParams.tableDatas"  :pagination="false" :loading="tableParams.loading" :scroll="{x:1000}">
+                <a-table :columns="columns" :data-source="tableParams.tableDatas"  :pagination="false" :loading="tableParams.loading" :scroll="{x:1100}">
                     <template v-slot:headerCell="{title}">
                         <span class="text-[#718EBF] text-[19px] font-medium inter_font">{{title}}</span>
                     </template>
                     <template #bodyCell="{ column, record }">
-                        <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]">
+                        <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-if="column.key == 'amount'">
+                            ${{ record[column.key] }}
+                        </span>
+                        <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-else-if="column.key == 'sysUpdateTime'">
+                            {{ record[column.key] }}
+                        </span>
+                        <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-else-if="column.key == 'status'">
+                            {{ record[column.key]==0?$t('common.pay4'):$t('common.pay3') }}
+                        </span>
+                        <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-else>
                             {{ record[column.key] }}
                         </span>
                     </template>
@@ -75,31 +84,36 @@
     import item3 from 'res@/usercenter/order/item3.svg'
     import group from 'res@/usercenter/order/group.svg'
     import PaginationComponent from 'com@/PaginationComponent.vue'
-    import { GetOrder } from 'api@/order'
+    import { GetOrder, GetOrderAnalysis } from 'api@/order'
     import { SearchOutlined } from '@ant-design/icons-vue'
     import { computed, ref, reactive, onMounted } from 'vue'
     import { useI18n } from 'vue-i18n'
     const { t } = useI18n();
-    const selected = ref(0)
+    const selected = ref(-1)
     const params = reactive({
         total: 0,
         pageSize: 10,
         current: 1,
-        keyword:''
+        keyword:'',
+        unPaid:0,
+        paid: 0
     })
     const items = computed(() => {
         return [
             {
                 name: t('usercenter.historyorder.select1'),
-                key:0
+                key:-1,
+                value:''
             },
             {
                 name: t('usercenter.historyorder.select2'),
-                key:2
+                key:0,
+                value: 0
             },
             {
                 name: t('usercenter.historyorder.select3'),
-                key:1
+                key:1,
+                value: 1
             }
         ]
     })
@@ -111,7 +125,7 @@
                 key: 'orderNo',
                 align:'center',
                 ellipsis: true,
-                width:'200px'
+                width:'300px'
             },
             {
                 title: t('usercenter.historyorder.column2'),
@@ -139,16 +153,16 @@
             },
             {
                 title: t('usercenter.historyorder.column5'),
-                dataIndex: 'payType',
-                key: 'payType',
+                dataIndex: 'sysCreateTime',
+                key: 'sysCreateTime',
                 align:'center',
                 ellipsis: true,
                 width:'200px'
             },
             {
                 title: t('usercenter.historyorder.column6'),
-                dataIndex: 'sysCreateTime',
-                key: 'sysCreateTime',
+                dataIndex: 'payTime',
+                key: 'payTime',
                 align:'center',
                 ellipsis: true,
                 width:'200px'
@@ -170,20 +184,32 @@
     }
     onMounted(() => {
         loadOrder()
+        loadAnalysis()
     })
-    const onSelect = (key:number) => {
+    const loadAnalysis = () => {
+        GetOrderAnalysis()
+        .then((res:any) => {
+            params.paid = res.body.paid
+            params.unPaid = res.body.unPaid
+        })
+        .catch(() => {
+            
+        })
+    }
+    const onSelect = (key:any) => {
         selected.value = key
         loadOrder()
     }
     const onQuery = () => {
         loadOrder()
+        
     }
     const loadOrder = () => {
         tableParams.loading = true
         GetOrder({
             PageNo: params.current,
             PageSize:params.pageSize,
-            Status:selected.value,
+            Status:selected.value<0?undefined:selected.value,
             KeyWord: params.keyword
         })
         .then((res:any) => {

@@ -98,7 +98,8 @@
         iptime: undefined,
         city:undefined,
         state: undefined,
-        loading: false
+        loading: false,
+        type: 0
     })
     const proxyRef = reactive({
         generate:'',
@@ -263,6 +264,27 @@
                         value:1000
                     }
                 ]
+            },
+            {
+                label: t('usercenter.proxycity.form6'),
+                placeholder:t('usercenter.proxycity.placeholder'),
+                key:'type',
+                showButton:false,
+                disabled: autoSwitch.value,
+                options: [
+                    {
+                        label:'hostname:port:username:password',
+                        value:0
+                    },
+                    {
+                        label:'username:password@hostname:port',
+                        value:1
+                    },
+                    {
+                        label:'username:password:hostname:port',
+                        value:2
+                    }
+                ]
             }
         ]
     })
@@ -399,7 +421,7 @@
                     const port = proxyPort[randomInPortIndex]
                     
                     //rotating session存在
-                    const sessiong = modelRef.IP == '0'?generateRandomString():0
+                    const sessiong = generateRandomString()
                     const hostname_port = url+':'+port
                     let username_password = ''
                     let proxyIP = ''
@@ -408,12 +430,12 @@
                     } else {
                         username_password = userName+'_g-'+ modelRef.country + '_f-' + (modelRef.city?proxyCityFmt:(modelRef.state?proxyStateFmt:proxyCountryFmt))
                         + '_sid-'+sessiong + ((modelRef.state)?('_s-'+modelRef.state):'')
-                        + (modelRef.city?('_c-'+modelRef.city):'') + (modelRef.time?('_l-'+modelRef.time):'')
+                        + (modelRef.city?('_c-'+modelRef.city):'') + (modelRef.iptime?('_l-'+modelRef.iptime):'')
                         + ':'+ proxyPwd
                     }
-                    if (modelRef.type == '0') {
+                    if (modelRef.type == 0) {
                         proxyIP = hostname_port + ':' + username_password
-                    } else if (modelRef.type == '1') {
+                    } else if (modelRef.type == 1) {
                         proxyIP = username_password + '@' + hostname_port
                     } else {
                         proxyIP = username_password + ':' + hostname_port
@@ -432,17 +454,17 @@
         await formRef.value.validate()
 
         const params = {
-                KeyName:userStore.userInfo?.mainKey,
-                Num:modelRef.num,
-                Country:modelRef.country=='0'?undefined:modelRef.country,
-                State:modelRef.state,
-                City:modelRef.city,
-                SessionTime:modelRef.iptime,
-                AutoSwitch: autoSwitch.value?'1':'0',
-                Format: modelRef.type,
-                crc: userStore.userInfo?.passWord
-            }
-            const link = GenerateApiLink(params, autoSwitch.value)
-            proxyRef.api = link
+            KeyName:userStore.userInfo?.mainKey,
+            Num:modelRef.num,
+            Country:modelRef.country=='0'?undefined:modelRef.country,
+            State:modelRef.state,
+            City:modelRef.city,
+            SessionTime:modelRef.iptime,
+            AutoSwitch: autoSwitch.value?'1':'0',
+            Format: modelRef.type,
+            crc: userStore.userInfo?.passWord
+        }
+        const link = GenerateApiLink(params, autoSwitch.value)
+        proxyRef.api = link
     }
 </script>

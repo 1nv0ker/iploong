@@ -15,9 +15,9 @@
                     </div>
                     <div class="w-full h-[103px] flex items-center  justify-center gap-[4px] flex-col">
                         <div class="flex items-center justify-center">
-                            <div class="border-1 border-[#CCCCCC] rounded-l-[4px] cursor-pointer   bg-[#F0F1F6]" @click="onReduce('left')"><img :src="reduce" class="w-full h-full"/></div>
+                            <div class=" rounded-l-[4px] cursor-pointer   bg-[#72ACF2]" @click="onReduce('left')"><img :src="reduce" class="w-full h-full"/></div>
                             <a-input-number v-model:value="leftNum" :max="100" :min="1" class=" text-[center!important] w-[106px] h-[36px!important] rounded-[0!important]" :controls="false"></a-input-number>
-                            <div class="border-1 border-[#CCCCCC] rounded-r-[4px] cursor-pointer bg-[#F0F1F6]" @click="onPlus('left')"><img :src="plus" class="w-full h-full"/></div>
+                            <div class=" rounded-r-[4px] cursor-pointer bg-[#72ACF2]" @click="onPlus('left')"><img :src="plus" class="w-full h-full"/></div>
                             <span class="pl-[12px] text-[#333333] text-[14px] poppins_font">GB</span>
                         </div>
                         <span class="text-[#999999] text-[14px] poppins_font">{{$t('usercenter.purchasetraffic.tip')}}</span>
@@ -28,7 +28,7 @@
                         <span class="text-[#FFFFFF] text-[20px] poppins_font max-w-full bitip_text pl-[6px] pr-[6px]" :title="item.name">{{item.name}}</span>
                     </div>
                 </div>
-                <div :class="`w-[334px] h-full cursor-pointer ${selected==2?'selected_row':'unselected_row'}` " >
+                <!-- <div :class="`w-[334px] h-full cursor-pointer ${selected==2?'selected_row':'unselected_row'}` " >
                     <div v-for="(item, key) in right" :style="`height:${item.height}px`" :class="`${item.key} flex items-center justify-center relative ${(key!==0 && key%2==0)?'bg_1':'bg_2' }`" @click="key==0?selected=2:''">
                         <span class="name max-w-full bitip_text pl-[6px] pr-[6px]" :title="item.label"><span class="unit">{{ item.unit }} </span>{{ item.label }}<span class="unit2"> {{ item.unit2 }}</span></span>
                         <div v-if="key==0 && selected==2" class=" absolute top-0 left-0 w-[80px] h-[30px] rounded-br-[15px] bg-[#3D95FF] rounded-tl-[15px] flex justify-center items-center">
@@ -44,7 +44,7 @@
                         </div>
                         <span class="text-[#999999] text-[14px] poppins_font">{{$t('usercenter.purchasetraffic.tip')}}</span>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="w-[297px] h-[576px] border-1 border-[#CCCCCC] border-dashed pl-[30px] pr-[30px] pt-[162px] purchasetraffic_box">
                 <span class="text-[#666666] text-[32px] big_font">{{$t('usercenter.purchasetraffic.button_title')}}</span>
@@ -69,11 +69,11 @@
             </div>
             <div class="pt-[10px] flex gap-[10px] items-center">
                 <span class="text-[#000000] text-[19px] font-semibold inter_font">{{$t('usercenter.purchasetraffic.label')}}</span>
-                <a-input class="w-[538px!important] h-[58px!important] rounded-[12px!important] border-1 border-[#E4E4E7!important] customInput" 
+                <a-input v-model:value="promotionCode" class="w-[538px!important] h-[58px!important] rounded-[12px!important] border-1 border-[#E4E4E7!important] customInput" 
                 :placeholder="$t('usercenter.purchasetraffic.tip3')"></a-input>
             </div>
        </div>
-       <PayComponent v-show="selected!=0" :price="price"/>
+       <PayComponent v-show="selected!=0" :price="price" :type="1" :num="leftNum" :promotionCode="promotionCode"/>
        <ContactModal v-model="open"/>
     </div>
 </template>
@@ -87,9 +87,10 @@
     import { useI18n } from 'vue-i18n';
     const { t } = useI18n();
     const open = ref(false)
-    const selected = ref(0)
+    const selected = ref(1)
     const leftNum = ref(1)
     const rightNum = ref(1)
+    const promotionCode = ref('')
     const price = computed(() => {
         return selected.value==1?leftNum.value*8:rightNum.value*16
     })
@@ -175,46 +176,46 @@
         ]
     })
 
-    const right = computed(()=> {
-        return [
-            {
-                label: t('usercenter.purchasetraffic.content11'),
-                height:64,
-                key:'title'
-            },
-            {
-                label: '12.00 ',
-                unit:'$',
-                unit2:'/G',
-                height:64,
-                key:'flow'
-            },
-            {
-                label: t('usercenter.purchasetraffic.content12'),
-                height:57
-            },
-            {
-                label: t('usercenter.purchasetraffic.content13'),
-                height:57,
-            },
-            {
-                label: t('usercenter.purchasetraffic.content14'),
-                height:57
-            },
-            {
-                label: t('usercenter.purchasetraffic.content15'),
-                height:57
-            },
-            {
-                label: t('usercenter.purchasetraffic.content16'),
-                height:57
-            },
-            {
-                label: t('usercenter.purchasetraffic.content17'),
-                height:57
-            }
-        ]
-    })
+    // const right = computed(()=> {
+    //     return [
+    //         {
+    //             label: t('usercenter.purchasetraffic.content11'),
+    //             height:64,
+    //             key:'title'
+    //         },
+    //         {
+    //             label: '12.00 ',
+    //             unit:'$',
+    //             unit2:'/G',
+    //             height:64,
+    //             key:'flow'
+    //         },
+    //         {
+    //             label: t('usercenter.purchasetraffic.content12'),
+    //             height:57
+    //         },
+    //         {
+    //             label: t('usercenter.purchasetraffic.content13'),
+    //             height:57,
+    //         },
+    //         {
+    //             label: t('usercenter.purchasetraffic.content14'),
+    //             height:57
+    //         },
+    //         {
+    //             label: t('usercenter.purchasetraffic.content15'),
+    //             height:57
+    //         },
+    //         {
+    //             label: t('usercenter.purchasetraffic.content16'),
+    //             height:57
+    //         },
+    //         {
+    //             label: t('usercenter.purchasetraffic.content17'),
+    //             height:57
+    //         }
+    //     ]
+    // })
     const onReduce = (key:string) => {
         if (key=='left') {
             if (leftNum.value!=1) {

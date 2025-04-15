@@ -5,6 +5,7 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 import viteCompression from 'vite-plugin-compression';
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
+import sitemap from 'vite-plugin-sitemap'
 // import sitemap from 'vite-plugin-sitemap'
 // https://vite.dev/config/
 export default defineConfig({
@@ -19,6 +20,12 @@ export default defineConfig({
         }),
       ],
       dts: true
+    }),
+    sitemap({
+      hostname: 'https://www.iploong.com',
+      dynamicRoutes:['/'],
+
+      generateRobotsTxt: true,
     }),
     viteCompression({
       algorithm: 'gzip',

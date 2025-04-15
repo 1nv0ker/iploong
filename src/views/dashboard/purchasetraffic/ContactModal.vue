@@ -1,5 +1,5 @@
 <template>
-    <ModalCompoent v-model="open" :title="$t('usercenter.userinfo.title')" slotMode :width="424">
+    <ModalCompoent v-model="open"  slotMode :width="424">
         <div class="w-full flex items-center justify-center">
             <img :src="contact" class="2-[282px] h-[293px]"/>
         </div>

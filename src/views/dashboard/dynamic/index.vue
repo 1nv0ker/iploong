@@ -30,12 +30,12 @@
                     <div class="w-full flex gap-[28px]">
                         <div class="flex flex-col gap-[4px] justify-center items-center">
                             <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.all}}</span> -->
-                            <NumberComponent :number="flowData.all" mode="loading" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
+                            <NumberComponent :number="flowData.used" mode="loading" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
                             <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.dashboardDy.usedFlow')}}</span>
                         </div>
                         <div class="flex flex-col gap-[4px] justify-center items-center">
                             <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.used}}</span> -->
-                            <NumberComponent :number="flowData.used" mode="loading" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
+                            <NumberComponent :number="flowData.all - flowData.used" mode="loading" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
                             <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.dashboardDy.resetFlow')}}</span>
                         </div>
                     </div>

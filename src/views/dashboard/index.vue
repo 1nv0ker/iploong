@@ -1,14 +1,14 @@
 <template>
     <a-config-provider :locale="I18Store.language=='zh'?zhCN:enUS">
-    <div class="w-full h-full flex">
-        <NavComponent />
-        <div class="h-full overflow-auto" style="width: calc( 100% - 593px );">
-            <RouterView @onOpen="onOpen"></RouterView>
+        <div class="w-full h-full flex">
+            <NavComponent />
+            <div class="h-full overflow-auto" style="width: calc( 100% - 593px );">
+                <RouterView @onOpen="onOpen"></RouterView>
+            </div>
+            <BasicInfo />
+            <VerifyModal v-model="open" />
         </div>
-        <BasicInfo />
-        <VerifyModal v-model="open" />
-    </div>
-</a-config-provider>
+    </a-config-provider>
 </template>
 <script setup lang="ts">
     import NavComponent from './NavComponent.vue';

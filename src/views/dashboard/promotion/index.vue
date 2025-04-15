@@ -40,13 +40,13 @@
                 </div>
                 <div class="w-full flex gap-[6px] pt-[20px] ">
                     <a-tooltip placement="top" :title="$t('common.copy')" trigger="click" :open="open2">
-                        <div class="w-[180px] pl-[24px]  h-[52px] rounded-[8px] bg-[#2967B2] flex items-center justify-start gap-[12px] cursor-pointer" @click="onCpoyInvitecode(`https://www.iploonp.com/register?inviteCode=${userStore.userInfo?.inviteCode}`, (val:boolean)=>open2=val)">
+                        <div class="w-[180px] pl-[24px]  h-[52px] rounded-[8px] bg-[#2967B2] flex items-center justify-start gap-[12px] cursor-pointer" @click="onCpoyInvitecode(`https://www.iploong.com/register?inviteCode=${userStore.userInfo?.inviteCode}`, (val:boolean)=>open2=val)">
                             <img :src="copy" class="w-[18px] h-[18px] bg-[white] " />
                             <span class="text-[white] bitip_text text-[18px] poppins_font font-semibold max-w-[105px]" :title="$t('usercenter.promotion.button3')">{{$t('usercenter.promotion.button3')}}</span>
                         </div>
                     </a-tooltip>
                     <div class="w-[306px] h-[52px] rounded-[12px] bg-[white] border-1 border-[#2967B2] flex items-center pl-[20px]">
-                        <span class="text-[#18181B] text-[17px] inter_font">{{`https://www.iploonp.com/register?inviteCode=${userStore.userInfo?.inviteCode}`}}</span>
+                        <span class="text-[#18181B] text-[17px] inter_font">{{`https://www.iploong.com/register?inviteCode=${userStore.userInfo?.inviteCode}`}}</span>
                     </div>
                 </div>
                 <div class="w-full pt-[18px]">

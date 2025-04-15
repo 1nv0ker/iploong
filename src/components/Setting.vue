@@ -18,7 +18,7 @@
     const lan = ref('ENGLISH')
     onMounted(() => {
         i18n.locale.value = setStore.language
-        lan.value = i18n.locale.value =='zh'?'ENGLISH':'CHINESE'
+        lan.value = i18n.locale.value =='en'?'CHINESE':'ENGLISH'
     })
     defineProps({
         showImg: {

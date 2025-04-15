@@ -40,8 +40,8 @@
             }
         }
     })
-    watch(()=>props.number, (val1, val2) => {
-        console.log('props', props.number, val1, val2)
+    watch(()=>props.number, () => {
+        // console.log('props', props.number, val1, val2)
         if (props.mode == 'loading') {
             stopStatus = true
         }
@@ -82,11 +82,11 @@
     defineExpose({
         stopAnimate: stopAnimate
     })
-    watch(number, () => {
-        console.log('number', number)
-        count.value = 0
-        animate()
-    })
+    // watch(number, () => {
+    //     // console.log('number', number)
+    //     count.value = 0
+    //     animate()
+    // })
     onUnmounted(() => {
         animatioId && cancelAnimationFrame(animatioId)
     })

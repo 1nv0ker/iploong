@@ -3,7 +3,7 @@
     <div class="w-full h-full flex">
         <NavComponent />
         <div class="h-full overflow-auto" style="width: calc( 100% - 593px );">
-            <RouterView></RouterView>
+            <RouterView @onOpen="onOpen"></RouterView>
         </div>
         <BasicInfo />
         <VerifyModal v-model="open" />
@@ -17,7 +17,7 @@
     import enUS from 'ant-design-vue/es/locale/en_US';
     import zhCN from 'ant-design-vue/es/locale/zh_CN';
     import VerifyModal from './VerifyModal.vue';
-    import {onMounted } from 'vue'
+    import { onMounted } from 'vue'
     import useUser from 'store@/user'
     import { ref } from 'vue'
     const I18Store = useI18nStore()
@@ -28,4 +28,8 @@
         open.value = userStore.openVerify
         userStore.setUserInfo()
     })
+    const onOpen = () => {
+        open.value = userStore.openVerify
+        userStore.setUserInfo()
+    }
 </script>

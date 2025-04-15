@@ -19,7 +19,9 @@
 .Montserrat {
     font-family: Montserrat;
 }
-
+.roboto_font {
+    font-family: Roboto, Roboto;
+}
 //登录input
 .loginAInput {
     font-family: PingFang SC;
@@ -160,3 +162,27 @@
     text-overflow: ellipsis; 
     display:block
   }
+  .customAInput {
+    font-family: Inter;
+    height: 62px!important;
+    border-color: #E4E4E7;
+    border-radius: 12px;
+    font-size: 17px!important;
+    &::placeholder {
+        color: #777777; /* 改变文字颜色 */
+        font-size: 17px!important;
+        text-align: left;
+        font-family: Inter;
+        line-height: 100%;
+    }
+    .ant-input {
+        &::placeholder {
+            color: #777777; /* 改变文字颜色 */
+            font-size: 17px!important;
+            text-align: left;
+            font-family:  Inter;
+            line-height: 100%;
+        }
+    }
+        
+}

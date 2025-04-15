@@ -54,7 +54,7 @@
                 <div class="flex gap-[15px]">
                     <div class="flex flex-col gap-[16px] items-center">
                         <img class="w-[30px] h-[25px]"/>
-                        <span class="text-[18px] text-[#666666] sf_font max-w-[72px] bitip_text" :title="$t('usercenter.verifymodal.step2')">{{$t('usercenter.verifymodal.step2')}}</span>
+                        <span class="text-[18px] text-[#666666] sf_font max-w-[80px] bitip_text" :title="$t('usercenter.verifymodal.step2')">{{$t('usercenter.verifymodal.step2')}}</span>
                     </div>
                 </div>
                 <div class="w-[237px] flex items-center">
@@ -64,7 +64,7 @@
                 <div class="flex gap-[15px]">
                     <div class="flex flex-col gap-[16px] items-center">
                         <img class="w-[30px] h-[25px]"/>
-                        <span class="text-[18px] text-[#666666] sf_font max-w-[72px] bitip_text" :title="$t('usercenter.verifymodal.step3')">{{$t('usercenter.verifymodal.step3')}}</span>
+                        <span class="text-[18px] text-[#666666] sf_font max-w-[80px] bitip_text" :title="$t('usercenter.verifymodal.step3')">{{$t('usercenter.verifymodal.step3')}}</span>
                     </div>
                 </div>
             </div>
@@ -190,6 +190,7 @@
     })
     const onVerify = () => {
         userStore.setOpenVerify(false)
+        open.value = false
         router.push({name:'realauth'})
     }
 </script>

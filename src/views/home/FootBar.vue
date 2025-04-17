@@ -33,7 +33,7 @@
         <div class="w-full h-[126px] border-t-1 border-[rgba(255,255,255,0.08)] absolute bottom-0 gap-[20px] flex flex-col justify-center items-center">
             <span class="text-[rgba(255,255,255,0.3)] text-[14px] Mulish_font">《中华人民共和国增值电信业务许可证》- <span>蜀ICP备2023025621号-1</span></span>
             <div class="flex gap-[8px] items-center">
-                <img :src="typeImg" class="w-[16px] h-[16px]"/>
+                <img src="res@/footer/type.svg" class="w-[16px] h-[16px]"/>
                 <span class="text-[rgba(255,255,255,0.3)] text-[14px] Mulish_font">川公网安备51019002007456号</span>
             </div>
         </div>
@@ -46,7 +46,7 @@
     import emailImg from 'res@/footer/email.svg'
     import timeImg from 'res@/footer/time.svg'
     import locationImg from 'res@/footer/location.svg'
-    import typeImg from 'res@/footer/type.svg'
+    // import typeImg from 'res@/footer/type.svg'
     import { useI18n } from 'vue-i18n';
     const { t } = useI18n();
 

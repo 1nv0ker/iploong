@@ -9,6 +9,9 @@
             </div>
             <div class="w-full flex justify-center pt-[40px]">
                 <img :src="dashboardImg" class="cursor-pointer w-[378px] h-[83.7px]" @click="onDashboard"/>
+                <!-- <div class="w-[378px] h-[84px] rounded-[1944px] bg-[rgba(38,134,244,0.3)] " style="box-shadow: inset 0px 0px 54px 1px rgba(38,134,244,0.3);">
+
+                </div> -->
             </div>
             <div class="mt-[160px] w-full flex justify-center">
                 <div class="w-[1204px] h-[160px] bg-[rgba(0,0,0,0.1)] rounded-[14px] pt-[24px] flex gap-[108px] justify-center">
@@ -124,7 +127,7 @@
                     </div>
                 </div>
                 <div class="pt-[46px] w-full flex justify-center">
-                    <img  :src="payImg" />
+                    <img  :src="payImg" class="w-[925px] h-[84px]"/>
                 </div>
             </div>
         </div>
@@ -151,7 +154,7 @@
     import dashboardImg from 'res@/home/dashboard.svg'
     import secondImg from 'res@/home/second.svg'
     import gouImg from 'res@/home/gou.svg'
-    import globalImg from 'res@/home/global.svg?inline'
+    import globalImg from 'res@/home/global.svg'
     import third1 from 'res@/home/third1.svg'
     import third2 from 'res@/home/third2.svg'
     import third3 from 'res@/home/third3.svg'
@@ -257,7 +260,7 @@
 </script>
 <style lang="less">
     .home_bg {
-        background-image: url('res@/home/bg.svg?inline');
+        background-image: url('res@/home/bg.svg');
         background-color: #2967B2;
         // background-size: cover;
         background-repeat: no-repeat;

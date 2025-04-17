@@ -215,7 +215,7 @@
 </script>
 <style lang="less">
     .nav_bg {
-        background-image: url('res@/usercenter/nav/bg.png?inline');
+        background-image: url('res@/usercenter/nav/bg.png');
         background-repeat: no-repeat;
         background-size: cover;
     }

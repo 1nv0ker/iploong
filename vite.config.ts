@@ -6,11 +6,13 @@ import viteCompression from 'vite-plugin-compression';
 import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 import sitemap from 'vite-plugin-sitemap'
+import { visualizer } from 'rollup-plugin-visualizer';
 // import sitemap from 'vite-plugin-sitemap'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    visualizer({ open: true }),
     tailwindcss(),
     Components({
       resolvers: [

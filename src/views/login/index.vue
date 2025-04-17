@@ -17,7 +17,7 @@
 </script>
 <style lang="less" scoped>
     .login_bg {
-        background-image: url('res@/login/bg.svg?inline');
+        background-image: url('res@/login/bg.svg');
         // background-position: ;
         background-size: cover;
         background-repeat: no-repeat;

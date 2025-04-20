@@ -8,7 +8,7 @@
                 <span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title3')}}</span>
             </div>
             <div class="w-full flex justify-center pt-[40px]">
-                <img :src="dashboardImg" class="cursor-pointer w-[378px] h-[83.7px]" @click="onDashboard"/>
+                <img :src="useSettingStore.language!='zh'?dashboardImg:dashboardZh" class="cursor-pointer w-[378px] h-[83.7px]" @click="onDashboard"/>
                 <!-- <div class="w-[378px] h-[84px] rounded-[1944px] bg-[rgba(38,134,244,0.3)] " style="box-shadow: inset 0px 0px 54px 1px rgba(38,134,244,0.3);">
 
                 </div> -->
@@ -102,7 +102,7 @@
         <div class="w-full flex justify-center pt-[152px]">
             <div class="w-[1512px]">
                 <div class="w-full flex justify-between gap-[18px]">
-                    <div class="w-[492px] h-[432px] rounded-[12px] card_bg pt-[43px] pl-[35px]" v-for="item in fourthItems">
+                    <div class="w-[739px] h-[432px] rounded-[12px] card_bg pt-[43px] pl-[35px]" v-for="item in fourthItems">
                         <div class="w-[268px] h-[54px] rounded-[10px] bg-[rgba(255,255,255,0.5)] flex justify-center items-center">
                             <span class="text-[white] text-[19px] inter_font">{{item.content1}}<span class="text-[#005CC7]">{{item.subtitle}}</span></span>
                         </div>
@@ -127,7 +127,15 @@
                     </div>
                 </div>
                 <div class="pt-[46px] w-full flex justify-center">
-                    <img  :src="payImg" class="w-[925px] h-[84px]"/>
+                    <!-- <img  :src="payImg" class="w-[925px] h-[84px]"/> -->
+                    <div class="flex gap-[88px] h-[77px]">
+                        
+                        <div class="w-[262px] border-r-1 border-[rgba(153,153,153,0.5)] h-full flex items-center">
+                            <span class="text-[#999999] text-[29px] font-bold">{{ $t('home.fourth.title2') }}</span>
+                        </div>
+                        <img :src="wechat"/>
+                        <img :src="alipay" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -152,22 +160,27 @@
 </template>
 <script setup lang="ts">
     import dashboardImg from 'res@/home/dashboard.svg'
+    import dashboardZh from 'res@/home/dashboard_zh.svg'
     import secondImg from 'res@/home/second.svg'
     import gouImg from 'res@/home/gou.svg'
     import globalImg from 'res@/home/global.svg'
-    import third1 from 'res@/home/third1.svg'
-    import third2 from 'res@/home/third2.svg'
-    import third3 from 'res@/home/third3.svg'
-    import third4 from 'res@/home/third4.svg'
-    import third5 from 'res@/home/third5.svg'
-    import third6 from 'res@/home/third6.svg'
-    import payImg from 'res@/home/pay.svg'
+    import third1 from 'res@/home/third_11.svg'
+    import third2 from 'res@/home/third_12.svg'
+    import third3 from 'res@/home/third_13.svg'
+    import third4 from 'res@/home/third_14.svg'
+    import third5 from 'res@/home/third_15.svg'
+    import third6 from 'res@/home/third_16.svg'
+    import wechat from 'res@/home/wechat.svg'
+    import alipay from 'res@/home/alipay.svg'
+    // import payImg from 'res@/home/pay.svg'
     import fifth_1 from 'res@/home/fifth_1.svg'
     import fifth_2 from 'res@/home/fifth_2.svg'
     import fifth_3 from 'res@/home/fifth_3.svg'
     import fifth_4 from 'res@/home/fifth_4.svg'
     import useUserStore from 'store@/user'
+    import settingStore from 'store@/setting'
     const userStore = useUserStore()
+    const useSettingStore = settingStore()
     import { useRouter } from 'vue-router'
     import { computed } from 'vue'
     import { useI18n } from 'vue-i18n';
@@ -215,15 +228,15 @@
                 price:'12',
                 price2:'.00'
             },
-            {
-                content1:t('home.fourth.subtitle3'),
-                subtitle:t('home.fourth.subtitle3_1'),
-                content2: t('home.fourth.subtitle3_type'),
-                content3: t('home.fourth.subtitle3_content'),
-                name:'purchasetraffic',
-                price:'6',
-                price2:'.00'
-            }
+            // {
+            //     content1:t('home.fourth.subtitle3'),
+            //     subtitle:t('home.fourth.subtitle3_1'),
+            //     content2: t('home.fourth.subtitle3_type'),
+            //     content3: t('home.fourth.subtitle3_content'),
+            //     name:'purchasetraffic',
+            //     price:'6',
+            //     price2:'.00'
+            // }
         ]
     })
     const fifthItems = computed(() => {

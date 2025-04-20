@@ -35,6 +35,15 @@
                     <span class="poppins_font text-[14px] text-[#666666] leading-[16px]">{{ $t('usercenter.userinfo.button2') }}</span>
                 </a-button>
             </div>
+            <div class="w-full pt-[20px]">
+                <div class="w-full flex gap-[4px] flex-col items-center text-[#000000] text-[14px] font-semibold pb-[8px]">
+                    <span class="poppins_font">{{ $t('usercenter.userinfo.title2') }}</span>
+                    <span class="poppins_font">{{ $t('usercenter.userinfo.subtitle') }}</span>
+                </div>
+                <div class="w-full flex justify-center">
+                    <a-qrcode :value="''" :size="166"/>
+                </div>
+            </div>
         </div>
         <ChangePassModal v-model="open" ref="modalRef" />
         <UsdtCharge v-model="open2" ref="rechargeRef"/>

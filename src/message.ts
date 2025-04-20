@@ -92,25 +92,21 @@ export const zh = {
     },
     footer: {
         title: '凭借全球广泛的网络资源布局和深刻的业务洞察，IPdodo将不断精进产品与服务品质，与合作伙伴坚定共拓全球化业务',
-        subtitle1:'政策',
-        subtitle1_title1:'Miya用户协议',
-        subtitle1_title2:'Miya隐私协议',
-        subtitle2:'友情链接',
-        subtitle2_title1:'hubstudio Fingerprint Browser',
-        subtitle2_title2:'mulogin Fingerprint Browser',
-        subtitle2_title3:'Bit Fingerprint Browser',
-        subtitle2_title4:'AdsPower',
-        subtitle2_title5:'vmlogin Fingerprint Browser',
-        subtitle2_title6:'yunlark Browser',
-        subtitle2_title7:'nest Browser',
-        subtitle2_title8:'MoreLogin Fingerprint Browser',
-        subtitle2_title9:'Cross-border King (Cross-border Marketing software)',
-        subtitle2_title10:'luban',
-        subtitle2_title11:'firebrowser',
+        
         item1:'电话',
         item2:'邮箱',
         item3:'在线时间',
-        item4:'办公地址'
+        item4:'办公地址',
+        subtitle1: '教程中心',
+        subtitle1_1:'',
+        subtitle2:'行业动态',
+        subtitle3:'法律声明',
+        subtitle3_1:'用户隐私协议',
+        subtitle3_2:'法律声明',
+        subtitle3_3:'退款协议',
+        subtitle4:'合作支持',
+        subtitle4_1:'联系我们',
+        subtitle4_2:'关于我们'
     },
     home: {
         first: {
@@ -146,26 +142,27 @@ export const zh = {
             item3:'自适应解析器'
         },
         third: {
-           title: 'MIYAIP服务全球200多个国家',
+           title: '服务全球超过200多个国家',
         },
         fourth: {
             title: '更优惠的价格',
             subtitle1: '定位',
-            subtitle1_1:'地区',
+            subtitle1_1:'国家',
             subtitle1_type:'动态住宅',
-            subtitle1_content:'按流量计费，不限IP数量',
+            subtitle1_content:'按数据计费，无限IP',
 
             subtitle2: '1 IP/月',
             subtitle2_1:'/独享',
             subtitle2_type:'静态住宅',
-            subtitle2_content:'按流量计费，不限IP数量',
+            subtitle2_content:'按数据计费，无限IP',
 
             subtitle3: '定位',
             subtitle3_1:'地区',
             subtitle3_type:'动态住宅',
             subtitle3_content:'按流量计费，不限IP数量',
             data:'数据',
-            button:'立刻购买'
+            button:'立刻购买',
+            title2:'我们接受'
         },
         fifth: {
             title: '选择我们的理由',
@@ -235,7 +232,9 @@ export const zh = {
                 content3:'请输入流水交易号',
                 tip2:'充值后填写交易流水号，网站会显示您充值的USDT余额',
                 button:'提交'
-            }
+            },
+            title2:'欢迎联系客户经理',
+            subtitle:'咨询优惠请添加微信：'
         },
         dashboardDy: {
             title: '仪表板-动态住宅代理',
@@ -573,25 +572,20 @@ export const en = {
     },
     footer: {
         title: 'With its extensive global network resources and deep business insights, IPdodo will continue to improve its product and service quality and work with its partners to expand global business.',
-        subtitle1:'Policy',
-        subtitle1_title1:'Miya Customer Policy',
-        subtitle1_title2:'Miya Private Policy',
-        subtitle2:'Friendship link',
-        subtitle2_title1:'hubstudio Fingerprint Browser',
-        subtitle2_title2:'mulogin Fingerprint Browser',
-        subtitle2_title3:'Bit Fingerprint Browser',
-        subtitle2_title4:'AdsPower',
-        subtitle2_title5:'vmlogin Fingerprint Browser',
-        subtitle2_title6:'yunlark Browser',
-        subtitle2_title7:'nest Browser',
-        subtitle2_title8:'MoreLogin Fingerprint Browser',
-        subtitle2_title9:'Cross-border King (Cross-border Marketing software)',
-        subtitle2_title10:'luban',
-        subtitle2_title11:'firebrowser',
         item1:'tel',
         item2:'support email',
         item3:'support online time',
-        item4:'office address'
+        item4:'office address',
+        subtitle1: 'Tutorial Center',
+        subtitle1_1:'',
+        subtitle2:'Industry News',
+        subtitle3:'Legal Notice',
+        subtitle3_1:'User Privacy Agreement',
+        subtitle3_2:'Legal Notice',
+        subtitle3_3:'Refund Agreement',
+        subtitle4:'Collaboration Support',
+        subtitle4_1:'Contact Us',
+        subtitle4_2:'about Us'
     },
     home: {
         first: {
@@ -627,26 +621,27 @@ export const en = {
             item3:'Adaptive parser'
         },
         third: {
-            title: 'MIYAIP services in more than 200 countries around the world',
+            title: 'Serving more than 200 countries around the world',
         },
         fourth: {
             title: 'More Preferential Price',
             subtitle1: 'positioning',
             subtitle1_1:' the country',
             subtitle1_type:'Dynamic Residence',
-            subtitle1_content:'Charge by data, Unlimited IP number',
+            subtitle1_content:'Billed by data, unlimited IP',
 
             subtitle2: '1 IP/month',
             subtitle2_1:'/exclusive',
             subtitle2_type:'Static residence',
-            subtitle2_content:'Charge by data, Unlimited IP number',
+            subtitle2_content:'Billed by data, unlimited IP',
 
             subtitle3: 'positioning',
             subtitle3_1:' the country',
             subtitle3_type:'Dynamic Residence',
             subtitle3_content:'Charge by data, Unlimited IP number',
             data:'Data',
-            button:'Buy now'
+            button:'Buy now',
+            title2:'We accept'
         },
         fifth: {
             title: 'The reason why we were chosen',
@@ -716,7 +711,9 @@ export const en = {
                 content3:'Please enter the transaction number',
                 tip2:'After recharging, fill in the transaction serial number, and the website will display your recharged USDT balance',
                 button:'submit'
-            }
+            },
+            title2:'Welcome to contact your account manager',
+            subtitle:'Please add WeChat for consultation:'
         },
         dashboardDy: {
             title: 'Dashboard-Dynamic Residential Proxy',

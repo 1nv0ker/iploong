@@ -73,7 +73,7 @@
                 :placeholder="$t('usercenter.purchasetraffic.tip3')"></a-input>
             </div>
        </div>
-       <PayComponent v-show="selected!=0" :price="price" :type="1" :num="leftNum" :promotionCode="promotionCode"/>
+       <PayComponent v-show="selected!=0" :price="price" :type="1" :num="leftNum" :promotionCode="promotionCode" @onOpenVerity="onOpenVerity"/>
        <ContactModal v-model="open"/>
     </div>
 </template>
@@ -94,6 +94,10 @@
     const price = computed(() => {
         return selected.value==1?leftNum.value*8:rightNum.value*16
     })
+    const emit = defineEmits(['onOpenVerity'])
+    const onOpenVerity = () => {
+        emit('onOpenVerity')
+    }
     const left = computed(()=> {
         return [
             {

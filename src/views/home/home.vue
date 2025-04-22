@@ -28,7 +28,7 @@
         <div class="w-full flex justify-center">
             <div class="w-[1486px] h-[1187px] pt-[230px]">
                 <div class="w-full flex justify-center">
-                    <span class="text-[#2967B2] text-[52px] font-bold sf_font text-center w-[1200px]">{{ $t('home.second.title')  }}</span>
+                    <span class="text-[#2967B2] text-[52px] font-bold sf_font text-center w-full">{{ $t('home.second.title')  }}</span>
                 </div>
                 <div class="w-full h-[496px] flex gap-[45px] mt-[81px]">
                     <div class="w-[752px] h-full flex gap-[39px] flex-col">
@@ -41,7 +41,7 @@
                             <span class="text-[#7A7A7A] text-[18px] inter_font">{{$t('home.second.content2') }}</span>
                         </div>
                         <div class="w-full h-[184px] bg-[#D4E1F0] pl-[32px] rounded-[14px] flex flex-col gap-[13px] pt-[20px]">
-                            <span class=" text-[26px] font-bold inter_font special_word ">{{$t('home.second.subtitle3') }}</span>
+                            <span class=" text-[26px] font-bold inter_font special_word">{{$t('home.second.subtitle3') }}</span>
                             <span class="text-[#000000] text-[24px] inter_font max-w-[540px] leading-[26px]">{{$t('home.second.content3') }}</span>
                         </div>
                     </div>
@@ -83,17 +83,17 @@
                 </div>
                 <div class="w-full h-[890px] flex justify-between">
                     <div class="w-[311px] flex flex-col gap-[80px] pt-[143px]">
-                        <img :src="third1" />
-                        <img :src="third2" />
-                        <img :src="third3" />
+                        <img :src="useSettingStore.language=='zh'?third11:third1" />
+                        <img :src="useSettingStore.language=='zh'?third12:third2" />
+                        <img :src="useSettingStore.language=='zh'?third13:third3" />
                     </div>
                     <div class="w-[890px] h-[890px]">
                         <img :src="globalImg" class="w-full h-full"/>
                     </div>
                     <div class="w-[278px] flex flex-col gap-[80px] pt-[182px]">
-                        <img :src="third4" />
-                        <img :src="third5" />
-                        <img :src="third6" />
+                        <img :src="useSettingStore.language=='zh'?third14:third4" />
+                        <img :src="useSettingStore.language=='zh'?third15:third5" />
+                        <img :src="useSettingStore.language=='zh'?third16:third6" />
                     </div>
                 </div>
             </div>
@@ -170,6 +170,13 @@
     import third4 from 'res@/home/third_14.svg'
     import third5 from 'res@/home/third_15.svg'
     import third6 from 'res@/home/third_16.svg'
+
+    import third11 from 'res@/home/third_21.svg'
+    import third12 from 'res@/home/third_22.svg'
+    import third13 from 'res@/home/third_23.svg'
+    import third14 from 'res@/home/third_24.svg'
+    import third15 from 'res@/home/third_25.svg'
+    import third16 from 'res@/home/third_26.svg'
     import wechat from 'res@/home/wechat.svg'
     import alipay from 'res@/home/alipay.svg'
     // import payImg from 'res@/home/pay.svg'
@@ -262,7 +269,7 @@
     const onDashboard = () => {
         userStore.setOpenVerify(true)
         router.push({
-            name:'dynamic'
+            name:'dashboard'
         })
     }
     const onPage = (name:string) => {
@@ -282,13 +289,17 @@
         // background-size: 100% 100%;
     }
     .special_word {
-        background: linear-gradient(90deg, #06FFC1 0%,  #0059FF 100%);
+        // background: linear-gradient(90deg, #06FFC1 0%,  #0059FF 100%);
+        background: linear-gradient(to right, #06FFC1 0%, #0059FF 30%);
         background-clip: text;
+        
         color: transparent;
         line-height: 26px;
+       
     }
     .special_word2 {
-        background: linear-gradient(0.9998647424432189deg, #06FFC1 0%, #0059FF 100%);
+        // background: linear-gradient(0.9998647424432189deg, #06FFC1 0%, #0059FF 100%);
+        background: linear-gradient(to right, #06FFC1 0%, #0059FF 20%);
         background-clip: text;
         color: transparent;
         line-height: 26px;

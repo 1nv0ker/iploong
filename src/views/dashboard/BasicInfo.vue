@@ -5,7 +5,7 @@
         </div>
         <div class="pt-[143px] w-full overflow-auto">
             <div class="w-full flex justify-center">
-                <img :src="avatarImg" class="w-[72px] h-[72px]" />
+                <div class="w-[100px] h-[100px] avatar_bg" ></div>
             </div>
             <div class="pt-[16px] w-full flex justify-center flex-col gap-[6px] items-center">
                 <span class="inter_font text-[16px] font-bold leading-[19px] text-[#202020]">{{setStore.userInfo?.email}}</span>
@@ -55,7 +55,7 @@
     import UsdtCharge from './UsdtCharge.vue';
     import useSetting from 'store@/user'
     import { ref, nextTick } from 'vue'
-    import avatarImg from 'res@/usercenter/setting/avatar.svg'
+    // import avatarImg from 'res@/usercenter/setting/avatar.svg'
     import boxImg from 'res@/usercenter/setting/img.png'
     const setStore = useSetting()
     const open = ref(false)
@@ -79,3 +79,13 @@
         setStore.logout()
     }
 </script>
+<style lang="less" scoped>
+    .avatar_bg {
+        background-image: url('res@/usercenter/setting/avatar.svg');
+        // background-position: ;
+        // background-size:cover;
+        background-size: 150%;
+        background-position: 50% 30%;
+        background-repeat: no-repeat;
+    }
+</style>

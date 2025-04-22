@@ -270,7 +270,7 @@
                 placeholder:t('usercenter.proxycity.placeholder'),
                 key:'type',
                 showButton:false,
-                disabled: autoSwitch.value,
+                // disabled: autoSwitch.value,
                 options: [
                     {
                         label:'hostname:port:username:password',

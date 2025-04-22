@@ -31,8 +31,8 @@ axios.interceptors.request.use(function (config) {
 // 添加响应拦截器
 axios.interceptors.response.use(function (response) {
     // 对响应数据做点什么
-    // console.log('error')
-    if (response.data.code && response.data.code !== 200) {
+    // console.log('extra', response.config.headers)
+    if (response.data.code && response.data.code !== 200 && !response.config.headers.extra) {
       message.error(response.data.message || response.data.body)
       // return Promise.reject(response.data.message)
       console.log('', response.data.message || response.data.body)

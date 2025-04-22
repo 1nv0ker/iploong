@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-        <PayComponent  :price="price" v-show="price>0" :type="2" :purchaseInfo="purchaseInfo" :promotion-code="promotionCode"/>
+        <PayComponent  :price="price" v-show="price>0" :type="2" :purchaseInfo="purchaseInfo" :promotion-code="promotionCode" @onOpenVerity="onOpenVerity"/>
     </div>
 </template>
 <script setup lang="ts">
@@ -138,6 +138,10 @@
     const price = computed(() => {
         return selected.value.length*6*(select_time.value/30)
     })
+    const emit = defineEmits(['onOpenVerity'])
+    const onOpenVerity = () => {
+        emit('onOpenVerity')
+    }
     const purchaseInfo = computed(():any[] => {
         return selected.value.map((item)=> ({
             ispLocation: item,
@@ -153,7 +157,7 @@
         },
         {
             name:'United Kingdom(英国)UK',
-            key:'uk'
+            key:'gb'
         },
         {
             name:'Germany(德国)DE',

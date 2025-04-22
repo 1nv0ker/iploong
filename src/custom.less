@@ -186,3 +186,24 @@
     }
         
 }
+
+.customADate {
+    height: 62px!important;
+    border-color: #E4E4E7;
+    border-radius: 12px;
+    .ant-picker-input {
+        &>input {
+            font-size: 17px!important;
+            line-height: 100%;
+            font-family:  Inter;
+            &::placeholder {
+                color: #777777; /* 改变文字颜色 */
+                font-size: 17px!important;
+                font-family:  Inter;
+            }
+        }
+    }
+    .ant-picker-separator {
+        height: auto!important;
+    }
+}

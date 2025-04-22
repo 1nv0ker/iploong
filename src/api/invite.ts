@@ -1,6 +1,6 @@
 import axios from 'axios'
 const BASE_MODULE = `/api/InviteHistory`
-const BASE_MODULE2 = `/api/WithdrawHistory`
+// const BASE_MODULE2 = `/api/WithdrawHistory`
 export function GetInviteRecord() {
     return axios.get(`${BASE_MODULE}/InvitationRecordAnalysis`)
 }
@@ -22,7 +22,7 @@ export interface WithdrawList {
 }
 
 export function GetList(params:WithdrawList) {
-    return axios.get(`${BASE_MODULE2}/PageList`, {
+    return axios.get(`${BASE_MODULE}/PageList`, {
         params: params
     })
 }

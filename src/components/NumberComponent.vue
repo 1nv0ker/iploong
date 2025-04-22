@@ -25,15 +25,21 @@
         mode: {
             type:String,
             default:'show'
+        },
+        intervalNum: {
+            type:Number,
+            default: 60
         }
     })
     let animatioId:any = null
+    let interval:any;
     const { number, step} = toRefs(props)
     let addStatus = true
     let stopStatus = false
     onMounted(() => {
         if (props.mode == 'loading') {
-            animate()
+            // animate()
+            numberAdd()
         } else {
             if (number.value>0) {
                 animate()
@@ -46,6 +52,28 @@
             stopStatus = true
         }
     })
+    const numberAdd = () => {
+        interval && clearInterval(interval)
+        interval = setInterval(() => {
+            if (stopStatus == true) {
+                count.value = props.number
+                interval && clearInterval(interval)
+            } else {
+                if (count.value>=1) {
+                
+                    addStatus = false
+                } 
+                if (count.value==0) {
+                    addStatus = true
+                }
+                if (addStatus) {
+                    count.value = Math.round(Number(count.value + step.value)*100)/100
+                } else {
+                    count.value = Math.round(Number(count.value - step.value)*100)/100
+                }
+            }
+        }, props.intervalNum)
+    }
     const animate = () => {
         if (props.mode == 'loading') {
             if (stopStatus == true) {

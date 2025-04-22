@@ -27,17 +27,17 @@
     import { useRouter } from 'vue-router'
     import dashboardImg from 'res@/usercenter/nav/dashboard.svg'
     import dashboardImg2 from 'res@/usercenter/nav/dashboard_unselect.svg'
-    import dyImg from 'res@/usercenter/nav/dy.svg'
+    import dyImg from 'res@/usercenter/nav/dy_s.svg'
     import dyImg2 from 'res@/usercenter/nav/dy.svg'
-    import staticImg from 'res@/usercenter/nav/static.svg'
+    import staticImg from 'res@/usercenter/nav/static_s.svg'
     import staticImg2 from 'res@/usercenter/nav/static.svg'
-    import historyImg from 'res@/usercenter/nav/order.svg'
+    import historyImg from 'res@/usercenter/nav/order_s.svg'
     import historyImg2 from 'res@/usercenter/nav/order.svg'
-    import helpImg from 'res@/usercenter/nav/help.svg'
+    import helpImg from 'res@/usercenter/nav/help_s.svg'
     import helpImg2 from 'res@/usercenter/nav/help.svg'
-    import apiImg from 'res@/usercenter/nav/api.svg'
+    import apiImg from 'res@/usercenter/nav/api_s.svg'
     import apiImg2 from 'res@/usercenter/nav/api.svg'
-    import promotionImg from 'res@/usercenter/nav/gift.svg'
+    import promotionImg from 'res@/usercenter/nav/gift_s.svg'
     import promotionImg2 from 'res@/usercenter/nav/gift.svg'
     import { useI18n } from 'vue-i18n';
 
@@ -47,8 +47,11 @@
     const selectedKeys = ref<any[]>([])
     const openKeys = ref<any[]>([])
     const getimg = (img:string, img2:string, key:any) => {
-        // console.log(openKeys.value)
+        // console.log(openKeys.value, selectedKeys.value, key)
         let res:number = openKeys.value.indexOf(key)
+        if (res == -1) {
+            res = selectedKeys.value.indexOf(key)
+        }
         // if (res == -1) {
         //     let res2 = children.some((item)=>selectedKeys.value.indexOf(item)!=-1)
         //     res = res2?1:-1
@@ -86,24 +89,24 @@
     const items = computed(() => {
         return [
             {
-                key: 'usercenter',
+                key: 'dashboard',
                 // icon: () => '',
                 label: t('usercenter.nav.menu1'),
                 title: t('usercenter.nav.menu1'),
-                icon: () => getimg(dashboardImg, dashboardImg2, 'usercenter'),
-                children:[
-                    {
-                        key: 'dynamic',
-                        label:t('usercenter.nav.menu1_subtitle1'),
-                        title: t('usercenter.nav.menu1_subtitle1'),
+                icon: () => getimg(dashboardImg, dashboardImg2, 'dashboard'),
+                // children:[
+                //     {
+                //         key: 'dynamic',
+                //         label:t('usercenter.nav.menu1_subtitle1'),
+                //         title: t('usercenter.nav.menu1_subtitle1'),
 
-                    },
-                    {
-                        key: 'static',
-                        label:t('usercenter.nav.menu1_subtitle2'),
-                        title: t('usercenter.nav.menu1_subtitle2')
-                    }
-                ]
+                //     },
+                //     {
+                //         key: 'static',
+                //         label:t('usercenter.nav.menu1_subtitle2'),
+                //         title: t('usercenter.nav.menu1_subtitle2')
+                //     }
+                // ]
             },
             {
                 key: 'dynamic',

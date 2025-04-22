@@ -3,7 +3,7 @@
         <img :src="logo" />
         <div class="flex gap-[54px] justify-between">
             <div v-for="item in items">
-                <span :class="`${selected==item.name?'nav_choosed':'nav_normal'} cursor-pointer Mulish_font`" @click="onPage(item.name)">{{item.title}}</span>
+                <span :class="`${selected==item.name?'nav_choosed':'nav_normal'} text-[29px] cursor-pointer Mulish_font`" @click="onPage(item.name)">{{item.title}}</span>
             </div>
         </div>
         <div class="flex gap-[26px] justify-between items-center">
@@ -80,7 +80,8 @@
 </script>
 <style lang="less" scoped>
     .nav_choosed {
-        background: linear-gradient(0deg, #9FFFF4 0%, #03B8FF 100%);
+        // background: linear-gradient(0deg, #9FFFF4 0%, #03B8FF 100%);
+        background: linear-gradient(to right, #9FFFF4 0%, #03B8FF 100%);
         background-clip: text;
         color: transparent;
     }

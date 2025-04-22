@@ -134,7 +134,7 @@
                 
                 userSotre.setToken(res.body.token)
                 userSotre.setUserInfo()
-                const redirectPath:any = router.currentRoute.value.query.redirect || 'usercenter/dynamic'
+                const redirectPath:any = router.currentRoute.value.query.redirect || 'usercenter/dashboard'
                 message.success({
                     content:t('message.login'),
                     duration: 2,

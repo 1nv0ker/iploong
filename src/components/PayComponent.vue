@@ -127,12 +127,16 @@
             default:[]
         }
     })
-    const emit = defineEmits(['onConfirm'])
+    const emit = defineEmits(['onConfirm', 'onOpenVerity'])
     const open = ref(false)
     
     // const userStore = useUserStore()
 
     const onPay = () => {
+        if (!userStore.userInfo?.isVerify) {
+            emitVerify()
+            return
+        }
         open.value = true
     }
     const onCancel = () => {
@@ -141,11 +145,15 @@
         }
         open.value = false
     }
+    const emitVerify = () => {
+        emit('onOpenVerity')
+    }
     const onConfirm = () => {
         // if ((userStore.userInfo?.accountBalance || 0) >= (props.price||0)) {
         //     open.value = false
         //     return
         // }
+        
         loading.value = true
         if (props.type==1) {
             
@@ -178,6 +186,10 @@
        
     }
     const onOpenAilpay = () => {
+        if (!userStore.userInfo?.isVerify) {
+            emitVerify()
+            return
+        }
         payRef.url = ''
         payRef.price = ''
         payRef.orderName = ''
@@ -216,6 +228,10 @@
         }
     }
     const onOpenWechat = () => {
+        if (!userStore.userInfo?.isVerify) {
+            emitVerify()
+            return
+        }
         payRef.url = ''
         payRef.price = ''
         payRef.orderName = ''

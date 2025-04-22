@@ -12,7 +12,10 @@ export const zh = {
         pay2:'微信支付',
         pay3:'已支付',
         pay4:'未支付',
-        button1:'已完成付款'
+        button1:'已完成付款',
+        realauth:'认证成功',
+        location:'独享',
+        location2:'共享'
     },
     pagination: {
         total:'共',
@@ -222,7 +225,7 @@ export const zh = {
             title:'修改密码',
             recharge: {
                 title:'USDT充值',
-                tip:'USDT交易需要确认时间，i请转账后等待10-20分钟后提交单号充值',
+                tip:'USDT交易需要确认时间，请转账后等待10-20分钟后提交单号充值',
                 form1:'充值类型',
                 content1:'TRC20',
                 form2:'付款地址',
@@ -266,6 +269,11 @@ export const zh = {
             column4:'原始IP(Socks5)',
             column5:'原始IP(http)',
             column6:'中转代理(Socks5)',
+            message1:'类型',
+            message2:'地区',
+            message3:'开始日期',
+            message4:'结束日期',
+            button1:'搜索'
         },
         proxycity: {
             form1:'池类型',
@@ -469,7 +477,7 @@ export const zh = {
             tip5:'如您注册时使用了您名下其他账号的邀请链接，我们有权将邀请账号与',
             tip6:'邀请用户给您带来的返利记录',
             column1:'订单ID',
-            column2:'被遨ID',
+            column2:'被邀邮箱',
             column3:'获得返利',
             column4:'获得时间',
             tip7:'确认提现',
@@ -496,7 +504,10 @@ export const en = {
         pay2:'WeChat pay',
         pay3:'Paid',
         pay4:'Not paid',
-        button1:'Payment completed'
+        button1:'Payment completed',
+        realauth:'Authentication successful',
+        location:'Exclusive',
+        location2:'Shared',
     },
     message: {
         register: 'Registration successful, you will be redirected',
@@ -745,6 +756,11 @@ export const en = {
             column4:'Original IP(Socks5)',
             column5:'Original IP(http)',
             column6:'Transit proxy(Socks5)',
+            message1:'Type',
+            message2:'Area',
+            message3:'Start date',
+            message4:'End Date',
+            button1:'Search'
         },
         proxycity: {
             form1:'Pool type',
@@ -952,7 +968,7 @@ export const en = {
             tip5:'If you use an invitation link from another account under your name when registering, we have the right to',
             tip6:'The rebate record brought to you by inviting users',
             column1:'Order ID',
-            column2:'Invited ID',
+            column2:'Invited Email',
             column3:'Get rebates',
             column4:'Get time',
             tip7:'Confirm withdrawal',

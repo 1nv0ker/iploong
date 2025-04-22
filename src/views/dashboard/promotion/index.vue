@@ -63,7 +63,7 @@
             </div>
             <div class=" w-full promotion_table pl-[32px] pr-[32px] bg-[white] mt-[20px] min-h-[700px]">
                 <div class="w-full pb-[12px] ">
-                    <a-table :columns="columns" :data-source="tableParams.tableDatas"  :pagination="false" :loading="tableParams.loading" :scroll="{x:1000}">
+                    <a-table :columns="columns" :data-source="tableParams.tableDatas"  :pagination="false" :loading="tableParams.loading" :scroll="{x:600}">
                         <template v-slot:headerCell="{title}">
                             <span class="text-[#718EBF] text-[19px] font-medium inter_font">{{title}}</span>
                         </template>
@@ -109,16 +109,16 @@
         return  [
         {
                 title: t('usercenter.promotion.column1'),
-                dataIndex: 'id',
-                key: 'id',
+                dataIndex: 'orderId',
+                key: 'orderId',
                 align:'center',
                 ellipsis: true,
-                width:'200px'
+                width:'100px'
             },
             {
                 title: t('usercenter.promotion.column2'),
-                dataIndex: 'orderName',
-                key: 'orderName',
+                dataIndex: 'invitedId',
+                key: 'invitedId',
                 align:'center',
                 ellipsis: true,
                 width:'200px'
@@ -137,7 +137,7 @@
                 key: 'sysCreateTime',
                 align:'center',
                 ellipsis: true,
-                width:'100px'
+                width:'200px'
             }
         ];
     })
@@ -185,7 +185,10 @@
         })
         .then((res:any) => {
             tableParams.loading = false
-            tableParams.tableDatas = res.body.records
+            tableParams.tableDatas = res.body.records.map((item:any)=>({
+                ...item,
+                invitedId:item.userInfo.email
+            }))
             params.total = res.body.totalRows
         })
         .catch(() => {

@@ -195,7 +195,7 @@
                     onClose: ()=> {
                         userSotre.setOpenVerify(true)
                         loginValue.loading = false
-                        router.push({name:'proxycity'})
+                        router.push({name:'dashboard'})
                     }
                 })
             })

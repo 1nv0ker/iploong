@@ -62,21 +62,21 @@ export const routes = [
 
     { path: '/', component: ()=>import(`views@/dashboard/index.vue`),
       meta: { requiresAuth: true } ,
-      redirect: '/usercenter/dynamic',
+      redirect: '/usercenter/dashboard',
       children:[
         {
-          path:'usercenter/dynamic',
-          name:'dynamic',
-          meta: {
-            parent: 'usercenter'
-          },
+          path:'usercenter/dashboard',
+          name:'dashboard',
+          // meta: {
+          //   parent: 'usercenter'
+          // },
           component: ()=>import('views@/dashboard/dynamic/index.vue')
         },
         {
-          path:'usercenter/static',
-          name:'static',
+          path:'usercenter/purchasedetail',
+          name:'purchasedetail',
           meta: {
-            parent: 'usercenter'
+            parent: 'static'
           },
           component: ()=>import('views@/dashboard/static/index.vue')
         },

@@ -39,7 +39,7 @@
                 </a-row>
             </a-form>
             <div class="w-full flex flex-col gap-[8px] ">
-                <a-button class="w-[481px] h-[58px!important] rounded-[10px!important] bg-[#2967B2!important]" @click="onConfirm">
+                <a-button class="w-[481px] h-[58px!important] rounded-[10px!important] bg-[#2967B2!important]" @click="onConfirm" :loading="loginValue.loading">
                     <span class="text-[#FCFCFD] text-[21px] poppins_font font-semibold">{{ $t('common.yes') }}</span>
                 </a-button>
             </div>

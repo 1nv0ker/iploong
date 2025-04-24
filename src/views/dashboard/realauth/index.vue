@@ -80,7 +80,7 @@
                 </div>
                 <div class="w-full flex gap-[70px] flex-col pt-[80px] items-center">
                     <div class="w-[218px] h-[218px] border-1 border-[#d7d7d7]">
-
+                        <img  src="res@/usercenter/realauth/complated.svg" />
                     </div>
                     <a-button class="w-[250px!important] h-[40px!important] bg-[#2967B2!important] rounded-[7px!important]" @click="router.push({name:'proxycity'})">
                         <span class="text-[#FCFCFD] text-[15px] font-semibold poppins_font">{{$t('usercenter.realauth.personal.button4')}}</span>

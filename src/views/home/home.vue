@@ -30,9 +30,9 @@
                 <div class="w-full flex justify-center">
                     <span class="text-[#2967B2] text-[52px] font-bold sf_font text-center w-full">{{ $t('home.second.title')  }}</span>
                 </div>
-                <div class="w-full h-[496px] flex gap-[45px] mt-[81px]">
-                    <div class="w-[752px] h-full flex gap-[39px] flex-col">
-                        <div class="w-full h-[117px] bg-[rgba(0,0,0,0.06)] pl-[32px] rounded-[14px] flex flex-col gap-[13px] justify-center">
+                <div class="w-full h-[660px] flex gap-[45px] mt-[81px]">
+                    <div class="w-[752px] h-full flex gap-[12px] flex-col">
+                        <!-- <div class="w-full h-[117px] bg-[rgba(0,0,0,0.06)] pl-[32px] rounded-[14px] flex flex-col gap-[13px] justify-center">
                             <span class="text-[#000000] text-[26px] font-bold inter_font">{{$t('home.second.subtitle1') }}</span>
                             <span class="text-[#7A7A7A] text-[18px] inter_font">{{$t('home.second.content1') }}</span>
                         </div>
@@ -43,9 +43,18 @@
                         <div class="w-full h-[184px] bg-[#D4E1F0] pl-[32px] rounded-[14px] flex flex-col gap-[13px] pt-[20px]">
                             <span class=" text-[26px] font-bold inter_font special_word">{{$t('home.second.subtitle3') }}</span>
                             <span class="text-[#000000] text-[24px] inter_font max-w-[540px] leading-[26px]">{{$t('home.second.content3') }}</span>
+                        </div> -->
+                        <div v-for="item in secondItems" class="rounded-[14px] w-full h-[100px] flex flex-col gap-[8px] justify-center pl-[30px] pr-[12px]" 
+                        :style="`${selected==item.key?'background: linear-gradient( 91deg, #57A1FC 0%, #46B2FF 100%);':'background: rgba(0,0,0,0.04);'}`" @mouseenter="onMouseEnter(item.key)" @mouseleave="onMouseLeave(item.key)">
+                            <span :class="`${selected==item.key?'text-[#2967B2] text-[26px]':'text-[#4E4B4B] text-[22px]'} inter_font font-bold`">{{ item.title }}</span>
+                            <span :class="`${selected==item.key?'text-[#000000]':'text-[#7A7A7A]'} max-w-full bitip_text inter_font text-[18px]`" :title="item.content">{{ item.content }}</span>
                         </div>
                     </div>
-                    <div class="w-[689px] h-full bg-[rgba(41,103,178,0.2)] rounded-[14px] relative ">
+                    <div class="w-[689px] h-[660px]">
+                        
+                        <img :src="item" v-for="(item, index) in secondImgs" :class="`w-full h-full animate__fadeIn animate__animated ${selected==index?'':'hidden'}`" />
+                    </div>
+                    <!-- <div class="w-[689px] h-full bg-[rgba(41,103,178,0.2)] rounded-[14px] relative ">
                         <div class="w-full pl-[50px] pt-[65px] flex flex-col gap-[22px]">
                             <span class=" text-[26px] font-bold inter_font special_word2 ">{{$t('home.second.subtitle3') }}</span>
                             <span class="text-[#7A7A7A] text-[20px] inter_font max-w-[540px] leading-[26px]">{{$t('home.second.content3') }}</span>
@@ -71,7 +80,7 @@
                             </div>
                         </div>
                         <img class=" absolute bottom-0 right-0" :src="secondImg" />
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -161,9 +170,15 @@
 <script setup lang="ts">
     import dashboardImg from 'res@/home/dashboard.svg'
     import dashboardZh from 'res@/home/dashboard_zh.svg'
-    import secondImg from 'res@/home/second.svg'
-    import gouImg from 'res@/home/gou.svg'
-    import globalImg from 'res@/home/global.svg'
+    // import secondImg from 'res@/home/second.svg'
+    // import gouImg from 'res@/home/gou.svg'
+    import globalImg from 'res@/home/global.svg?inline'
+    import second1 from 'res@/home/second_1.svg?inline'
+    import second2 from 'res@/home/second_2.svg?inline'
+    import second3 from 'res@/home/second_3.svg?inline'
+    import second4 from 'res@/home/second_4.svg?inline'
+    import second5 from 'res@/home/second_5.svg?inline'
+    import second6 from 'res@/home/second_6.svg?inline'
     import third1 from 'res@/home/third_11.svg'
     import third2 from 'res@/home/third_12.svg'
     import third3 from 'res@/home/third_13.svg'
@@ -189,10 +204,26 @@
     const userStore = useUserStore()
     const useSettingStore = settingStore()
     import { useRouter } from 'vue-router'
-    import { computed } from 'vue'
+    import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
     import { useI18n } from 'vue-i18n';
     const { t } = useI18n();
     const router = useRouter()
+    let interval:any;
+    onMounted(() => {
+        secondInterval()
+    })
+    onBeforeUnmount(()=> {
+        interval && clearInterval(interval)
+    })
+    const secondInterval = () => {
+        interval && clearInterval(interval)
+        interval = setInterval(() => {
+            selected.value = selected.value + 1
+            if (selected.value >= 6) {
+                selected.value = 0
+            }
+        }, 3000);
+    }
     const firstItems = computed(() => {
         return [
             {
@@ -212,6 +243,42 @@
                 detail1:t('home.first.subtitle3_detail1'),
                 detail2:t('home.first.subtitle3_detail2'),
                 detail3:t('home.first.subtitle3_detail3')
+            }
+        ]
+    })
+    const secondImgs = ref([second1, second2, second3,second4,second5, second6])
+    const selected = ref(0)
+    const secondItems = computed(() => {
+        return [
+            {
+                title:t('home.secondNew.subtitle1'),
+                content:t('home.secondNew.content1'),
+                key: 0
+            },
+            {
+                title:t('home.secondNew.subtitle2'),
+                content:t('home.secondNew.content2'),
+                key: 1
+            },
+            {
+                title:t('home.secondNew.subtitle3'),
+                content:t('home.secondNew.content3'),
+                key: 2
+            },
+            {
+                title:t('home.secondNew.subtitle4'),
+                content:t('home.secondNew.content4'),
+                key: 3
+            },
+            {
+                title:t('home.secondNew.subtitle5'),
+                content:t('home.secondNew.content5'),
+                key: 4
+            },
+            {
+                title:t('home.secondNew.subtitle6'),
+                content:t('home.secondNew.content6'),
+                key: 5
             }
         ]
     })
@@ -266,6 +333,14 @@
             }
         ]
     })
+    const onMouseEnter = (key:number) => {
+        selected.value = key
+        interval && clearInterval(interval)
+    }
+    const onMouseLeave = (key:number) => {
+        selected.value = key
+        secondInterval()
+    }
     const onDashboard = () => {
         userStore.setOpenVerify(true)
         router.push({

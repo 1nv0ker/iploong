@@ -144,6 +144,21 @@ export const zh = {
             item2:'国家/地区和 ASN 筛选',
             item3:'自适应解析器'
         },
+        secondNew: {
+            title: '为您的企业提供可靠的数据采集解决方案',
+            subtitle1:'市场调查',
+            content1:'高质量动态代理，更好的获取您的目标受众兴趣、爱好及痛点等有价值的情报',
+            subtitle2:'SEO优化',
+            content2:'发现您所在行业头部品牌的关键词策略，在您自己的网站实现效仿并超越',
+            subtitle3:'广告验证',
+            content3:'验证并始终确保您的付费广告展示给了正确的标受众，有效预防广告过损及欺骗行为',
+            subtitle4:'网站测试',
+            content4:'轻松找到您网站的漏洞及安全性上的不足，确保您的网站在全球范围内最优秀的用户体验',
+            subtitle5:'运动鞋抢购',
+            content5:'当您需要购买多双首发运动鞋时，动态住宅代理可以有效避免您被零售商拒之门外',
+            subtitle6:'网页数据抓取',
+            content6:'从任意网站中提取有价值且准确的数据进行分析，让您时刻保持市场竞争力'
+        },
         third: {
            title: '服务全球超过200多个国家',
         },
@@ -630,6 +645,21 @@ export const en = {
             item1:'100% delivery',
             item2:'Country/region and ASN filtering',
             item3:'Adaptive parser'
+        },
+        secondNew: {
+            title: 'Provide reliable data collection solutions for your business',
+            subtitle1:'Market Research',
+            content1:`High-quality dynamic agents to better obtain valuable information about your target audience's interests, hobbies, pain points, etc.`,
+            subtitle2:'SEO Optimization',
+            content2:'Discover the keyword strategies of the top brands in your industry and emulate and surpass them on your own website',
+            subtitle3:'Ad Verification',
+            content3:'Verify and always ensure that your paid ads are displayed to the correct target audience, effectively preventing advertising over-damage and fraudulent behavior',
+            subtitle4:'Website Testing',
+            content4:'Easily find vulnerabilities and security deficiencies on your website to ensure your website provides the best user experience worldwide',
+            subtitle5:'Sports Shoes Snap Up',
+            content5:'Dynamic residential proxies can help prevent you from being shut out of retailers when you need to buy multiple pairs of first-run sneakers',
+            subtitle6:'Web data scraping',
+            content6:'Extract valuable and accurate data from any website for analysis, allowing you to always stay competitive in the market'
         },
         third: {
             title: 'Serving more than 200 countries around the world',

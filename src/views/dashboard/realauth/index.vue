@@ -3,8 +3,8 @@
         <div class="w-full h-[48px] flex gap-[12px]">
             <div :class="`w-[153px] h-full flex items-center justify-center gap-[10px] cursor-pointer rounded-[4px] ${selected==item.key?' bg-[#2967B2] text-[white]':'bg-[#E6ECF3] text-[#444444]'}`"
              v-for="item in items" @click="selected=item.key">
-                <div class="w-[24px] h-[24px] border-1 border-[#d7d7d7]">
-
+                <div class="w-[24px] h-[24px] ">
+                    <img  src="res@/usercenter/realauth/1.svg" class="w-full h-full" />
                 </div>
                 <span class="text-[16px] font-semibold roboto_font max-w-[64px] bitip_text" :title="item.title">{{ item.title }}</span>
             </div>
@@ -17,9 +17,9 @@
             </div>
             <!-- 第一步 -->
             <div class="w-full" v-show="stepValue==0">
-                <div class="pt-[32px] w-full flex gap-[14px] pb-[32px]">
-                    <div class="w-[32px] h-[32px] border-1 border-[#d7d7d7]">
-
+                <div class="pt-[32px] w-full flex gap-[14px] pb-[32px] items-center">
+                    <div class="w-[32px] h-[32px] flex items-center justify-center">
+                        <img  src="res@/usercenter/realauth/2.svg" class="w-full h-full" />
                     </div>
                     <span class="text-[#000000] text-[20px] font-semibold roboto_font">{{$t('usercenter.realauth.personal.subtitle1')}}</span>
                 </div>
@@ -49,8 +49,8 @@
             <!-- 第二步 -->
             <div class="w-full" v-show="stepValue==1">
                 <div class="pt-[32px] w-full flex gap-[14px] pb-[32px]">
-                    <div class="w-[32px] h-[32px] border-1 border-[#d7d7d7]">
-
+                    <div class="w-[32px] h-[32px]">
+                        <img  src="res@/usercenter/realauth/2.svg" class="w-full h-full" />
                     </div>
                     <span class="text-[#000000] text-[20px] font-semibold roboto_font">{{$t('usercenter.realauth.personal.subtitle2')}}</span>
                 </div>
@@ -73,13 +73,13 @@
             <!-- 第三步 -->
             <div class="w-full" v-show="stepValue==2">
                 <div class="pt-[32px] w-full flex gap-[14px] pb-[32px]">
-                    <div class="w-[32px] h-[32px] border-1 border-[#d7d7d7]">
-
+                    <div class="w-[32px] h-[32px]">
+                        <img  src="res@/usercenter/realauth/2.svg" class="w-full h-full" />
                     </div>
                     <span class="text-[#000000] text-[20px] font-semibold roboto_font">{{$t('usercenter.realauth.personal.subtitle3')}}</span>
                 </div>
                 <div class="w-full flex gap-[70px] flex-col pt-[80px] items-center">
-                    <div class="w-[218px] h-[218px] border-1 border-[#d7d7d7]">
+                    <div class="w-[218px] h-[218px]">
                         <img  src="res@/usercenter/realauth/complated.svg" />
                     </div>
                     <a-button class="w-[250px!important] h-[40px!important] bg-[#2967B2!important] rounded-[7px!important]" @click="router.push({name:'proxycity'})">
@@ -90,8 +90,8 @@
         </div>
         <div class="mt-[24px] h-[210px] bg-[white] p-[24px]">
             <div class="w-full flex gap-[8px] items-center">
-                <div class="w-[36px] h-[36px] border-1 border-[#d7d7d7]">
-
+                <div class="w-[36px] h-[36px]">
+                    <img  src="res@/usercenter/realauth/3.svg" class="w-full h-full" />
                 </div>
                 <span class="text-[#444444] text-[20px] font-semibold roboto_font">{{$t('usercenter.realauth.tiptitle')}}</span>
             </div>

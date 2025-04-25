@@ -96,8 +96,8 @@
                         <img :src="useSettingStore.language=='zh'?third12:third2" />
                         <img :src="useSettingStore.language=='zh'?third13:third3" />
                     </div>
-                    <div class="w-[890px] h-[890px]">
-                        <img :src="globalImg" class="w-full h-full"/>
+                    <div class="w-[890px] h-[890px] flex items-center justify-center">
+                        <img :src="globalImg" class="w-[662px] h-[675px]"/>
                     </div>
                     <div class="w-[278px] flex flex-col gap-[80px] pt-[182px]">
                         <img :src="useSettingStore.language=='zh'?third14:third4" />
@@ -172,7 +172,7 @@
     import dashboardZh from 'res@/home/dashboard_zh.svg'
     // import secondImg from 'res@/home/second.svg'
     // import gouImg from 'res@/home/gou.svg'
-    import globalImg from 'res@/home/global.svg?inline'
+    import globalImg from 'res@/home/earth.svg?inline'
     import second1 from 'res@/home/second_1.svg?inline'
     import second2 from 'res@/home/second_2.svg?inline'
     import second3 from 'res@/home/second_3.svg?inline'

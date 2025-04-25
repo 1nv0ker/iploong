@@ -23,7 +23,7 @@
                 <div class="w-[270px] h-[50px] rounded-[8px] bg-[white] flex justify-between pl-[8px] pr-[8px] items-center">
                     <span>{{$t('usercenter.userinfo.content')}}</span>
                     <div class="flex gap-[5px] items-center">
-                        <span class="text-[#000000] text-[24px] font-bold poppins_font leading-[28px]">{{setStore.userInfo?.accountBalance}}
+                        <span class="text-[#000000] text-[24px] font-bold poppins_font leading-[28px]">{{setStore.userInfo?.usdtBalance}}
                         </span>
                         <span class=" text-[#666666] font-normal text-[14px] poppins_font leading-[16px]">USDT</span>
                     </div>

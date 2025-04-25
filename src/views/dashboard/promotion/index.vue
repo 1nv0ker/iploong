@@ -31,7 +31,7 @@
                     <a-tooltip placement="top" :title="$t('common.copy')" trigger="click" :open="open">
                         <div class="w-[180px] pl-[24px]  h-[52px] rounded-[8px] bg-[#2967B2] flex items-center justify-start gap-[12px] cursor-pointer" @click="onCpoyInvitecode(userStore.userInfo?.inviteCode, (val:boolean)=>open=val)">
                             <img :src="copy" class="w-[18px] h-[18px] bg-[white] " />
-                            <span class="text-[white] bitip_text text-[18px] poppins_font font-semibold max-w-[105px]" :title="$t('usercenter.promotion.button2')">{{$t('usercenter.promotion.button2')}}</span>
+                            <span class="text-[white] bitip_text text-[18px] poppins_font font-semibold max-w-[150px]" :title="$t('usercenter.promotion.button2')">{{$t('usercenter.promotion.button2')}}</span>
                         </div>
                     </a-tooltip>
                     <div class="w-[306px] h-[52px] rounded-[12px] bg-[white] border-1 border-[#2967B2] flex items-center pl-[20px]">
@@ -42,7 +42,7 @@
                     <a-tooltip placement="top" :title="$t('common.copy')" trigger="click" :open="open2">
                         <div class="w-[180px] pl-[24px]  h-[52px] rounded-[8px] bg-[#2967B2] flex items-center justify-start gap-[12px] cursor-pointer" @click="onCpoyInvitecode(`https://www.iploong.com/register?inviteCode=${userStore.userInfo?.inviteCode}`, (val:boolean)=>open2=val)">
                             <img :src="copy" class="w-[18px] h-[18px] bg-[white] " />
-                            <span class="text-[white] bitip_text text-[18px] poppins_font font-semibold max-w-[105px]" :title="$t('usercenter.promotion.button3')">{{$t('usercenter.promotion.button3')}}</span>
+                            <span class="text-[white] bitip_text text-[18px] poppins_font font-semibold max-w-[150px]" :title="$t('usercenter.promotion.button3')">{{$t('usercenter.promotion.button3')}}</span>
                         </div>
                     </a-tooltip>
                     <div class="w-[306px] h-[52px] rounded-[12px] bg-[white] border-1 border-[#2967B2] flex items-center pl-[20px]">
@@ -80,6 +80,7 @@
                 </div>
             </div>
         </div>
+        <ContactModal v-model="open3"/>
     </div>
 </template>
 <script setup lang="ts">
@@ -89,12 +90,14 @@
     import { GetInviteRecord,withdraw, GetList } from 'api@/invite'
     import { ref, reactive, onMounted, computed } from 'vue'
     import { useI18n } from 'vue-i18n';
-    import { Modal } from 'ant-design-vue'
+    import { message, Modal } from 'ant-design-vue'
+    import ContactModal from '../purchasetraffic/ContactModal.vue'
     const { t } = useI18n();
     const promotionNum = ref(0)
     const userStore = useStore()
     const open = ref(false)
     const open2 = ref(false)
+    const open3 = ref(false)
     const params = reactive({
         total: 0,
         pageSize: 10,
@@ -196,10 +199,16 @@
         })
     }
     const onOpenModal = (num:number, str:string) =>{
+        if (promotionNum.value>=20) {
+            message.info(t('common.tip'))
+            open3.value = true
+            return
+        }
         Modal.info({
             title: str,
             centered: true,
             onOk: () => {
+                
                 withdraw({
                     withdrawWay:num
                 })

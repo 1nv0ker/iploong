@@ -15,7 +15,8 @@ export const zh = {
         button1:'已完成付款',
         realauth:'认证成功',
         location:'独享',
-        location2:'共享'
+        location2:'共享',
+        tip:'满20U请联系客服提现'
     },
     pagination: {
         total:'共',
@@ -523,6 +524,7 @@ export const en = {
         realauth:'Authentication successful',
         location:'Exclusive',
         location2:'Shared',
+        tip:'Please contact customer service to withdraw cash when you reach 20U'
     },
     message: {
         register: 'Registration successful, you will be redirected',
@@ -993,8 +995,8 @@ export const en = {
             tip2:'All transferred to USDT balance',
             tip3:'When you invite friends to register',
             tip4:`You will receive a 10% rebate on each top-up amount, which can be used to withdraw cash or purchase products directly.`,
-            button2:'Copy invitation code',
-            button3:'Copy invitation link',
+            button2:'Copy code',
+            button3:'Copy link',
             tip5:'If you use an invitation link from another account under your name when registering, we have the right to',
             tip6:'The rebate record brought to you by inviting users',
             column1:'Order ID',

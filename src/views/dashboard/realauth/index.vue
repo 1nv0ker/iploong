@@ -248,6 +248,7 @@ import { message } from 'ant-design-vue';
                     .then((res:any) => {
                         if (res.code == 200) {
                             interval && clearInterval(interval)
+                            userStore.setUserInfo()
                             message.success(t('common.realauth'))
                             stepValue.value = 2
                         }

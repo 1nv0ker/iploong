@@ -43,7 +43,7 @@
                 <span class="pt-[5px] text-[18px] text-[#000000] sf_font max-w-[90px] bitip_text" :title="$t('usercenter.verifymodal.subtitl45')">{{$t('usercenter.verifymodal.subtitl45')}}</span>
                 <div class="flex gap-[15px]">
                     <div class="flex flex-col gap-[16px] items-center">
-                        <img class="w-[30px] h-[25px]"/>
+                        <img class="w-[34px] h-[34px]" src="res@/usercenter/realauth/4.png" />
                         <span class="text-[18px] text-[#666666] sf_font max-w-[72px] bitip_text" :title="$t('usercenter.verifymodal.step1')">{{$t('usercenter.verifymodal.step1')}}</span>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                 </div>
                 <div class="flex gap-[15px]">
                     <div class="flex flex-col gap-[16px] items-center">
-                        <img class="w-[30px] h-[25px]"/>
+                        <img class="w-[34px] h-[34px]" src="res@/usercenter/realauth/5.png" />
                         <span class="text-[18px] text-[#666666] sf_font max-w-[80px] bitip_text" :title="$t('usercenter.verifymodal.step2')">{{$t('usercenter.verifymodal.step2')}}</span>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                 </div>
                 <div class="flex gap-[15px]">
                     <div class="flex flex-col gap-[16px] items-center">
-                        <img class="w-[30px] h-[25px]"/>
+                        <img class="w-[34px] h-[34px]" src="res@/usercenter/realauth/6.png" />
                         <span class="text-[18px] text-[#666666] sf_font max-w-[80px] bitip_text" :title="$t('usercenter.verifymodal.step3')">{{$t('usercenter.verifymodal.step3')}}</span>
                     </div>
                 </div>

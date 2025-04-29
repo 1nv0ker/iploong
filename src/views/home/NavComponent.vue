@@ -3,7 +3,7 @@
         <img :src="logo" class=" absolute left-48" />
         <div class="flex gap-[54px] justify-between">
             <div v-for="item in items">
-                <span :class="`${selected==item.name?'nav_choosed':'nav_normal'} text-[29px] cursor-pointer Mulish_font`" @click="onPage(item.name)">{{item.title}}</span>
+                <a @click="onPage(item.page)" :class="`${hash==`#${item.page}`?'nav_choosed':'nav_normal'} text-[29px] cursor-pointer Mulish_font`" :href="`#${item.page}`">{{item.title}}</a>
             </div>
         </div>
         <div class="flex gap-[26px] justify-between items-center absolute right-65">
@@ -37,6 +37,7 @@
     const router = useRouter()
     const selected = ref('')
     const route = useRoute()
+    const hash = ref('')
     const onLogin = () => {
         router.push({
             name:'login'
@@ -44,6 +45,7 @@
     }
     onMounted(() => {
         selected.value = route.name as string
+        hash.value = route.hash || '#home'
     })
     const onRegister = () => {
         router.push({
@@ -57,23 +59,24 @@
         })
     }
     const onPage = (name:string) => {
-        router.push({
-            name:name
-        })
+        hash.value = '#'+name
     }
     const items = computed(() => {
         return [
             {
                 title: t('nav.item1'),
-                name: 'home'
+                name: 'home',
+                page:'home'
             },
             {
                 title: t('nav.item2'),
-                name: 'services'
+                name: 'services',
+                page:'third'
             },
             {
                 title: t('nav.item3'),
-                name: 'pricing'
+                name: 'pricing',
+                page:'fouth'
             }
         ]
     })

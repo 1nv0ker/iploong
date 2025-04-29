@@ -1,7 +1,7 @@
 <template>
     <div class="w-full">
         <!-- 第一块区域 -->
-        <div class="home_bg h-[864px] w-full">
+        <div class="home_bg h-[864px] w-full" id="home">
             <div class="flex flex-col gap-[12px] pt-[64px] w-full items-center Montserrat">
                 <span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title')}}</span>
                 <span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title2')}}</span>
@@ -85,7 +85,7 @@
             </div>
         </div>
         <!-- 第三区域 -->
-        <div class="w-full flex justify-center ">
+        <div class="w-full flex justify-center " id="third">
             <div class="w-[1486px] h-[1000px]">
                 <div class="w-full flex justify-center h-[108px]">
                     <span class="text-[#2967B2] text-[52px] sf_font font-bold text-center max-w-[1200px]">{{$t('home.third.title')}}</span>
@@ -108,7 +108,7 @@
             </div>
         </div>
         <!-- 第四区域 -->
-        <div class="w-full flex justify-center pt-[152px]">
+        <div class="w-full flex justify-center pt-[152px]" id="fouth">
             <div class="w-[1512px]">
                 <div class="w-full flex justify-between gap-[18px]">
                     <div class="w-[739px] h-[432px] rounded-[12px] card_bg pt-[43px] pl-[35px]" v-for="item in fourthItems">

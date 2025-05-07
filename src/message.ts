@@ -359,13 +359,14 @@ export const zh = {
         },
         pay: {
             title:'总金额',
-            button1:'USDT余额',
+            button1:'USDT余额支付',
             button2:'其它支付方式',
             pay1:'支付宝',
             pay2:'微信',
             button3:'确认支付',
             button4:'余额不足',
-            button5:'取消'
+            button5:'取消',
+            button6:'USDT余额不足'
         },
         purchaseproxy: {
             title:'购买代理',
@@ -865,13 +866,14 @@ export const en = {
         },
         pay: {
             title:'Total amount',
-            button1:'USDT balance',
+            button1:'USDT balance payment',
             button2:'Other payment',
             pay1:'Alipay',
             pay2:'WeChat',
             button3:'Confirm payment',
             button4:'Insufficient balance',
-            button5:'Cancle'
+            button5:'Cancle',
+            button6:'Insufficient USDT balance'
         },
         purchaseproxy: {
             title:'Purchase roxy',

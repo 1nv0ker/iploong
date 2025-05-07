@@ -24,6 +24,7 @@ declare module 'vue' {
     ARow: typeof import('ant-design-vue/es')['Row']
     ASelect: typeof import('ant-design-vue/es')['Select']
     ASelectOption: typeof import('ant-design-vue/es')['SelectOption']
+    ASwitch: typeof import('ant-design-vue/es')['Switch']
     ATable: typeof import('ant-design-vue/es')['Table']
     ATooltip: typeof import('ant-design-vue/es')['Tooltip']
     EmptyComponent: typeof import('./src/components/EmptyComponent.vue')['default']

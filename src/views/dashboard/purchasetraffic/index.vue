@@ -3,9 +3,9 @@
         <div class="w-full pb-[30px]">
             <span class="text-[#000000] text-[32px] big_font leading-[32px]">{{$t('usercenter.purchasetraffic.title')}}</span>
        </div>
-       <div class="w-full flex gap-[20px]">
-            <div class="w-[894px] h-[576px] border-[#CCCCCC] border-1 border-dashed flex rounded-[15px]">
-                <div :class="`w-[334px] h-full cursor-pointer ${selected==1?'selected_row':'unselected_row'}` " >
+       <div class="w-full flex gap-[50px]">
+            <div class="h-[576px] border-[#CCCCCC] border-1 border-dashed flex rounded-[15px]">
+                <div :class="`w-[517px] h-full cursor-pointer ${selected==1?'selected_row':'unselected_row'}` " >
                     <div v-for="(item, key) in left" :style="`height:${item.height}px`" :class="`${item.key} flex items-center justify-center relative ${(key!==0 && key%2==0)?'bg_1':'bg_2' }`" @click="key==0?selected=1:''">
                         <span class="name max-w-full bitip_text pl-[6px] pr-[6px]" :title="item.label()"><span class="unit">{{ item.unit }} </span>{{ item.label() }}<span class="unit2"> {{ item.unit2 }}</span></span>
                         <div v-if="key==0 && selected==1" class=" absolute top-0 left-0 w-[80px] h-[30px] rounded-br-[15px] bg-[#3D95FF] rounded-tl-[15px] flex justify-center items-center">
@@ -23,7 +23,7 @@
                         <span class="text-[#999999] text-[14px] poppins_font">{{$t('usercenter.purchasetraffic.tip')}}</span>
                     </div>
                 </div>
-                <div class="w-[225px] h-full">
+                <div class="w-[348px] h-full">
                     <div class="w-full " v-for="(item, key) in middle" :style="`height:${item.height}px`" :class="`${key%2==0?'bg-[#72ACF2]':'bg-[#A0C4F0]'} flex items-center justify-center`">
                         <span class="text-[#FFFFFF] text-[20px] poppins_font max-w-full bitip_text pl-[6px] pr-[6px]" :title="item.name">{{item.name}}</span>
                     </div>
@@ -74,7 +74,7 @@
             </div>
        </div>
        <PayComponent v-show="selected!=0" :price="price" :type="1" :num="leftNum" :promotionCode="promotionCode" @onOpenVerity="onOpenVerity"/>
-       <ContactModal v-model="open"/>
+       <ContactModal v-model="open" />
     </div>
 </template>
 <script setup lang="ts">
@@ -92,7 +92,7 @@
     const rightNum = ref(1)
     const promotionCode = ref('')
     const price = computed(() => {
-        return selected.value==1?leftNum.value*8:rightNum.value*16
+        return selected.value==1?leftNum.value*40:rightNum.value*16
     })
     const emit = defineEmits(['onOpenVerity'])
     const onOpenVerity = () => {
@@ -106,7 +106,7 @@
                 key:'title'
             },
             {
-                label: ()=>'8.00 ',
+                label: ()=>'40.00 ',
                 unit:'$',
                 unit2:'/G',
                 height:64,

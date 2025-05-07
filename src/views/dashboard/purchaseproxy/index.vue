@@ -97,7 +97,7 @@
                     <div class="w-full flex gap-[8px]">
                         <img :src="tip" class="w-[24px] h-[24px]"/>
                         <span class="text-[#666666] text-[18px] poppins_font">{{$t('usercenter.purchaseproxy.content1')}}</span>
-                        <span class="text-[#2C69B3] text-[18px] font-bold poppins_font">{{select_iptype=='1'?$t('usercenter.purchaseproxy.subtitle2_1'):$t('usercenter.purchaseproxy.subtitle2_2')}}IP</span>
+                        <span class="text-[#2C69B3] text-[18px] font-bold poppins_font">{{select_iptype=='0'?$t('usercenter.purchaseproxy.subtitle2_1'):$t('usercenter.purchaseproxy.subtitle2_2')}}IP</span>
                     </div>
                     <div class="w-full flex gap-[8px] pt-[14px]">
                         <span class="text-[#666666] text-[18px] poppins_font">{{$t('usercenter.purchaseproxy.subtitle1')}}</span>

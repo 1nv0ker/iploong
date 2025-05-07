@@ -20,7 +20,7 @@
                 <img :src="boxImg" class="w-[270px] h-[158px]"/>
             </div>
             <div class="pt-[30px] w-full flex flex-col gap-[12px] items-center">
-                <div class="w-[270px] h-[50px] rounded-[8px] bg-[white] flex justify-between pl-[8px] pr-[8px] items-center">
+                <!-- <div class="w-[270px] h-[50px] rounded-[8px] bg-[white] flex justify-between pl-[8px] pr-[8px] items-center">
                     <span>{{$t('usercenter.userinfo.content')}}</span>
                     <div class="flex gap-[5px] items-center">
                         <span class="text-[#000000] text-[24px] font-bold poppins_font leading-[28px]">{{setStore.userInfo?.usdtBalance}}
@@ -30,7 +30,7 @@
                 </div>
                 <a-button class="w-[270px] h-[42px!important] bg-[#2967B2!important]" @click="onRecharge">
                     <span class="poppins_font text-[14px] font-bold leading-[16px] text-[white]">{{ $t('usercenter.userinfo.button1') }}</span>
-                </a-button>
+                </a-button> -->
                 <a-button class="w-[270px] h-[42px!important] bg-[#F3F9FF!important] border-1 border-[#666666!important]" @click="onLogout">
                     <span class="poppins_font text-[14px] text-[#666666] leading-[16px]">{{ $t('usercenter.userinfo.button2') }}</span>
                 </a-button>
@@ -69,12 +69,12 @@
         })
     }
 
-    const onRecharge = () => {
-        open2.value = true
-        nextTick(() => {
-            rechargeRef.value && rechargeRef.value.init()
-        })
-    }
+    // const onRecharge = () => {
+    //     open2.value = true
+    //     nextTick(() => {
+    //         rechargeRef.value && rechargeRef.value.init()
+    //     })
+    // }
     const onLogout = () => {
         setStore.logout()
     }

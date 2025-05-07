@@ -1,12 +1,12 @@
 <template>
-    <div class="w-full fixed top-0 h-[80px] border-1 border-[rgba(255,255,255,0.23)] bg-[#2967B2] flex items-center pl-[80px] pr-[100px] justify-center">
-        <img :src="logo" class=" absolute left-48" />
+    <div class="w-full fixed top-0 h-[80px] border-1 border-[rgba(255,255,255,0.23)] bg-[#2967B2] flex items-center pl-[80px] pr-[100px] justify-between">
+        <img :src="logo" class="pl-48" />
         <div class="flex gap-[54px] justify-between">
             <div v-for="item in items">
                 <a @click="onPage(item.page)" :class="`${hash==`#${item.page}`?'nav_choosed':'nav_normal'} text-[29px] cursor-pointer Mulish_font`" :href="`#${item.page}`">{{item.title}}</a>
             </div>
         </div>
-        <div class="flex gap-[26px] justify-between items-center absolute right-65">
+        <div class="flex gap-[26px] justify-between items-center pr-65">
             <Setting :showImg="false" />
             <div class="flex gap-[26px]" v-if="!userStore.isLogin()">
                 <a-button class="w-[133px!important] h-[48px!important] bg-[#2967B2!important] rounded-[12px!important] border-1 border-[white]" @click="onLogin">

@@ -50,9 +50,13 @@
                             <span :class="`${selected==item.key?'text-[#000000]':'text-[#7A7A7A]'} max-w-full bitip_text inter_font text-[18px]`" :title="item.content">{{ item.content }}</span>
                         </div>
                     </div>
-                    <div class="w-[689px] h-[660px]">
-                        
-                        <img :src="item" v-for="(item, index) in secondImgs" :class="`w-full h-full animate__fadeIn animate__animated ${selected==index?'':'hidden'}`" />
+                    <div class="w-[689px] h-[660px] relative z-10">
+                        <div v-for="(item, index) in secondItems" :class="`w-full pt-[50px] pl-[50px] pr-[180px]  flex
+                         gap-[24px] flex-col second_bg h-full animate__fadeIn animate__animated z-0   ${selected==index?'':'hidden'}`" :style="`background-image: url(${item.img})`">
+                            <span class="second_text text-[52px] inter_font">{{item.title}}</span>
+                            <span class="inter_font text-[#000000] text-[22px] inter_font">{{item.content}}</span>
+                        </div>
+                        <!-- <img :src="item" v-for="(item, index) in secondImgs" :class="`w-full h-full animate__fadeIn animate__animated ${selected==index?'':'hidden'}`" /> -->
                     </div>
                     <!-- <div class="w-[689px] h-full bg-[rgba(41,103,178,0.2)] rounded-[14px] relative ">
                         <div class="w-full pl-[50px] pt-[65px] flex flex-col gap-[22px]">
@@ -173,12 +177,12 @@
     // import secondImg from 'res@/home/second.svg'
     // import gouImg from 'res@/home/gou.svg'
     import globalImg from 'res@/home/earth.svg?inline'
-    import second1 from 'res@/home/second_1.svg?inline'
-    import second2 from 'res@/home/second_2.svg?inline'
-    import second3 from 'res@/home/second_3.svg?inline'
-    import second4 from 'res@/home/second_4.svg?inline'
-    import second5 from 'res@/home/second_5.svg?inline'
-    import second6 from 'res@/home/second_6.svg?inline'
+    // import second1 from 'res@/home/second_1.png?inline'
+    import second2 from 'res@/home/second_2.png?inline'
+    import second3 from 'res@/home/second_3.png?inline'
+    import second4 from 'res@/home/second_4.png?inline'
+    import second5 from 'res@/home/second_5.png?inline'
+    import second6 from 'res@/home/second_6.png?inline'
     import third1 from 'res@/home/third_11.svg'
     import third2 from 'res@/home/third_12.svg'
     import third3 from 'res@/home/third_13.svg'
@@ -246,39 +250,45 @@
             }
         ]
     })
-    const secondImgs = ref([second1, second2, second3,second4,second5, second6])
+    // const secondImgs = ref([second1, second2, second3,second4,second5, second6])
     const selected = ref(0)
     const secondItems = computed(() => {
         return [
             {
                 title:t('home.secondNew.subtitle1'),
                 content:t('home.secondNew.content1'),
-                key: 0
+                key: 0,
+                img: second2
             },
             {
                 title:t('home.secondNew.subtitle2'),
                 content:t('home.secondNew.content2'),
-                key: 1
+                key: 1,
+                img: second2,
             },
             {
                 title:t('home.secondNew.subtitle3'),
                 content:t('home.secondNew.content3'),
-                key: 2
+                key: 2,
+                img: second3
             },
             {
                 title:t('home.secondNew.subtitle4'),
                 content:t('home.secondNew.content4'),
-                key: 3
+                key: 3,
+                img: second4
             },
             {
                 title:t('home.secondNew.subtitle5'),
                 content:t('home.secondNew.content5'),
-                key: 4
+                key: 4,
+                img: second5
             },
             {
                 title:t('home.secondNew.subtitle6'),
                 content:t('home.secondNew.content6'),
-                key: 5
+                key: 5,
+                img: second6
             }
         ]
     })
@@ -381,5 +391,16 @@
     }
     .card_bg {
         background: linear-gradient(45deg, #6FB0FF 0%, #2967B2 100%);
+    }
+    .second_bg {
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .second_text {
+        // background: linear-gradient(to right, #06FFC1 0%, #0059FF 20%);
+        background: linear-gradient(to right, #0059FF 0%, #06C5FF 20%);
+        background-clip: text;
+        color: transparent;
+        // line-height: 26px;
     }
 </style>

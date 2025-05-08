@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[271px] h-full nav_bg overflow-auto">
+    <div class="w-[271px] h-full nav_bg overflow-auto z-100">
         <div class="w-full pt-[46px] pl-[46px] pb-[57px]">
             <img :src="logo" class="w-[153px] h-[35px] cursor-pointer" @click="router.push({name:'home'})"/>
         </div>

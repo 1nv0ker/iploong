@@ -12,7 +12,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 export default defineConfig({
   plugins: [
     vue(),
-    visualizer({ open: true }),
+    visualizer({ open: false }),
     tailwindcss(),
     Components({
       resolvers: [

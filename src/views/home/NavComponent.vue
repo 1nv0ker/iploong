@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex gap-[26px] justify-between items-center w-[500px]">
+        <div class="flex gap-[26px]  items-center w-[500px]">
             <Setting :showImg="false" />
             <div class="flex gap-[26px]" v-if="!userStore.isLogin()">
                 <a-button class="w-[133px!important] h-[48px!important] bg-[#2967B2!important] rounded-[12px!important] border-1 border-[white]" @click="onLogin">

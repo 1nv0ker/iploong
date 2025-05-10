@@ -6,15 +6,15 @@
             </div>
             <div class="pt-[40px]">
                 <div class="w-[492px] h-[312px] promotion_box pt-[92px] flex flex-col items-center gap-[12px]">
-                    <div class="flex gap-[8px] text-[#2967B2] inter_font items-end ">
+                    <div class="flex gap-[8px] text-[#2967B2] inter_font items-end">
                         <span class="text-[60px] leading-[60px]">{{ promotionNum }}</span>
-                        <span class="text-[20px] leading-[30px]">USDT</span>
+                        <span class="text-[20px] leading-[30px] ">{{ $t('usercenter.promotion.unit') }}</span>
                     </div>
-                    <span>{{$t('usercenter.promotion.tip1')}}</span>
+                    <span class="max-w-[80%]">{{$t('usercenter.promotion.tip1')}}</span>
                     <div class="w-[328px] h-[52px] rounded-[12px] bg-[#2967B2] flex items-center justify-center cursor-pointer " @click="onOpenModal(1, t('usercenter.promotion.tip7'))">
                         <span class="text-[24px] font-semibold text-[white] inter_font">{{$t('usercenter.promotion.button1')}}</span>
                     </div>
-                    <span class="text-[#999999] text-[13px] font-medium inter_font cursor-pointer" @click="onOpenModal(0, t('usercenter.promotion.tip8'))">{{$t('usercenter.promotion.tip2')}}</span>
+                    <!-- <span class="text-[#999999] text-[13px] font-medium inter_font cursor-pointer" @click="onOpenModal(0, t('usercenter.promotion.tip8'))">{{$t('usercenter.promotion.tip2')}}</span> -->
                 </div>
             </div>
             <div class="w-full pt-[40px]">

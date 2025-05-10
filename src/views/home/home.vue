@@ -4,7 +4,7 @@
         <div class="home_bg h-[864px] w-full" id="home">
             <div class="flex flex-col gap-[12px] pt-[64px] w-full items-center Montserrat">
                 <span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title')}}</span>
-                <span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title2')}}</span>
+                <span class="text-[60px] font-extrabold text-[white] first_text">{{$t('home.first.title2')}}</span>
                 <span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title3')}}</span>
             </div>
             <div class="w-full flex justify-center pt-[40px]">
@@ -372,6 +372,13 @@
         // background-position: 100% 100% ;
         background-position: center;
         // background-size: 100% 100%;
+    }
+    .first_text {
+        // background: linear-gradient(to right, #06FFC1 51%, #0059FF 100%);
+        background: linear-gradient(to right, #06FFC1 51%, #0059FF 100%);
+        background-clip: text;
+        
+        color: transparent;
     }
     .special_word {
         // background: linear-gradient(90deg, #06FFC1 0%,  #0059FF 100%);

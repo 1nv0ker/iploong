@@ -485,7 +485,7 @@ export const zh = {
             title:'奖励推广',
             subtitle1:'返利记录',
             subtitle2:'邀请功能',
-            tip1:'[满20U提现 ]',
+            tip1:'[积分满100可提现到微信,1RMB=1积分]',
             button1:'提现',
             tip2:'全部转到USDT余额',
             tip3:'当您邀请朋友注册时',
@@ -499,7 +499,8 @@ export const zh = {
             column3:'获得返利',
             column4:'获得时间',
             tip7:'确认提现',
-            tip8:'确认转到余额'
+            tip8:'确认转到余额',
+            unit:'积分'
         }
     }
 }
@@ -993,7 +994,7 @@ export const en = {
             title:'Reward Promotion',
             subtitle1:'Rebate Record',
             subtitle2:'Invite function',
-            tip1:'[Withdraw after 20U]',
+            tip1:'[When the points reach 100, you can withdraw them to WeChat, 1 RMB = 1 point]',
             button1:'Withdrawal',
             tip2:'All transferred to USDT balance',
             tip3:'When you invite friends to register',
@@ -1007,7 +1008,8 @@ export const en = {
             column3:'Get rebates',
             column4:'Get time',
             tip7:'Confirm withdrawal',
-            tip8:'Confirm transfer to balance'
+            tip8:'Confirm transfer to balance',
+            unit:'points'
         }
     }
 }

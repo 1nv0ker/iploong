@@ -51,7 +51,7 @@
        </div>
        <div class="w-full pt-[15px] flex gap-[4px] items-center">
             <span class="text-[#999999] text-[18px] inter_font leading-[21px]">{{$t('usercenter.purchaseproxy.subtitle2_tip')}}</span>
-            <span class="text-[#2967B2] text-[22px] inter_font font-bold leading-[26px]">$6.00</span>
+            <span class="text-[#2967B2] text-[22px] inter_font font-bold leading-[26px]">{{$t('usercenter.purchaseproxy.unit_price')}}{{select_iptype==0?$t('usercenter.purchaseproxy.price1'):$t('usercenter.purchaseproxy.price2')}}.00</span>
             <span class="text-[#999999] text-[18px] inter_font leading-[21px]">{{$t('usercenter.purchaseproxy.subtitle2_tip1')}}</span>
        </div>
        <!-- ip购买时长 -->
@@ -136,7 +136,7 @@
     const promotionCode = ref('')
     const buyNumber = ref(1)
     const price = computed(() => {
-        return selected.value.length*6*(select_time.value/30)
+        return selected.value.length*Number(select_iptype.value==0?t('usercenter.purchaseproxy.price1'):t('usercenter.purchaseproxy.price2'))*(select_time.value/30)*buyNumber.value
     })
     const emit = defineEmits(['onOpenVerity'])
     const onOpenVerity = () => {

@@ -48,26 +48,30 @@
        <div class="w-full pt-[38px] flex justify-between">
             <div class="flex gap-[4px] items-center">
                 <span class="text-[#000000] text-[32px] big_font leading-[32px]">{{$t('usercenter.dashboardDy.subtitle2')}}</span>
-                <span class="text-[#666666] text-[18px] inter_font leading-[21px]">【2025-03-12 00:00-24:00]</span>
+                <span class="text-[#666666] text-[18px] inter_font leading-[21px]">【{{dayjs().format('YYYY-MM-DD')}} 00:00-24:00]</span>
             </div>
-            <div class="flex gap-[14px] items-end">
+            <!-- <div class="flex gap-[14px] items-end">
                 <div class="flex flex-col gap-[2px] text-[#666666] text-[18px] inter_font">
                     <span>TIME</span>
                     <span>00:00</span>
                 </div>
                 <span class="text-[#333333] text-[50px] big_font leading-[32px] sf_font">0<span class="text-[#666666] text-[18px] inter_font pl-[5px]">[MB]</span></span>
-            </div>
+            </div> -->
        </div>
        <div class="mt-[12px] w-full dy_table pl-[32px] pr-[32px] bg-[white]">
             <div class="w-full pb-[12px]">
-                <a-table :columns="columns" :data-source="tableParams.tableDatas"  :pagination="false" :loading="tableParams.loading" :scroll="{x:1180}">
+                <a-table :columns="columns" :data-source="tableParams.tableDatas"  :pagination="false" :loading="tableParams.loading" :scroll="{x:720}">
                     <template v-slot:headerCell="{title}">
                         <span class="text-[#718EBF] text-[19px] font-medium inter_font">{{title}}</span>
                     </template>
                     <template #bodyCell="{ column, record }">
-                        <span class="text-[#FE5C73] text-[19px] inter_font" :title="record[column.key]" v-if="column.key=='agent'">
-                            {{ record[column.key] }}
-                        </span>
+                        <template v-if="column.key=='region'">
+                            <span v-show="false">{{GetLocation(record) }}</span>
+                            <a-skeleton v-if="!record.loading"  :paragraph="{ rows: 1 }"></a-skeleton>
+                             <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-else>
+                                {{  record.region }}
+                            </span>
+                        </template>
                         <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-else>
                             {{ record[column.key] }}
                         </span>
@@ -96,10 +100,13 @@
     import PaginationComponent from 'com@/PaginationComponent.vue'
     import { GetBandwidth } from 'api@/proxy'
     import NumberComponent from 'basic@/components/NumberComponent.vue';
+    import { GetInfo, GetList } from 'api@/proxylog'
     // import empytImg from 'res@/usercenter/dashboard/empty.svg'
     import { onMounted, ref, computed, reactive } from 'vue'
     import * as echarts from 'echarts';
     import { useI18n } from 'vue-i18n';
+    import dayjs from 'dayjs'
+    let controller:any = null//批量请求控制器
     const { t } = useI18n();
     const router = useRouter()
     let myChart:any = null
@@ -118,73 +125,105 @@
         })
     }
     onMounted(() => {
+        controller = new AbortController();
         loadFlow()
-        tableParams.tableDatas = [
-            {
-                type: 1,
-                agent: 'ClashforWindows/0.20.16.3'
-            }
-        ]
+        loadList()
     })
+    const loadList = () => {
+        tableParams.loading = true
+        GetList({
+            PageNo: params.current-1,
+            PageSize:params.pageSize
+        })
+        .then((res:any) => {
+            tableParams.loading = false
+            tableParams.tableDatas = res.body.records
+            params.total = res.body.totalRows
+        })
+        .catch(() => {
+            tableParams.loading = false
+        })
+    }
+    const GetLocation = (record:any) => {
+        // console.log('record', record)
+        if (record.region) {
+            return
+        }
+        GetInfo({
+            ip:record.ip, 
+        }, controller)
+        .then((res:any) => {
+            record.region = res.body.region
+            record.loading = true
+        })
+        .catch(() => {
+            record.loading = true
+            record.region = 'no found'
+        })
+    }
     const onCurrentChange = (num:number) => {
         params.current = num
-        // loadAccount()
+        controller && controller.abort();
+        controller = new AbortController();
+        loadList()
     }
     const onSizeChange = (num:number,size:number) => {
         params.current = num
         params.pageSize = size
-        // loadAccount()
+        controller && controller.abort();
+        controller = new AbortController();
+        loadList()
     }
     const columns = computed(() => {
         return  [
             {
                 title: t('usercenter.dashboardDy.column1'),
-                dataIndex: 'type',
-                key: 'type',
-                align:'left',
-                ellipsis: true,
-                width:'110px'
-            },
-            {
-                title: t('usercenter.dashboardDy.column2'),
-                dataIndex: 'limited',
-                key: 'limited',
+                dataIndex: 'id',
+                key: 'id',
                 align:'left',
                 ellipsis: true,
                 width:'80px'
             },
             {
+                title: t('usercenter.dashboardDy.column2'),
+                dataIndex: 'keyName',
+                key: 'keyName',
+                align:'left',
+                ellipsis: true,
+                width:'120px'
+            },
+            {
                 title: t('usercenter.dashboardDy.column3'),
-                dataIndex: 'usedBandwidth',
-                key: 'usedBandwidth',
+                dataIndex: 'ip',
+                key: 'ip',
                 align:'left',
                 ellipsis: true,
                 width:'140px'
             },
             {
                 title:t('usercenter.dashboardDy.column4'),
-                key: 'sysCreateTime',
-                dataIndex: 'sysCreateTime',
+                key: 'region',
+                dataIndex: 'region',
                 align:'left',
                 ellipsis: true,
                 width:'180px'
             },
             {
                 title: t('usercenter.dashboardDy.column5'),
-                key: 'enabled',
-                dataIndex: 'enabled',
+                key: 'date',
+                dataIndex: 'date',
                 align:'left',
                 ellipsis: true,
                 width:'200px'
             },
-            {
-                title: t('usercenter.dashboardDy.column6'),
-                key: 'agent',
-                dataIndex: 'agent',
-                align:'left',
-                ellipsis: true,
-                width:'250px'
-            }
+            // {
+            //     title: t('usercenter.dashboardDy.column6'),
+            //     key: 'agent',
+            //     dataIndex: 'agent',
+            //     align:'left',
+            //     ellipsis: true,
+            //     width:'250px'
+            // }
         ];
     })
     const tableParams = reactive<{tableDatas:any[], loading:boolean}>({

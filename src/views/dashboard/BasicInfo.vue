@@ -56,7 +56,7 @@
     import useSetting from 'store@/user'
     import { ref, nextTick } from 'vue'
     // import avatarImg from 'res@/usercenter/setting/avatar.svg'
-    import boxImg from 'res@/usercenter/setting/img.png'
+    import boxImg from 'res@/usercenter/setting/img.png?inline'
     const setStore = useSetting()
     const open = ref(false)
     const open2 = ref(false)

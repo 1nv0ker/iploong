@@ -2,10 +2,9 @@
     <div class="w-full">
         <!-- 第一块区域 -->
         <div class="home_bg h-[864px] w-full" id="home">
-            <div class="flex flex-col gap-[12px] pt-[64px] w-full items-center Montserrat">
-                <span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title')}}</span>
-                <span class="text-[60px] font-extrabold text-[white] first_text">{{$t('home.first.title2')}}</span>
-                <span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title3')}}</span>
+            <div class="flex flex-col gap-[0px] pt-[64px] w-full items-center Montserrat">
+                <span class="text-[60px] font-extrabold leading-[100%] text-[white]">{{$t('home.first.title')}}</span>
+                <span class="text-[60px] font-extrabold leading-[100%] text-[white] first_text">{{$t('home.first.title2')}}<span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title3')}}</span></span>
             </div>
             <div class="w-full flex justify-center pt-[40px]">
                 <img :src="useSettingStore.language!='zh'?dashboardImg:dashboardZh" class="cursor-pointer w-[378px] h-[83.7px]" @click="onDashboard"/>

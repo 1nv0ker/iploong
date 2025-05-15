@@ -7,7 +7,7 @@
             <div class="h-[576px] border-[#CCCCCC] border-1 border-dashed flex rounded-[15px]">
                 <div :class="`w-[517px] h-full cursor-pointer ${selected==1?'selected_row':'unselected_row'}` " >
                     <div v-for="(item, key) in left" :style="`height:${item.height}px`" :class="`${item.key} flex items-center justify-center relative ${(key!==0 && key%2==0)?'bg_1':'bg_2' }`" @click="key==0?selected=1:''">
-                        <span class="name max-w-full bitip_text pl-[6px] pr-[6px]" :title="item.label()"><span class="unit">{{ item.unit }} </span>{{ item.label() }}<span class="unit2"> {{ item.unit2 }}</span></span>
+                        <span class="name max-w-full bitip_text pl-[6px] pr-[6px]"><span class="unit">{{ item.unit }} </span>{{ item.label() }}<span class="unit2"> {{ item.unit2 }}</span></span>
                         <div v-if="key==0 && selected==1" class=" absolute top-0 left-0 w-[80px] h-[30px] rounded-br-[15px] bg-[#3D95FF] rounded-tl-[15px] flex justify-center items-center">
                             <span class="text-[#FFFFFF] text-[16px] poppins_font">{{$t('usercenter.purchasetraffic.tip6')}}</span>
                         </div>
@@ -92,7 +92,7 @@
     const rightNum = ref(1)
     const promotionCode = ref('')
     const price = computed(() => {
-        return selected.value==1?leftNum.value*40:rightNum.value*16
+        return Number(t('usercenter.purchasetraffic.label1'))*leftNum.value
     })
     const emit = defineEmits(['onOpenVerity'])
     const onOpenVerity = () => {
@@ -106,8 +106,8 @@
                 key:'title'
             },
             {
-                label: ()=>'40.00 ',
-                unit:'$',
+                label: ()=>t('usercenter.purchasetraffic.label1'),
+                unit:t('usercenter.purchasetraffic.unit'),
                 unit2:'/G',
                 height:64,
                 key:'flow'

@@ -3,8 +3,8 @@
         <div class="w-full absolute bottom-0 right-0 left-0 h-[94px] border-1 border-[#CCCCCC] bg-[white]  pb-[15px] flex pr-[50px] pl-[70px] items-end justify-between">
             <div class="flex items-end">
                 <span class="text-[#666666] text-[24px] poppins_font">{{$t('usercenter.pay.title')}}</span>
-                <span class="text-[#2967B2] text-[26px] poppins_font pl-[16px]">$</span>
-                <span class="text-[#2967B2] text-[40px] font-semibold pl-[6px] leading-[40px] poppins_font">{{ price }}.00</span>
+                <span class="text-[#2967B2] text-[26px] poppins_font pl-[16px]">{{$t('usercenter.purchasetraffic.unit')}}</span>
+                <span class="text-[#2967B2] text-[40px] font-semibold pl-[6px] leading-[40px] poppins_font">{{ price.toFixed(2) }}</span>
             </div>
             <!-- <div class="w-[270px] h-[48px] rounded-[8px] bg-[#2967B2] flex justify-center items-center cursor-pointer" @click="onPay">
                 <span class="text-[#FFFFFF] text-[14px] poppins_font">{{$t('usercenter.pay.button1')}}</span>

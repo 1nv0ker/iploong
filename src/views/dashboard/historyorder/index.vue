@@ -55,8 +55,8 @@
                         <span class="text-[#718EBF] text-[19px] font-medium inter_font">{{title}}</span>
                     </template>
                     <template #bodyCell="{ column, record }">
-                        <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-if="column.key == 'amount'">
-                            ${{ record[column.key] }}
+                        <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-if="column.key == 'amount' || column.key == 'amountCny'">
+                            {{ $t('usercenter.purchaseproxy.unit_price') }}{{ record[column.key] }}
                         </span>
                         <span class="text-[#333333] text-[19px] inter_font" :title="record[column.key]" v-else-if="column.key == 'sysUpdateTime'">
                             {{ record[column.key] }}
@@ -86,8 +86,10 @@
     import PaginationComponent from 'com@/PaginationComponent.vue'
     import { GetOrder, GetOrderAnalysis } from 'api@/order'
     import { SearchOutlined } from '@ant-design/icons-vue'
+    import settingStore from 'store@/setting'
     import { computed, ref, reactive, onMounted } from 'vue'
     import { useI18n } from 'vue-i18n'
+    const useStore = settingStore()
     const { t } = useI18n();
     const selected = ref(-1)
     const params = reactive({
@@ -118,56 +120,110 @@
         ]
     })
     const columns = computed(() => {
-        return  [
-        {
-                title: t('usercenter.historyorder.column1'),
-                dataIndex: 'orderNo',
-                key: 'orderNo',
-                align:'center',
-                ellipsis: true,
-                width:'300px'
-            },
-            {
-                title: t('usercenter.historyorder.column2'),
-                dataIndex: 'orderName',
-                key: 'orderName',
-                align:'center',
-                ellipsis: true,
-                width:'200px'
-            },
-            {
-                title: t('usercenter.historyorder.column3'),
-                dataIndex: 'amount',
-                key: 'amount',
-                align:'center',
-                ellipsis: true,
-                width:'100px'
-            },
-            {
-                title: t('usercenter.historyorder.column4'),
-                dataIndex: 'status',
-                key: 'status',
-                align:'center',
-                ellipsis: true,
-                width:'100px'
-            },
-            {
-                title: t('usercenter.historyorder.column5'),
-                dataIndex: 'sysCreateTime',
-                key: 'sysCreateTime',
-                align:'center',
-                ellipsis: true,
-                width:'200px'
-            },
-            {
-                title: t('usercenter.historyorder.column6'),
-                dataIndex: 'payTime',
-                key: 'payTime',
-                align:'center',
-                ellipsis: true,
-                width:'200px'
-            },
-        ];
+        if (useStore.language=='zh') {
+            return  [
+                {
+                        title: t('usercenter.historyorder.column1'),
+                        dataIndex: 'orderNo',
+                        key: 'orderNo',
+                        align:'center',
+                        ellipsis: true,
+                        width:'300px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column2'),
+                        dataIndex: 'orderName',
+                        key: 'orderName',
+                        align:'center',
+                        ellipsis: true,
+                        width:'200px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column3'),
+                        dataIndex: 'amountCny',
+                        key: 'amountCny',
+                        align:'center',
+                        ellipsis: true,
+                        width:'100px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column4'),
+                        dataIndex: 'status',
+                        key: 'status',
+                        align:'center',
+                        ellipsis: true,
+                        width:'100px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column5'),
+                        dataIndex: 'sysCreateTime',
+                        key: 'sysCreateTime',
+                        align:'center',
+                        ellipsis: true,
+                        width:'200px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column6'),
+                        dataIndex: 'payTime',
+                        key: 'payTime',
+                        align:'center',
+                        ellipsis: true,
+                        width:'200px'
+                    },
+                ];
+        } else {
+            return  [
+                {
+                        title: t('usercenter.historyorder.column1'),
+                        dataIndex: 'orderNo',
+                        key: 'orderNo',
+                        align:'center',
+                        ellipsis: true,
+                        width:'300px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column2'),
+                        dataIndex: 'orderName',
+                        key: 'orderName',
+                        align:'center',
+                        ellipsis: true,
+                        width:'200px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column3'),
+                        dataIndex: 'amount',
+                        key: 'amount',
+                        align:'center',
+                        ellipsis: true,
+                        width:'100px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column4'),
+                        dataIndex: 'status',
+                        key: 'status',
+                        align:'center',
+                        ellipsis: true,
+                        width:'100px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column5'),
+                        dataIndex: 'sysCreateTime',
+                        key: 'sysCreateTime',
+                        align:'center',
+                        ellipsis: true,
+                        width:'200px'
+                    },
+                    {
+                        title: t('usercenter.historyorder.column6'),
+                        dataIndex: 'payTime',
+                        key: 'payTime',
+                        align:'center',
+                        ellipsis: true,
+                        width:'200px'
+                    },
+                ];
+        }
+        
     })
     const tableParams = reactive<{tableDatas:any[], loading:boolean}>({
         tableDatas: [],

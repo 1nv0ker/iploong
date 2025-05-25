@@ -1,6 +1,6 @@
 <template>
     <div class="w-full fixed top-0 h-[80px] border-1 border-[rgba(255,255,255,0.23)] bg-[#2967B2] pl-[48px] flex items-center pr-[65px] justify-between">
-        <div class="w-[500px]">
+        <div class="w-[400px]">
             <img :src="logo" class="" />
         </div>
         <div class="flex justify-center">
@@ -10,9 +10,9 @@
                 </div>
             </div>
         </div>
-        <div class="flex gap-[26px]  items-center w-[500px]">
+        <div class="flex gap-[26px]  items-center w-[400px]">
             <Setting :showImg="false" />
-            <div class="flex gap-[26px]" v-if="!userStore.isLogin()">
+            <div class="flex gap-[20px]" v-if="!userStore.isLogin()">
                 <a-button class="w-[133px!important] h-[48px!important] bg-[#2967B2!important] rounded-[12px!important] border-1 border-[white]" @click="onLogin">
                 <span class="text-[17px] text-[white] font-semibold Mulish_font">{{$t('nav.button') }}</span>
                 </a-button>
@@ -91,6 +91,7 @@
         background: linear-gradient(to right, #9FFFF4 0%, #03B8FF 100%);
         background-clip: text;
         color: transparent;
+        -webkit-background-clip: text;
     }
     .nav_normal {
         color: white

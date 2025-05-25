@@ -429,7 +429,7 @@
                         username_password = userName+'_f-'+ proxyGlobalFmt + ':' + proxyPwd
                     } else {
                         username_password = userName+'_g-'+ modelRef.country + '_f-' + (modelRef.city?proxyCityFmt:(modelRef.state?proxyStateFmt:proxyCountryFmt))
-                        + '_sid-'+sessiong + ((modelRef.state)?('_s-'+modelRef.state):'')
+                        + (modelRef.iptime==0?'':('_sid-'+sessiong)) + ((modelRef.state)?('_s-'+modelRef.state):'')
                         + (modelRef.city?('_c-'+modelRef.city):'') + (modelRef.iptime?('_l-'+modelRef.iptime):'')
                         + ':'+ proxyPwd
                     }

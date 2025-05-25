@@ -1,6 +1,6 @@
 <template>
     <div class="w-full h-full flex">
-        <div class="login_bg w-[600px] h-full relative" @click="onPage">
+        <div class="login_bg w-[600px] h-full relative border-1 border-[black]" @click="onPage">
             <!-- <img src="res@/logo.svg" class="w-[315px] h-[72px] absolute left-[76px] top-[130px] cursor-pointer" @click="onPage"/> -->
             <!-- <div class="w-[315px] h-[72px] absolute left-[76px] top-[130px] cursor-pointer logo_bg" @click="onPage">
 
@@ -26,12 +26,12 @@
 </script>
 <style lang="less" scoped>
     .login_bg {
-        background-image: url('res@/login/bg.svg?inline');
+        background-image: url('res@/login/bg.png');
         // background-position: ;
         // background-size: 100% 100%;
         // background-size: 100% 100%;
         // background-position: ;
-        background-size: cover;
+        background-size: 100% 100%;
         background-repeat: no-repeat;
         // background: ;
     }

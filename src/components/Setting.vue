@@ -1,5 +1,5 @@
 <template>
-    <div class="h-[25px] flex items-center">
+    <div class="h-[25px] flex items-center pr-[20px]">
         <img :src="homeImg" @click="onToHome" class="cursor-pointer" v-show="showImg" />
         <span class="pl-[40px] pr-[8px] text-[17.6px] text-[#999999] font-semibold cursor-pointer" @click="onSwitch">{{lan}}</span>
         <img :src="switchImg" @click="onSwitch" class=" cursor-pointer"/>

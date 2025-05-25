@@ -77,7 +77,7 @@
                     </div>
                     <div class="w-full flex gap-[12px]">
                         <span>{{$t('common.price')}}:</span>
-                        <span>${{ payRef.price }}</span>
+                        <span>{{$t('usercenter.purchaseproxy.unit_price')}}{{ $t('usercenter.purchaseproxy.unit_price')=='￥'?payRef.price:payRef.price_us }}</span>
                     </div>
                     <!-- <div class="w-full flex gap-[12px]">
                         <span>{{$t('common.price')}}:</span>
@@ -125,6 +125,7 @@
         orderNo:'',
         orderName:'',
         price:'',
+        price_us:'',
         laoding: false
     })
     const userStore = useStore()
@@ -226,7 +227,8 @@
                 payRef.url = res.body.url
                 payRef.orderName = res.body.orderName
                 payRef.orderNo = res.body.orderNo
-                payRef.price = res.body.amount
+                payRef.price = res.body.amountCny
+                payRef.price_us = res.body.amount
             })
             .catch(() => {
             })
@@ -240,7 +242,8 @@
                 payRef.url = res.body.url
                 payRef.orderName = res.body.orderName
                 payRef.orderNo = res.body.orderNo
-                payRef.price = res.body.amount
+                payRef.price = res.body.amountCny
+                payRef.price_us = res.body.amount
             })
             .catch(() => {
                 loading.value = false
@@ -268,7 +271,8 @@
                 payRef.url = res.body.url
                 payRef.orderName = res.body.orderName
                 payRef.orderNo = res.body.orderNo
-                payRef.price = res.body.amount
+                payRef.price = res.body.amountCny
+                payRef.price_us = res.body.amountbody.amount
                 // message.success(t('common.success'))
             })
             .catch(() => {
@@ -283,7 +287,8 @@
                 payRef.url = res.body.url
                 payRef.orderName = res.body.orderName
                 payRef.orderNo = res.body.orderNo
-                payRef.price = res.body.amount
+                payRef.price = res.body.amountCny
+                payRef.price_us = res.body.amount
             })
             .catch(() => {
                 loading.value = false

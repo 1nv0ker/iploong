@@ -86,9 +86,9 @@
                     
                 </div>
                 <div>
-                    <div class="w-full h-[40px] mt-[36px] bg-[#2967B2] rounded-[7px] cursor-pointer flex justify-center items-center" @click="onOrder">
+                    <a-button class="w-full h-[40px!important] mt-[36px!important] bg-[#2967B2!important] rounded-[7px!important] cursor-pointer flex justify-center items-center" @click="onOrder" :loading="payRef.loading">
                         <span class="text-[#FCFCFD] text-[15px] font-semibold poppins_font">{{$t('common.button1')}}</span>
-                    </div>
+                    </a-button>
                 </div>
             </div>
         </ModalCompoent>
@@ -126,7 +126,7 @@
         orderName:'',
         price:'',
         price_us:'',
-        laoding: false
+        loading: false
     })
     const userStore = useStore()
     const money  = computed(() => {
@@ -215,6 +215,7 @@
         payRef.price = ''
         payRef.orderName = ''
         payRef.orderNo = ''
+        payRef.loading = true
         payOpen.value = true
         payTitle.value = t('common.pay1')
         if (props.type==1) {
@@ -224,13 +225,18 @@
                 paymentType: 0
             })
             .then((res:any) => {
+                // if (res.code == 200) {
+                //     payOpen.value = true
+                // }
                 payRef.url = res.body.url
                 payRef.orderName = res.body.orderName
                 payRef.orderNo = res.body.orderNo
                 payRef.price = res.body.amountCny
                 payRef.price_us = res.body.amount
+                payRef.loading = false
             })
             .catch(() => {
+                payRef.loading = false
             })
         } else {
             StaticPackageRecharge({
@@ -239,14 +245,19 @@
                 purchaseIspInfos: props.purchaseInfo
             })
             .then((res:any) => {
+                // if (res.code == 200) {
+                //     payOpen.value = true
+                // }
                 payRef.url = res.body.url
                 payRef.orderName = res.body.orderName
                 payRef.orderNo = res.body.orderNo
                 payRef.price = res.body.amountCny
                 payRef.price_us = res.body.amount
+                payRef.loading = false
             })
             .catch(() => {
-                loading.value = false
+                // loading.value = false
+                payRef.loading = false
             })
         }
     }
@@ -260,6 +271,7 @@
         payRef.orderName = ''
         payRef.orderNo = ''
         payOpen.value = true
+        payRef.loading = true
         payTitle.value = t('common.pay2')
         if (props.type==1) {
             DynamicResidenceRecharge({
@@ -268,14 +280,19 @@
                 paymentType: 1
             })
             .then((res:any) => {
+                // if (res.code == 200) {
+                //     payOpen.value = true
+                // }
                 payRef.url = res.body.url
                 payRef.orderName = res.body.orderName
                 payRef.orderNo = res.body.orderNo
                 payRef.price = res.body.amountCny
                 payRef.price_us = res.body.amountbody.amount
+                payRef.loading = false
                 // message.success(t('common.success'))
             })
             .catch(() => {
+                payRef.loading = false
             })
         } else {
             StaticPackageRecharge({
@@ -289,9 +306,10 @@
                 payRef.orderNo = res.body.orderNo
                 payRef.price = res.body.amountCny
                 payRef.price_us = res.body.amount
+                payRef.loading = false
             })
             .catch(() => {
-                loading.value = false
+                payRef.loading = false
             })
         }
     }

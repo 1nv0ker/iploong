@@ -6,17 +6,17 @@
         <div class="flex justify-center">
             <div class="flex gap-[150px] justify-between">
                 <div v-for="item in items">
-                    <a @click="onPage(item.page)" :class="`${hash==`#${item.page}`?'nav_choosed':'nav_normal'} text-[29px] cursor-pointer Mulish_font`" :href="`#${item.page}`">{{item.title}}</a>
+                    <a @click="onPage(item.page)" :id="item.page" :class="`${hash==`#${item.page}`?'nav_choosed':'nav_normal'} text-[29px] cursor-pointer Mulish_font`" :href="`#${item.page}`">{{item.title}}</a>
                 </div>
             </div>
         </div>
         <div class="flex gap-[26px]  items-center w-[400px]">
             <Setting :showImg="false" />
             <div class="flex gap-[20px]" v-if="!userStore.isLogin()">
-                <a-button class="w-[133px!important] h-[48px!important] bg-[#2967B2!important] rounded-[12px!important] border-1 border-[white]" @click="onLogin">
+                <a-button id="login_box" class="w-[133px!important] h-[48px!important] bg-[#2967B2!important] rounded-[12px!important] border-1 border-[white]" @click="onLogin">
                 <span class="text-[17px] text-[white] font-semibold Mulish_font">{{$t('nav.button') }}</span>
                 </a-button>
-                <a-button class="w-[133px!important] h-[48px!important] bg-[white!important] rounded-[12px!important] border-1 border-[white]" @click="onRegister">
+                <a-button id="login_register" class="w-[133px!important] h-[48px!important] bg-[white!important] rounded-[12px!important] border-1 border-[white]" @click="onRegister">
                     <span class="text-[17px] text-[#000000] font-semibold Mulish_font">{{$t('nav.button1') }}</span>
                 </a-button>
             </div>

@@ -7,7 +7,7 @@
                 <span class="text-[60px] font-extrabold leading-[100%] text-[white] first_text">{{$t('home.first.title2')}}<span class="text-[60px] font-extrabold text-[white]">{{$t('home.first.title3')}}</span></span>
             </div>
             <div class="w-full flex justify-center pt-[40px]">
-                <img :src="useSettingStore.language=='en'?dashboardImg:dashboardZh" class="cursor-pointer w-[378px] h-[83.7px]" @click="onDashboard"/>
+                <img :src="useSettingStore.language=='en'?dashboardImg:dashboardZh" class="cursor-pointer w-[378px] h-[83.7px]" @click="onDashboard" id="dashboard"/>
                 <!-- <div class="w-[378px] h-[84px] rounded-[1944px] bg-[rgba(38,134,244,0.3)] " style="box-shadow: inset 0px 0px 54px 1px rgba(38,134,244,0.3);">
 
                 </div> -->

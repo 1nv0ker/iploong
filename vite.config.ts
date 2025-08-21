@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { resolve } from 'path'
 import sitemap from 'vite-plugin-sitemap'
 import { visualizer } from 'rollup-plugin-visualizer';
+// const timestamp = new Date().getTime()
 // import sitemap from 'vite-plugin-sitemap'
 // https://vite.dev/config/
 export default defineConfig({
@@ -38,7 +39,13 @@ export default defineConfig({
     })
   ],
   server: {
-    host: '0.0.0.0'
+    host: '0.0.0.0',
+    proxy: {
+      '/api': {
+        target: 'https://www.iploong.com',
+        changeOrigin: true,
+      }
+    }
   },
   build: {
     assetsInlineLimit: 4096, // 默认 4KB 以下文件转 Base64
@@ -48,9 +55,11 @@ export default defineConfig({
         manualChunks: {
           vendor: ['ant-design-vue', 'axios', 'vue-router', 'echarts'],
         },
-        // assetFileNames: 'assets/[name]-[hash].[ext]',  // 图片/字体等
-        // chunkFileNames: `js/[name]-[hash].js`,        // 代码分割块
-        // entryFileNames: `js/[name]-[hash].${timestamp}.js`
+        // filename: '[name].[contenthash:8].js',
+        // chunkFilename: '[name].[contenthash:8].chunk.js'
+        assetFileNames: 'assets/[name]-[hash].[ext]',  // 图片/字体等
+        chunkFileNames: `js/[name]-[hash].js`,        // 代码分割块
+        entryFileNames: `js/[name]-[hash].${Date.now()}.js`
       },
     },
     terserOptions: {

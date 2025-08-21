@@ -35,7 +35,7 @@
                         </div>
                         <div class="flex flex-col gap-[4px] justify-center items-center">
                             <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.used}}</span> -->
-                            <NumberComponent :number="flowData.all - flowData.used" mode="loading" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
+                            <NumberComponent :number="flowData.extra" mode="loading" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
                             <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.dashboardDy.resetFlow')}}</span>
                         </div>
                     </div>
@@ -117,7 +117,8 @@
     })
     const flowData = ref<any>({
         used: -1,
-        all:-1
+        all:-1,
+        extra: -1
     })
     const onProxy = () => {
         router.push({
@@ -243,6 +244,8 @@
         if (res.code == 200) {
             flowData.value.used = res.body.usedBandwidth
             flowData.value.all = res.body.totalBandWidth
+            flowData.value.extra = (res.body.totalBandWidth - res.body.usedBandwidth).toFixed(2)
+            // console.log(flowData.value.extra)
         }
         
         loadChart()

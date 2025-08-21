@@ -23,7 +23,7 @@
                 
                 <span class="text-[#45464E] text-[14px] leading-[17px] pingfang_font">{{$t('usercenter.proxycity.resetFlow')}}</span>
                 <!-- <span class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]">{{flowData.all-flowData.used}}</span> -->
-                <NumberComponent :number="flowData.all-flowData.used" :mode="'loading'" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
+                <NumberComponent :number="flowData.extra" :mode="'loading'" class="text-[#000000] text-[36px] sf_font font-bold leading-[42px]" />
             </div>
             <div class="w-[250px] h-[52px] bg-[#2967B2] rounded-[7px] cursor-pointer flex justify-center items-center" @click="onBuyFlow">
                 <span class="text-[#FCFCFD] text-[15px] font-semibold poppins_font">{{$t('usercenter.proxycity.button4')}}</span>
@@ -42,7 +42,8 @@
     let myChart:any = null
     const flowData = ref<any>({
         used: -1,
-        all: -1
+        all: -1,
+        extra: -1
     })
     const router = useRouter()
     const onBuyFlow = () => {
@@ -65,6 +66,7 @@
         if (res.code == 200) {
             flowData.value.used = res.body.usedBandwidth
             flowData.value.all = res.body.totalBandWidth
+            flowData.value.extra = (res.body.totalBandWidth - res.body.usedBandwidth).toFixed(2)
         }
         
         loadChart()

@@ -9,7 +9,7 @@
         <div class="h-full relative flex justify-center " style="width: calc( 100% - 600px );">
             <Setting class=" absolute top-[33px] right-[51px]"/>
             <RouterView></RouterView>
-            <div class=" absolute bottom-0 login_box left-[140px] h-[300px] right-0">
+            <div class=" absolute bottom-0 login_box left-[140px] h-[300px] right-0 z-[-1]">
 
             </div>
         </div>

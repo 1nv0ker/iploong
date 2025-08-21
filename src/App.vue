@@ -7,6 +7,19 @@
 
    import { onMounted } from 'vue'
     onMounted(() => {
+      console.log('oonMounted')
+      document.addEventListener('antifor-ws-whitelistings', (e) => {
+      console.log('antifor-ws-whitelistings', e)
+    })
+    document.addEventListener('load', (e) => {
+      console.log('load', e)
+    })
+    document.addEventListener('message', (e) => {
+      console.log('message', e)
+    })
+    document.addEventListener('antifor-fetch-whitelistings', (e) => {
+      console.log('antifor-fetch-whitelistings', e)
+    })
       function setViewportScale() {
           const designWidth = 8000;
           const scale = window.innerWidth / designWidth;

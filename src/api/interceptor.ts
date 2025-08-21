@@ -4,7 +4,7 @@ import { message } from 'ant-design-vue'
 import router from '../router'
 // import i18n from 'basic@/i18n'
 
-axios.defaults.baseURL = 'https://www.iploong.com'
+// axios.defaults.baseURL = 'https://www.iploong.com'
 // axios.defaults.baseURL = 'http://47.102.127.12'
 axios.defaults.timeout = 0
 
